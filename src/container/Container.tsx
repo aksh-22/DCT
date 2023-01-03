@@ -23,7 +23,6 @@ type Props = {
   onRefresh?: () => void;
   refreshLoading?: boolean;
   showCartBar?: boolean;
-  paddingBottom?: number;
   backgroundColor?: string;
 };
 
@@ -36,7 +35,6 @@ const Container = ({
   barStyle = 'dark-content',
   onRefresh,
   refreshLoading,
-  paddingBottom = 100,
   backgroundColor = colors.defaultWhite,
 }: Props) => {
   const {addListener} = useNavigation<NativeStackNavigationProp<any>>();
@@ -75,7 +73,6 @@ const Container = ({
         contentContainerStyle={[
           styles.contentContainerStyle,
           contentContainerStyle,
-          {paddingBottom},
         ]}
         style={[styles.view, style, {backgroundColor}]}>
         {children}
@@ -93,6 +90,7 @@ const styles = StyleSheet.create({
   },
   contentContainerStyle: {
     flexGrow: 1,
+    backgroundColor: 'red',
   },
   SafeAreaView: {
     flex: 1,
