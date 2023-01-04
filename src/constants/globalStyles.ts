@@ -31,7 +31,11 @@ export default StyleSheet.create({
   },
   container: {
     flex: 1,
-    padding: 20,
+  },
+  container_center: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   mt_5: {
     marginTop: 5,
@@ -58,7 +62,6 @@ export default StyleSheet.create({
     marginRight: 20,
   },
   headingText: {
-    fontFamily: fonts.medium,
     color: colors.defaultBlack,
     fontSize: 18,
     marginLeft: 20,
