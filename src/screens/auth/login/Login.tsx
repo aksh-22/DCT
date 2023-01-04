@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text} from 'react-native';
+import CustomText from 'src/components/CustomText';
 import {fonts} from 'src/constants/fonts';
 import Container from 'src/container/Container';
 import GradientContainer from 'src/container/GradientContainer';
@@ -11,7 +11,9 @@ const Login = ({}: Props) => {
   return (
     <Container>
       <GradientContainer style={loginStyle.container}>
-        <Text style={{fontSize: 25, fontFamily: fonts.regular}}>Login</Text>
+        <CustomText style={{fontSize: 25, fontFamily: fonts.regular}}>
+          Login
+        </CustomText>
       </GradientContainer>
     </Container>
   );
