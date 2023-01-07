@@ -2,10 +2,11 @@ export default {
   defaultWhite: '#fff',
   defaultBlack: '#000',
   primaryColor: '#8BE58C',
+  borderColor: '#AAAAAA',
   ///////////
   red: 'red',
   orange: '#fe8c12',
-  borderColor: '#AAAAAA',
+
   avatarBorder: '#D9D9D9',
   blackOpacity: '#00000079',
   blackOpacity2: '#00000018',

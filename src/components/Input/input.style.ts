@@ -6,7 +6,7 @@ export default StyleSheet.create({
   subContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderColor: colors.defaultBlack,
+    borderColor: colors.borderColor,
     borderWidth: 1,
     borderRadius: 10,
   },

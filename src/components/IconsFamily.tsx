@@ -1,5 +1,5 @@
 import React from 'react';
-import {ViewStyle} from 'react-native';
+import {TouchableOpacity, ViewStyle} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
@@ -38,6 +38,7 @@ type Props = {
   style?: ViewStyle;
   size?: number;
   color?: string;
+  onPress?: () => void;
 };
 
 const VectorIcon = ({
@@ -46,6 +47,7 @@ const VectorIcon = ({
   color = colors.defaultBlack,
   size = 20,
   style,
+  onPress,
 }: Props) => {
   let Family;
 
@@ -100,12 +102,14 @@ const VectorIcon = ({
   }
 
   return (
-    <Family
-      style={style}
-      name={name ? name : 'help-outline'}
-      color={color}
-      size={size}
-    />
+    <TouchableOpacity disabled={!onPress} onPress={onPress}>
+      <Family
+        style={style}
+        name={name ? name : 'help-outline'}
+        color={color}
+        size={size}
+      />
+    </TouchableOpacity>
   );
 };
 
