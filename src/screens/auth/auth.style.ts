@@ -13,4 +13,12 @@ export default StyleSheet.create({
   textStyle: {
     textAlign: 'center',
   },
+  forgotPassText: {
+    textAlign: 'right',
+    marginTop: 20,
+  },
+  signUp: {
+    textAlign: 'center',
+    fontFamily: 'none',
+  },
 });

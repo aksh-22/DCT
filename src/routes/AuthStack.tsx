@@ -1,7 +1,9 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {AuthStackName} from 'src/constants/routeNames';
-import Login from 'src/screens/auth/login/Login';
+import ForgotPassword from 'src/screens/auth/ForgotPassword';
+import Login from 'src/screens/auth/Login';
+import SignUp from 'src/screens/auth/SignUp';
 const Stack = createNativeStackNavigator();
 
 type Props = {};
@@ -12,6 +14,8 @@ const AuthStack = ({}: Props) => {
   return (
     <Navigator screenOptions={{headerShown: false}}>
       <Screen name={AuthStackName.LOGIN} component={Login} />
+      <Screen name={AuthStackName.SIGN_UP} component={SignUp} />
+      <Screen name={AuthStackName.FORGOT_PASSWORD} component={ForgotPassword} />
     </Navigator>
   );
 };
