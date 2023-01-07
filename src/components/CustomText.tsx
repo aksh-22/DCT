@@ -5,10 +5,11 @@ import {fonts} from 'src/constants/fonts';
 type Props = {
   style?: TextStyle | TextStyle[];
   children: ReactNode;
+  size?: number;
 };
 
-const CustomText = ({style, children}: Props) => {
-  return <Text style={[styles.text, style]}>{children}</Text>;
+const CustomText = ({style, children, size}: Props) => {
+  return <Text style={[styles.text, {fontSize: size}, style]}>{children}</Text>;
 };
 
 export default CustomText;

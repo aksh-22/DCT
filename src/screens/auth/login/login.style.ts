@@ -7,4 +7,10 @@ export default StyleSheet.create({
   inputContainer: {
     marginTop: 20,
   },
+  buttonStyle: {
+    marginVertical: 20,
+  },
+  textStyle: {
+    textAlign: 'center',
+  },
 });
