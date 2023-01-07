@@ -1,8 +1,19 @@
+// color1 = #000066
+// color2 = #001247
+// color3 = #bfcfff
+// color4 = #809fff
+// color5 = #ffffff
+
 export default {
   defaultWhite: '#fff',
   defaultBlack: '#000',
   primaryColor: '#8BE58C',
   borderColor: '#AAAAAA',
+  placeholderColor: '#2a2a2a80',
+  gradientColor1: '#ffffff',
+  gradientColor2: '#8BE58C',
+  buttonColor1: '#001247',
+  buttonColor2: '#000066',
   ///////////
   red: 'red',
   orange: '#fe8c12',
@@ -19,8 +30,6 @@ export default {
   background2: '#E1E5E4',
   label: '#424345',
   smallText: '#828485',
-  buttonColor: '#4A9732',
-  placeholderColor: '#2a2a2a80',
   lightPink: '#FFD9CB',
   lightGreen: '#cdffcb',
   lightYellow: '#fef3df',

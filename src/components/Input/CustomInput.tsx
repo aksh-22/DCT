@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {KeyboardTypeOptions, TextInput, View, ViewStyle} from 'react-native';
 import {} from 'react-native-vector-icons';
+import colors from 'src/constants/colors';
 import VectorIcon from '../IconsFamily';
 import inputStyle from './input.style';
 
@@ -48,6 +49,7 @@ const CustomInput = ({
           keyboardType={keyboardType}
           onChangeText={onChangeText}
           secureTextEntry={secure}
+          placeholderTextColor={colors.placeholderColor}
         />
         {secureTextEntry && (
           <VectorIcon

@@ -13,7 +13,7 @@ const GradientContainer = ({children, style}: Props) => {
   return (
     <LinearGradient
       style={[globalStyles.container, style]}
-      colors={[colors.defaultWhite, colors.primaryColor]}>
+      colors={[colors.gradientColor1, colors.gradientColor2]}>
       {children}
     </LinearGradient>
   );

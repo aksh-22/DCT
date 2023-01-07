@@ -1,5 +1,7 @@
 import React from 'react';
 import {TextStyle, TouchableOpacity, ViewStyle} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import colors from 'src/constants/colors';
 import CustomText from '../CustomText';
 import buttonStyle from './button.style';
 
@@ -13,11 +15,14 @@ type Props = {
 
 const CustomButton = ({title, onPress, disabled, style, titleStyle}: Props) => {
   return (
-    <TouchableOpacity
-      disabled={disabled}
-      onPress={onPress}
-      style={[buttonStyle.container, style]}>
-      <CustomText style={[titleStyle]}>{title}</CustomText>
+    <TouchableOpacity disabled={disabled} onPress={onPress}>
+      <LinearGradient
+        colors={[colors.buttonColor2, colors.buttonColor1]}
+        style={[buttonStyle.container, style]}>
+        <CustomText style={[buttonStyle.titleStyle, titleStyle]}>
+          {title}
+        </CustomText>
+      </LinearGradient>
     </TouchableOpacity>
   );
 };
