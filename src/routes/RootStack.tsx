@@ -22,12 +22,12 @@ const RootStack = ({}: Props) => {
 
   return (
     <Navigator screenOptions={{headerShown: false}}>
-      {showLottie && (
+      {/* {showLottie && (
         <Screen
           name={RootStackName.SPLASH}
           children={() => <Splash onAnimationFinish={onAnimationFinish} />}
         />
-      )}
+      )} */}
       {!isLoggedIn ? (
         <Screen name={RootStackName.AUTH_STACK} component={AuthStack} />
       ) : (

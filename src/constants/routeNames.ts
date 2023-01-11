@@ -27,8 +27,6 @@ export enum AuthorizedStackName {
 
 export enum BottomStackName {
   HOME = 'home',
-  DELIVERY = 'delivery',
-  E_KART = 'eKart',
-  OFFERS = 'offers',
-  ACCOUNT = 'account',
+  MY_BET = 'My Bet',
+  MORE = 'more',
 }
