@@ -2,6 +2,8 @@ import React from 'react';
 import {View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import CustomButton from 'src/components/button/CustomButton';
+import CustomHeader from 'src/components/header/CustomHeader';
+import Container from 'src/container/Container';
 import {setIsLoggedIn} from 'src/store/reducer/userReducer';
 
 type Props = {};
@@ -14,9 +16,10 @@ const Home = ({}: Props) => {
   };
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', padding: 20}}>
+    <Container contentContainerStyle={{}}>
+      <CustomHeader />
       <CustomButton title="logout" onPress={onPress} />
-    </View>
+    </Container>
   );
 };
 
