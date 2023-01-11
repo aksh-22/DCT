@@ -7,6 +7,7 @@ import {name as appName} from './app.json';
 import {persistStore} from 'redux-persist';
 import {PersistGate} from 'redux-persist/integration/react';
 import {Provider} from 'react-redux';
+import './src/locale/i18n.config';
 
 export const persister = persistStore(store);
 

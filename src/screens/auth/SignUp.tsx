@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {TouchableOpacity} from 'react-native';
 import CustomButton from 'src/components/button/CustomButton';
 import CustomText from 'src/components/CustomText';
@@ -10,6 +11,8 @@ import {AuthStackProps} from 'src/routes/types/navigation';
 import authStyle from './auth.style';
 
 const SignUp = ({navigation}: AuthStackProps) => {
+  const {t} = useTranslation();
+
   const onSignUpPress = () => {};
   const onLoginPress = () => {
     navigation.navigate(AuthStackName.LOGIN);
@@ -19,37 +22,37 @@ const SignUp = ({navigation}: AuthStackProps) => {
     <Container>
       <GradientContainer style={authStyle.container}>
         <CustomText size={30} style={authStyle.textStyle}>
-          Sign Up
+          {t('auth:signUp')}
         </CustomText>
         <CustomInput
           mainContainer={authStyle.inputContainer}
           iconName="person-outline"
-          placeholder="Name"
+          placeholder={t('auth:name')}
         />
         <CustomInput
           mainContainer={authStyle.inputContainer}
           iconName="person-outline"
-          placeholder="User Name"
+          placeholder={t('auth:userName')}
         />
         <CustomInput
           mainContainer={authStyle.inputContainer}
           iconName="phone-portrait-outline"
-          placeholder="Mobile Number"
+          placeholder={t('auth:mobile')}
         />
         <CustomInput
           mainContainer={authStyle.inputContainer}
           iconName="lock-closed-outline"
-          placeholder="Password"
+          placeholder={t('auth:password')}
           secureTextEntry
         />
         <CustomButton
           style={authStyle.buttonStyle}
           onPress={onSignUpPress}
-          title="Sign Up"
+          title={t('auth:signUp')}
         />
         <TouchableOpacity onPress={onLoginPress}>
           <CustomText style={authStyle.signUp}>
-            Already have an account? <CustomText>Login</CustomText>
+            {t('auth:haveAccount')} <CustomText>{t('auth:login')}</CustomText>
           </CustomText>
         </TouchableOpacity>
       </GradientContainer>

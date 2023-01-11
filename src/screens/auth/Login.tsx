@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {TouchableOpacity} from 'react-native';
 import {useDispatch} from 'react-redux';
 import CustomButton from 'src/components/button/CustomButton';
@@ -13,6 +14,8 @@ import authStyle from './auth.style';
 
 const Login = ({navigation}: AuthStackProps) => {
   const dispatch = useDispatch();
+
+  const {t} = useTranslation();
 
   const loginPress = () => {
     dispatch(setIsLoggedIn(true));
@@ -30,32 +33,32 @@ const Login = ({navigation}: AuthStackProps) => {
     <Container>
       <GradientContainer style={authStyle.container}>
         <CustomText size={30} style={authStyle.textStyle}>
-          Login
+          {t('auth:login')}
         </CustomText>
         <CustomInput
           mainContainer={authStyle.inputContainer}
           iconName="person-outline"
-          placeholder="User Name"
+          placeholder={t('auth:userName')}
         />
         <CustomInput
           mainContainer={authStyle.inputContainer}
           iconName="lock-closed-outline"
-          placeholder="Password"
+          placeholder={t('auth:password')}
           secureTextEntry
         />
         <TouchableOpacity onPress={onForgotPasswordPress}>
           <CustomText style={authStyle.forgotPassText}>
-            Forgot Password
+            {t('auth:forgot')}
           </CustomText>
         </TouchableOpacity>
         <CustomButton
           style={authStyle.buttonStyle}
           onPress={loginPress}
-          title="Login"
+          title={t('auth:login')}
         />
         <TouchableOpacity onPress={onSignUpPress}>
           <CustomText style={authStyle.signUp}>
-            Don't have an account? <CustomText>Sign Up</CustomText>{' '}
+            {t('auth:noAccount')} <CustomText>{t('auth:signUp')}</CustomText>
           </CustomText>
         </TouchableOpacity>
       </GradientContainer>

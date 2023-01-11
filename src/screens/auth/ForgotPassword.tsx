@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import CustomButton from 'src/components/button/CustomButton';
 import CustomText from 'src/components/CustomText';
 import CustomInput from 'src/components/Input/CustomInput';
@@ -8,23 +9,25 @@ import {AuthStackProps} from 'src/routes/types/navigation';
 import authStyle from './auth.style';
 
 const ForgotPassword = ({}: AuthStackProps) => {
+  const {t} = useTranslation();
+
   const onSubmitPress = () => {};
 
   return (
     <Container>
       <GradientContainer style={authStyle.container}>
         <CustomText size={30} style={authStyle.textStyle}>
-          Forgot Password
+          {t('auth:forgot')}
         </CustomText>
         <CustomInput
           mainContainer={authStyle.inputContainer}
           iconName="mail-outline"
-          placeholder="Email"
+          placeholder={t('auth:email')}
         />
         <CustomButton
           style={authStyle.buttonStyle}
           onPress={onSubmitPress}
-          title="Submit"
+          title={t('auth:submit')}
         />
       </GradientContainer>
     </Container>
