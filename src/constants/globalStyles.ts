@@ -43,6 +43,9 @@ export default StyleSheet.create({
   mb_5: {
     marginBottom: 5,
   },
+  mb_20: {
+    marginBottom: 20,
+  },
   mt_10: {
     marginTop: 10,
   },
@@ -60,6 +63,12 @@ export default StyleSheet.create({
   },
   mr_40: {
     marginRight: 20,
+  },
+  mh_20: {
+    marginHorizontal: 20,
+  },
+  mv_20: {
+    marginVertical: 20,
   },
   headingText: {
     color: colors.defaultBlack,

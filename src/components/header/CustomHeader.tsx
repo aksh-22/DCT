@@ -12,20 +12,18 @@ type Props = {
   isBack?: boolean;
 };
 
-const CustomHeader = ({heading, isBack = true}: Props) => {
+const CustomHeader = ({heading, isBack}: Props) => {
   // const {colors} = useTheme();
   const {goBack} = useNavigation<NativeStackNavigationProp<any>>();
 
   return (
     <View style={headerStyle.header}>
       <TouchableOpacity onPress={goBack} disabled={!isBack}>
-        {isBack && (
-          <VectorIcon
-            name="chevron-back-outline"
-            color={colors.defaultWhite}
-            size={28}
-          />
-        )}
+        <VectorIcon
+          name="chevron-back-outline"
+          color={isBack ? colors.defaultWhite : colors.buttonColor1}
+          size={28}
+        />
       </TouchableOpacity>
       {heading && (
         <CustomText style={[headerStyle.heading, {color: colors.defaultWhite}]}>

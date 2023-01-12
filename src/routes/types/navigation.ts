@@ -36,10 +36,9 @@ export type AuthorizedStackParamList = {
 
 export type BottomStackParamList = {
   [BottomStackName.HOME]: undefined;
-  [BottomStackName.DELIVERY]: undefined;
-  [BottomStackName.E_KART]: undefined;
-  [BottomStackName.OFFERS]: undefined;
-  [BottomStackName.ACCOUNT]: undefined;
+  [BottomStackName.MORE]: undefined;
+  [BottomStackName.MY_BET]: undefined;
+  [BottomStackName.WALLET]: undefined;
 };
 
 export type AuthStackProps = NativeStackScreenProps<AuthStackParamList>;
