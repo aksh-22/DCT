@@ -26,8 +26,8 @@ export enum AuthorizedStackName {
 }
 
 export enum BottomStackName {
-  HOME = 'home',
+  HOME = 'Home',
   MY_BET = 'My Bet',
-  MORE = 'more',
-  WITHDRAWAL = 'withdrawal',
+  MORE = 'More',
+  WALLET = 'Wallet',
 }

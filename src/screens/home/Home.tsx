@@ -16,7 +16,7 @@ const Home = ({}: Props) => {
 
   return (
     <Container contentContainerStyle={{}}>
-      <CustomHeader />
+      <CustomHeader heading="DCT" />
       <CustomButton title="logout" onPress={onPress} />
     </Container>
   );

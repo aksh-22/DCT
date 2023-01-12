@@ -7,9 +7,25 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: colors.buttonColor1,
-    padding: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    // paddingVertical: 25,
   },
   heading: {
     color: colors.defaultWhite,
+  },
+  rightIconArea: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginRight: 20,
+  },
+  price: {
+    marginLeft: 5,
+    color: colors.defaultWhite,
+    fontFamily: 'none',
   },
 });

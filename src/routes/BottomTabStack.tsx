@@ -1,6 +1,7 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import CustomText from 'src/components/CustomText';
 import VectorIcon from 'src/components/IconsFamily';
 import colors from 'src/constants/colors';
 import globalStyles from 'src/constants/globalStyles';
@@ -9,6 +10,8 @@ import MyBet from 'src/screens/bet/MyBet';
 import Home from 'src/screens/home/Home';
 import More from 'src/screens/more/More';
 import Withdrawal from 'src/screens/withdrawal/Withdrawal';
+import {rupee} from 'src/constants/specialCharacter';
+import numberFormatter from 'src/utils/numberFormatter';
 
 const Tab = createBottomTabNavigator();
 
@@ -49,11 +52,18 @@ const BottomTabStack = () => {
         }}
       />
       <Screen
-        name={BottomStackName.WITHDRAWAL}
+        name={BottomStackName.WALLET}
         component={Withdrawal}
         options={{
           tabBarIcon: color => (
-            <VectorIcon size={20} name="wallet-outline" color={color.color} />
+            <View>
+              <VectorIcon size={20} name="wallet-outline" color={color.color} />
+              <View style={styles.labelWrapper}>
+                <CustomText style={[styles.label, {color: color.color}]}>
+                  {numberFormatter(1000)} {rupee}
+                </CustomText>
+              </View>
+            </View>
           ),
         }}
       />
@@ -89,6 +99,22 @@ const styles = StyleSheet.create({
   tabBarLabelStyle: {
     marginBottom: 8,
     marginTop: -8,
+  },
+  iconWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  labelWrapper: {
+    position: 'absolute',
+    left: 23,
+    // backgroundColor: colors.defaultWhite,
+    top: 3,
+  },
+  label: {
+    // color: colors.defaultWhite,
+    fontSize: 10,
+    fontFamily: 'none',
+    fontWeight: 'bold',
   },
 });
 
