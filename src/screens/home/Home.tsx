@@ -1,5 +1,4 @@
 import React from 'react';
-import {View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import CustomButton from 'src/components/button/CustomButton';
 import CustomHeader from 'src/components/header/CustomHeader';

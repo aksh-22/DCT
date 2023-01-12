@@ -8,6 +8,7 @@ import {BottomStackName} from 'src/constants/routeNames';
 import MyBet from 'src/screens/bet/MyBet';
 import Home from 'src/screens/home/Home';
 import More from 'src/screens/more/More';
+import Withdrawal from 'src/screens/withdrawal/Withdrawal';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,6 +45,15 @@ const BottomTabStack = () => {
               name="dice-multiple"
               color={color.color}
             />
+          ),
+        }}
+      />
+      <Screen
+        name={BottomStackName.WITHDRAWAL}
+        component={Withdrawal}
+        options={{
+          tabBarIcon: color => (
+            <VectorIcon size={20} name="wallet-outline" color={color.color} />
           ),
         }}
       />

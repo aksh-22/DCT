@@ -6,6 +6,10 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: colors.primaryColor,
+    backgroundColor: colors.buttonColor1,
+    padding: 10,
+  },
+  heading: {
+    color: colors.defaultWhite,
   },
 });

@@ -29,4 +29,5 @@ export enum BottomStackName {
   HOME = 'home',
   MY_BET = 'My Bet',
   MORE = 'more',
+  WITHDRAWAL = 'withdrawal',
 }

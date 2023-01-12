@@ -1,21 +1,20 @@
-import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from '@react-navigation/native';
 import React from 'react';
-import colors from 'src/constants/colors';
+import {useColorScheme} from 'react-native';
 import RootStack from 'src/routes/RootStack';
 import {navigationRef} from 'src/utils/navigationRef';
 
-const MyTheme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: colors.primaryColor,
-    textColor: colors.defaultBlack,
-  },
-};
-
 const App = () => {
+  const colorScheme = useColorScheme();
+
   return (
-    <NavigationContainer ref={navigationRef} theme={MyTheme}>
+    <NavigationContainer
+      ref={navigationRef}
+      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <RootStack />
     </NavigationContainer>
   );
