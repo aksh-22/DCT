@@ -1,7 +1,6 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import CustomText from 'src/components/CustomText';
 import VectorIcon from 'src/components/IconsFamily';
 import colors from 'src/constants/colors';
 import globalStyles from 'src/constants/globalStyles';
@@ -10,8 +9,6 @@ import MyBet from 'src/screens/bet/MyBet';
 import Home from 'src/screens/home/Home';
 import More from 'src/screens/more/More';
 import Withdrawal from 'src/screens/withdrawal/Withdrawal';
-import {rupee} from 'src/constants/specialCharacter';
-import numberFormatter from 'src/utils/numberFormatter';
 
 const Tab = createBottomTabNavigator();
 
@@ -58,11 +55,11 @@ const BottomTabStack = () => {
           tabBarIcon: color => (
             <View>
               <VectorIcon size={20} name="wallet-outline" color={color.color} />
-              <View style={styles.labelWrapper}>
+              {/* <View style={styles.labelWrapper}>
                 <CustomText style={[styles.label, {color: color.color}]}>
                   {numberFormatter(1000)} {rupee}
                 </CustomText>
-              </View>
+              </View> */}
             </View>
           ),
         }}

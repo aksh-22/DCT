@@ -1,8 +1,9 @@
-import {View, Text} from 'react-native';
 import React from 'react';
-import homeStyle from './home.style';
-import globalStyles from 'src/constants/globalStyles';
+import {View} from 'react-native';
 import CustomText from 'src/components/CustomText';
+import colors from 'src/constants/colors';
+import globalStyles from 'src/constants/globalStyles';
+import homeStyle from './home.style';
 
 type Props = {
   item: any;
@@ -23,6 +24,10 @@ const MarketItem = ({}: Props) => {
         </View>
       </View>
       <CustomText size={20}>Capital Morning</CustomText>
+      <CustomText size={16}>550-02-246</CustomText>
+      <CustomText size={14} color={colors.red}>
+        Bid is closed for today
+      </CustomText>
     </View>
   );
 };

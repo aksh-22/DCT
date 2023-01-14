@@ -7,7 +7,7 @@ import buttonStyle from './button.style';
 
 type Props = {
   title: string;
-  onPress: () => void;
+  onPress?: () => void;
   disabled?: boolean;
   style?: ViewStyle;
   titleStyle?: TextStyle;

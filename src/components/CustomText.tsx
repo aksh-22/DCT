@@ -6,10 +6,15 @@ type Props = {
   style?: TextStyle | TextStyle[];
   children: ReactNode;
   size?: number;
+  color?: string;
 };
 
-const CustomText = ({style, children, size}: Props) => {
-  return <Text style={[styles.text, {fontSize: size}, style]}>{children}</Text>;
+const CustomText = ({style, children, size, color}: Props) => {
+  return (
+    <Text style={[styles.text, {fontSize: size, color}, style]}>
+      {children}
+    </Text>
+  );
 };
 
 export default CustomText;
