@@ -22,7 +22,6 @@ type Props = {
   barStyle?: StatusBarStyle;
   onRefresh?: () => void;
   refreshLoading?: boolean;
-  showCartBar?: boolean;
   backgroundColor?: string;
 };
 

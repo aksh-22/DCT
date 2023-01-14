@@ -1,13 +1,18 @@
-import {View, Text} from 'react-native';
 import React from 'react';
+import CustomText from 'src/components/CustomText';
+import colors from 'src/constants/colors';
+import ContainerWithoutScroll from 'src/container/ContainerWithoutScroll';
 
 type Props = {};
 
-const MyBet = (props: Props) => {
+const MyBet = ({}: Props) => {
   return (
-    <View>
-      <Text>MyBet</Text>
-    </View>
+    <ContainerWithoutScroll
+      barStyle="light-content"
+      statusBarColor={colors.buttonColor1}
+      style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
+      <CustomText size={30}>Coming soon</CustomText>
+    </ContainerWithoutScroll>
   );
 };
 
