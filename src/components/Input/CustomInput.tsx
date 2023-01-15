@@ -7,13 +7,28 @@ import inputStyle from './input.style';
 
 type Props = {
   iconName?: string;
-  iconFamily?: string | any;
+  iconFamily?:
+    | 'AntDesign'
+    | 'Entypo'
+    | 'EvilIcons'
+    | 'Feather'
+    | 'FontAwesome'
+    | 'FontAwesome5'
+    | 'Fontisto'
+    | 'Foundation'
+    | 'Ionicons'
+    | 'MaterialCommunityIcons'
+    | 'MaterialIcons'
+    | 'Octicons'
+    | 'SimpleLineIcons'
+    | 'Zocial'
+    | 'FontAwesome5Pro';
   placeholder?: string;
   value?: string | number | any;
   keyboardType?: KeyboardTypeOptions;
   onChangeText?: (text: string) => void;
   secureTextEntry?: boolean;
-  mainContainer?: ViewStyle;
+  mainContainerStyle?: ViewStyle;
 };
 
 const CustomInput = ({
@@ -24,7 +39,7 @@ const CustomInput = ({
   keyboardType,
   onChangeText,
   secureTextEntry,
-  mainContainer,
+  mainContainerStyle,
 }: Props) => {
   const [secure, setSecure] = useState(secureTextEntry);
 
@@ -33,7 +48,7 @@ const CustomInput = ({
   };
 
   return (
-    <View style={[inputStyle.mainContainer, mainContainer]}>
+    <View style={[inputStyle.mainContainer, mainContainerStyle]}>
       <View style={inputStyle.subContainer}>
         {iconName && (
           <VectorIcon
