@@ -1,21 +1,36 @@
 import React from 'react';
+import {View} from 'react-native';
 import {useDispatch} from 'react-redux';
-import CustomButton from 'src/components/button/CustomButton';
+import CustomHeader from 'src/components/header/CustomHeader';
+import moreList from 'src/constants/moreList';
 import Container from 'src/container/Container';
+import {BottomStackProps} from 'src/routes/types/navigation';
 import {setIsLoggedIn} from 'src/store/reducer/userReducer';
+import moreStyle from './more.style';
+import MoreItem from './MoreItem';
 
-type Props = {};
-
-const More = ({}: Props) => {
+const More = ({}: BottomStackProps) => {
   const dispatch = useDispatch();
 
-  const onPress = () => {
-    dispatch(setIsLoggedIn(false));
+  const onPress = key => {
+    switch (key) {
+      case 'logout':
+        dispatch(setIsLoggedIn(false));
+        break;
+
+      default:
+        break;
+    }
   };
 
   return (
     <Container>
-      <CustomButton title="logout" onPress={onPress} />
+      <CustomHeader heading="More" />
+      <View style={moreStyle.listArea}>
+        {moreList.map(el => (
+          <MoreItem item={el} key={el.id} onPress={onPress} />
+        ))}
+      </View>
     </Container>
   );
 };
