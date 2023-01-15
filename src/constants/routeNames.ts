@@ -27,4 +27,5 @@ export enum WalletStackName {
   WITHDRAWAL = 'withdrawal',
   PENDING = 'pending',
   APPROVED = 'approved',
+  WALLET_HISTORY = 'wallet_history',
 }

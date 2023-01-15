@@ -5,6 +5,7 @@ import {
   AuthStackName,
   BottomStackName,
   RootStackName,
+  WalletStackName,
 } from 'src/constants/routeNames';
 
 export type RootStackParamList = {
@@ -39,6 +40,7 @@ export type BottomStackParamList = {
   [BottomStackName.MORE]: undefined;
   [BottomStackName.MY_BET]: undefined;
   [BottomStackName.WALLET]: undefined;
+  [WalletStackName.WALLET_HISTORY]: undefined;
 };
 
 export type AuthStackProps = NativeStackScreenProps<AuthStackParamList>;
