@@ -2,6 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {useState} from 'react';
 import {RootStackName, WalletStackName} from 'src/constants/routeNames';
 import Splash from 'src/screens/splash/Splash';
+import WalletHistory from 'src/screens/wallet/wallet/WalletHistory';
 import Withdrawal from 'src/screens/wallet/withdrawal/Withdrawal';
 import {useAppSelector} from 'src/utils/reducer';
 import AuthStack from './AuthStack';
@@ -39,7 +40,7 @@ const RootStack = ({}: Props) => {
           />
           <Screen
             name={WalletStackName.WALLET_HISTORY}
-            component={Withdrawal}
+            component={WalletHistory}
             options={
               {
                 // tabBarItemStyle: {display: 'none'},

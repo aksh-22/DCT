@@ -5,6 +5,8 @@ import TransactionIcon from 'src/components/TransactionIcon';
 import colors from 'src/constants/colors';
 import {fonts} from 'src/constants/fonts';
 import {WalletStackName} from 'src/constants/routeNames';
+import Approved from 'src/screens/wallet/history/Approved';
+import Pending from 'src/screens/wallet/history/Pending';
 import Withdrawal from 'src/screens/wallet/withdrawal/Withdrawal';
 import {BottomStackProps} from './types/navigation';
 
@@ -20,8 +22,8 @@ const WalletStack = ({navigation}: BottomStackProps) => {
           tabBarLabelStyle: {fontFamily: fonts.regular},
         }}>
         <Tab.Screen name={WalletStackName.WITHDRAWAL} component={Withdrawal} />
-        <Tab.Screen name={WalletStackName.PENDING} component={Withdrawal} />
-        <Tab.Screen name={WalletStackName.APPROVED} component={Withdrawal} />
+        <Tab.Screen name={WalletStackName.PENDING} component={Pending} />
+        <Tab.Screen name={WalletStackName.APPROVED} component={Approved} />
       </Tab.Navigator>
       <TransactionIcon
         onPress={() => navigation.navigate(WalletStackName.WALLET_HISTORY)}
