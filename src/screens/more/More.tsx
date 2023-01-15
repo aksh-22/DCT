@@ -9,16 +9,17 @@ import {setIsLoggedIn} from 'src/store/reducer/userReducer';
 import moreStyle from './more.style';
 import MoreItem from './MoreItem';
 
-const More = ({}: BottomStackProps) => {
+const More = ({navigation}: BottomStackProps) => {
   const dispatch = useDispatch();
 
-  const onPress = key => {
+  const onPress = (key: any, route: any) => {
     switch (key) {
       case 'logout':
         dispatch(setIsLoggedIn(false));
         break;
 
       default:
+        navigation.navigate(route);
         break;
     }
   };

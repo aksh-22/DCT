@@ -11,13 +11,16 @@ type Props = {
     key: any;
     iconName: string;
     familyName?: any;
+    route?: any;
   };
-  onPress: (key: string) => void;
+  onPress: (key: string, route: any) => void;
 };
 
 const MoreItem = ({item, onPress}: Props) => {
   return (
-    <TouchableOpacity style={moreStyle.item} onPress={() => onPress(item.key)}>
+    <TouchableOpacity
+      style={moreStyle.item}
+      onPress={() => onPress(item.key, item.route)}>
       <View style={moreStyle.textArea}>
         <VectorIcon name={item.iconName} family={item.familyName} />
         <CustomText style={moreStyle.text}>{item.name}</CustomText>

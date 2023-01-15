@@ -7,7 +7,7 @@ import globalStyles from 'src/constants/globalStyles';
 import {BottomStackName} from 'src/constants/routeNames';
 import MyBet from 'src/screens/bet/MyBet';
 import Home from 'src/screens/home/Home';
-import More from 'src/screens/more/More';
+import MoreStack from './MoreStack';
 import WalletStack from './WalletStack';
 
 const Tab = createBottomTabNavigator();
@@ -65,8 +65,8 @@ const BottomTabStack = () => {
         }}
       />
       <Screen
-        name={BottomStackName.MORE}
-        component={More}
+        name={BottomStackName.MORE_STACK}
+        component={MoreStack}
         options={{
           tabBarIcon: color => (
             <VectorIcon

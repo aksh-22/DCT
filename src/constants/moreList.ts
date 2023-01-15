@@ -1,3 +1,5 @@
+import {MoreStackName} from './routeNames';
+
 const moreList = [
   {
     id: 1,
@@ -5,6 +7,7 @@ const moreList = [
     key: 'profile',
     iconName: 'user-tie',
     familyName: 'FontAwesome5',
+    route: MoreStackName.PROFILE,
   },
   {
     id: 2,

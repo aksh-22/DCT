@@ -70,6 +70,9 @@ export default StyleSheet.create({
   mv_20: {
     marginVertical: 20,
   },
+  pd_20: {
+    padding: 20,
+  },
   headingText: {
     color: colors.defaultBlack,
     fontSize: 18,

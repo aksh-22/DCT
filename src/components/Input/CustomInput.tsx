@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {KeyboardTypeOptions, TextInput, View, ViewStyle} from 'react-native';
 import {} from 'react-native-vector-icons';
 import colors from 'src/constants/colors';
+import globalStyles from 'src/constants/globalStyles';
+import CustomText from '../CustomText';
 import VectorIcon from '../IconsFamily';
 import inputStyle from './input.style';
 
@@ -29,6 +31,8 @@ type Props = {
   onChangeText?: (text: string) => void;
   secureTextEntry?: boolean;
   mainContainerStyle?: ViewStyle;
+  label?: string;
+  showLabel?: boolean;
 };
 
 const CustomInput = ({
@@ -40,6 +44,8 @@ const CustomInput = ({
   onChangeText,
   secureTextEntry,
   mainContainerStyle,
+  label,
+  showLabel,
 }: Props) => {
   const [secure, setSecure] = useState(secureTextEntry);
 
@@ -49,6 +55,11 @@ const CustomInput = ({
 
   return (
     <View style={[inputStyle.mainContainer, mainContainerStyle]}>
+      {label || showLabel ? (
+        <CustomText style={globalStyles.mb_5}>
+          {label ?? placeholder}
+        </CustomText>
+      ) : null}
       <View style={inputStyle.subContainer}>
         {iconName && (
           <VectorIcon

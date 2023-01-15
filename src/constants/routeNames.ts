@@ -19,8 +19,8 @@ export enum AuthorizedStackName {
 export enum BottomStackName {
   HOME = 'Home',
   MY_BET = 'My Bet',
-  MORE = 'More',
   WALLET = 'Wallet',
+  MORE_STACK = 'moreStack',
 }
 
 export enum WalletStackName {
@@ -28,4 +28,12 @@ export enum WalletStackName {
   PENDING = 'pending',
   APPROVED = 'approved',
   WALLET_HISTORY = 'wallet_history',
+}
+
+export enum MoreStackName {
+  PROFILE = 'profile',
+  GAME_RATE = 'rate',
+  FEEDBACK = 'feedback',
+  PLAY = 'play',
+  MORE = 'More',
 }
