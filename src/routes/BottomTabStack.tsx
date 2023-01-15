@@ -1,6 +1,6 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import VectorIcon from 'src/components/IconsFamily';
 import colors from 'src/constants/colors';
 import globalStyles from 'src/constants/globalStyles';
@@ -8,7 +8,7 @@ import {BottomStackName} from 'src/constants/routeNames';
 import MyBet from 'src/screens/bet/MyBet';
 import Home from 'src/screens/home/Home';
 import More from 'src/screens/more/More';
-import Withdrawal from 'src/screens/withdrawal/Withdrawal';
+import WalletStack from './WalletStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -50,17 +50,17 @@ const BottomTabStack = () => {
       />
       <Screen
         name={BottomStackName.WALLET}
-        component={Withdrawal}
+        component={WalletStack}
         options={{
           tabBarIcon: color => (
-            <View>
-              <VectorIcon size={20} name="wallet-outline" color={color.color} />
-              {/* <View style={styles.labelWrapper}>
-                <CustomText style={[styles.label, {color: color.color}]}>
-                  {numberFormatter(1000)} {rupee}
-                </CustomText>
-              </View> */}
-            </View>
+            <VectorIcon size={20} name="wallet-outline" color={color.color} />
+            // <View>
+            //   <View style={styles.labelWrapper}>
+            //     <CustomText style={[styles.label, {color: color.color}]}>
+            //       {numberFormatter(1000)} {rupee}
+            //     </CustomText>
+            //   </View>
+            // </View>
           ),
         }}
       />
