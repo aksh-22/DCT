@@ -2,7 +2,6 @@ import React from 'react';
 import CustomButton from 'src/components/button/CustomButton';
 import CustomText from 'src/components/CustomText';
 import CustomInput from 'src/components/Input/CustomInput';
-import colors from 'src/constants/colors';
 import Container from 'src/container/Container';
 import withdrawalStyle from './withdrawal.style';
 
@@ -12,10 +11,7 @@ const Withdrawal = ({}: Props) => {
   const onPress = () => {};
 
   return (
-    <Container
-      barStyle="light-content"
-      statusBarColor={colors.buttonColor1}
-      contentContainerStyle={withdrawalStyle.container}>
+    <Container contentContainerStyle={withdrawalStyle.container}>
       <CustomText size={30}>Add Withdrawal</CustomText>
       <CustomText removeFontFamily size={18}>
         Available Balance : 10.00

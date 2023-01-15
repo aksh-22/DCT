@@ -1,8 +1,8 @@
-import {View, Text} from 'react-native';
 import React from 'react';
-import {setIsLoggedIn} from 'src/store/reducer/userReducer';
 import {useDispatch} from 'react-redux';
 import CustomButton from 'src/components/button/CustomButton';
+import Container from 'src/container/Container';
+import {setIsLoggedIn} from 'src/store/reducer/userReducer';
 
 type Props = {};
 
@@ -14,9 +14,9 @@ const More = ({}: Props) => {
   };
 
   return (
-    <View>
+    <Container>
       <CustomButton title="logout" onPress={onPress} />
-    </View>
+    </Container>
   );
 };
 

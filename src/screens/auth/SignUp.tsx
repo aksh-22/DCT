@@ -25,22 +25,22 @@ const SignUp = ({navigation}: AuthStackProps) => {
           {t('auth:signUp')}
         </CustomText>
         <CustomInput
-          mainContainer={authStyle.inputContainer}
+          mainContainerStyle={authStyle.inputContainer}
           iconName="person-outline"
           placeholder={t('auth:name')}
         />
         <CustomInput
-          mainContainer={authStyle.inputContainer}
+          mainContainerStyle={authStyle.inputContainer}
           iconName="person-outline"
           placeholder={t('auth:userName')}
         />
         <CustomInput
-          mainContainer={authStyle.inputContainer}
+          mainContainerStyle={authStyle.inputContainer}
           iconName="phone-portrait-outline"
           placeholder={t('auth:mobile')}
         />
         <CustomInput
-          mainContainer={authStyle.inputContainer}
+          mainContainerStyle={authStyle.inputContainer}
           iconName="lock-closed-outline"
           placeholder={t('auth:password')}
           secureTextEntry

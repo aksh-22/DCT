@@ -36,12 +36,12 @@ const Login = ({navigation}: AuthStackProps) => {
           {t('auth:login')}
         </CustomText>
         <CustomInput
-          mainContainer={authStyle.inputContainer}
+          mainContainerStyle={authStyle.inputContainer}
           iconName="person-outline"
           placeholder={t('auth:userName')}
         />
         <CustomInput
-          mainContainer={authStyle.inputContainer}
+          mainContainerStyle={authStyle.inputContainer}
           iconName="lock-closed-outline"
           placeholder={t('auth:password')}
           secureTextEntry
