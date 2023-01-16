@@ -25,7 +25,7 @@ const HowToPlay = ({}: Props) => {
           circleStyle={playStyle.circleStyle}
           listViewContainerStyle={playStyle.listViewContainerStyle}
           titleStyle={playStyle.titleStyle}
-          isUsingFlatlist
+          // isUsingFlatlist
         />
       </ContainerWithoutScroll>
     </>
