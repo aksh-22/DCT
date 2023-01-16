@@ -15,6 +15,7 @@ const moreList = [
     key: 'rate',
     iconName: 'price-ribbon',
     familyName: 'Entypo',
+    route: MoreStackName.GAME_RATE,
   },
   {
     id: 3,
@@ -22,6 +23,7 @@ const moreList = [
     key: 'feedback',
     iconName: 'feedback',
     familyName: 'MaterialIcons',
+    route: MoreStackName.FEEDBACK,
   },
   {
     id: 4,
@@ -35,6 +37,7 @@ const moreList = [
     key: 'play',
     iconName: 'cards-playing-club-multiple-outline',
     familyName: 'MaterialCommunityIcons',
+    route: MoreStackName.PLAY,
   },
   {
     id: 6,

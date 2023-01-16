@@ -112,4 +112,10 @@ export default StyleSheet.create({
     textAlign: 'center',
     flex: 1,
   },
+  verticalLine: {
+    width: 1,
+    height: 50,
+    backgroundColor: colors.defaultBlack,
+    alignSelf: 'center',
+  },
 });
