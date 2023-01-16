@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {KeyboardTypeOptions, TextInput, View, ViewStyle} from 'react-native';
+import {
+  KeyboardTypeOptions,
+  TextInput,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native';
 import {} from 'react-native-vector-icons';
 import colors from 'src/constants/colors';
 import globalStyles from 'src/constants/globalStyles';
@@ -33,6 +39,8 @@ type Props = {
   mainContainerStyle?: ViewStyle;
   label?: string;
   showLabel?: boolean;
+  multiline?: boolean;
+  inputBoxStyle?: TextStyle;
 };
 
 const CustomInput = ({
@@ -46,6 +54,8 @@ const CustomInput = ({
   mainContainerStyle,
   label,
   showLabel,
+  multiline,
+  inputBoxStyle,
 }: Props) => {
   const [secure, setSecure] = useState(secureTextEntry);
 
@@ -71,11 +81,13 @@ const CustomInput = ({
         <TextInput
           value={value}
           placeholder={placeholder}
-          style={inputStyle.inputField}
+          style={[inputStyle.inputField, inputBoxStyle]}
           keyboardType={keyboardType}
           onChangeText={onChangeText}
           secureTextEntry={secure}
           placeholderTextColor={colors.placeholderColor}
+          multiline={multiline}
+          textAlignVertical={multiline ? 'top' : 'auto'}
         />
         {secureTextEntry && (
           <VectorIcon
