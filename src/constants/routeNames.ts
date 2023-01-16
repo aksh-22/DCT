@@ -20,7 +20,7 @@ export enum BottomStackName {
   HOME = 'Home',
   MY_BET = 'My Bet',
   WALLET = 'Wallet',
-  MORE_STACK = 'moreStack',
+  MORE_STACK = 'More',
 }
 
 export enum WalletStackName {
@@ -35,5 +35,5 @@ export enum MoreStackName {
   GAME_RATE = 'rate',
   FEEDBACK = 'feedback',
   PLAY = 'play',
-  MORE = 'More',
+  MORE = 'More page',
 }

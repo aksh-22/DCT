@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from 'src/constants/colors';
+import {fonts} from 'src/constants/fonts';
 
 export default StyleSheet.create({
   mainContainer: {},
@@ -15,5 +16,6 @@ export default StyleSheet.create({
   },
   inputField: {
     flex: 1,
+    fontFamily: fonts.regular,
   },
 });

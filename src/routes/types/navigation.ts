@@ -11,8 +11,6 @@ import {
 export type RootStackParamList = {
   [RootStackName.AUTH_STACK]: NavigatorScreenParams<AuthStackParamList>;
   [RootStackName.BOTTOM_TAB_STACK]: NavigatorScreenParams<any>;
-  [RootStackName.CUSTOMER_DETAILS]: undefined;
-  [RootStackName.RESET_PASSWORD]: undefined;
 };
 
 export type AuthStackParamList = {
@@ -26,18 +24,11 @@ export type AuthStackParamList = {
 
 export type AuthorizedStackParamList = {
   [AuthorizedStackName.BOTTOM_TAB_STACK]: NavigatorScreenParams<BottomStackParamList>;
-  [AuthorizedStackName.SEARCH]: undefined;
-  [AuthorizedStackName.SUBCATEGORY_DETAILS]: undefined;
-  [AuthorizedStackName.PRODUCT_DETAILS]: undefined;
-  [AuthorizedStackName.CART]: undefined;
-  [AuthorizedStackName.PAYMENT]: undefined;
-  [AuthorizedStackName.PROFILE]: undefined;
-  [AuthorizedStackName.NOTIFICATION_LIST]: undefined;
 };
 
 export type BottomStackParamList = {
   [BottomStackName.HOME]: undefined;
-  [BottomStackName.MORE]: undefined;
+  [BottomStackName.MORE_STACK]: undefined;
   [BottomStackName.MY_BET]: undefined;
   [BottomStackName.WALLET]: undefined;
   [WalletStackName.WALLET_HISTORY]: undefined;
