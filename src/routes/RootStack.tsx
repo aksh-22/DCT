@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import {RootStackName, WalletStackName} from 'src/constants/routeNames';
 import Splash from 'src/screens/splash/Splash';
 import WalletHistory from 'src/screens/wallet/wallet/WalletHistory';
-import Withdrawal from 'src/screens/wallet/withdrawal/Withdrawal';
 import {useAppSelector} from 'src/utils/reducer';
 import AuthStack from './AuthStack';
 import BottomTabStack from './BottomTabStack';
@@ -24,12 +23,12 @@ const RootStack = ({}: Props) => {
 
   return (
     <Navigator screenOptions={{headerShown: false}}>
-      {/* {showLottie && (
+      {showLottie && (
         <Screen
           name={RootStackName.SPLASH}
           children={() => <Splash onAnimationFinish={onAnimationFinish} />}
         />
-      )} */}
+      )}
       {!isLoggedIn ? (
         <Screen name={RootStackName.AUTH_STACK} component={AuthStack} />
       ) : (

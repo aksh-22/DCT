@@ -8,6 +8,7 @@ import {BottomStackProps} from 'src/routes/types/navigation';
 import {setIsLoggedIn} from 'src/store/reducer/userReducer';
 import moreStyle from './more.style';
 import MoreItem from './MoreItem';
+import Share from 'react-native-share';
 
 const More = ({navigation}: BottomStackProps) => {
   const dispatch = useDispatch();
@@ -16,6 +17,10 @@ const More = ({navigation}: BottomStackProps) => {
     switch (key) {
       case 'logout':
         dispatch(setIsLoggedIn(false));
+        break;
+
+      case 'share':
+        Share.Sheet();
         break;
 
       default:
