@@ -219,6 +219,14 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            if (project.hasProperty('DCT_UPLOAD_STORE_FILE')) {
+                storeFile file('Pairroxz.jks')
+                storePassword DCT_UPLOAD_STORE_PASSWORD
+                keyAlias DCT_UPLOAD_KEY_ALIAS
+                keyPassword DCT_UPLOAD_KEY_PASSWORD
+            }
+        }
     }
     buildTypes {
         debug {
