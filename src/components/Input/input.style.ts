@@ -17,5 +17,6 @@ export default StyleSheet.create({
   inputField: {
     flex: 1,
     fontFamily: fonts.regular,
+    color: colors.defaultBlack,
   },
 });

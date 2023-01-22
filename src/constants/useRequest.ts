@@ -27,12 +27,14 @@ export const useRequest = ({
 
   const api: any = async (dataToSend: any) => {
     let res;
+    console.log('dataToSend', dataToSend);
+
     switch (requestType) {
       case 'POST':
-        res = await axiosInstance.post(endpoint, dataToSend ?? data);
-        return res;
+        return await axiosInstance.post(endpoint, dataToSend ?? data);
       default:
-        return await axiosInstance.get(endpoint, {params});
+        res = axiosInstance.get(endpoint, {params});
+        return res;
     }
   };
 
@@ -40,7 +42,7 @@ export const useRequest = ({
     setIsLoading(true);
     await api(dataToSend)
       .then(res => {
-        onSuccess && onSuccess(res);
+        onSuccess && onSuccess(res.data);
       })
       .catch(error => {
         onError && onError(error);

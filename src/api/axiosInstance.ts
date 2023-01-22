@@ -12,15 +12,12 @@ const axiosInstance = axios.create({
   timeoutErrorMessage:
     'Network request timed out. The app could not connect to the server. Please make sure you are connected with a good network.',
   headers: {
-    'Content-Type': 'multipart/form-data',
+    'Content-Type': 'application/json',
     Accept: 'application/json',
     // 'App-Version': getVersion(),
     // Timezone: getTimeZone(),
     // 'Device-Model': getModel(),
-  },
-  auth: {
-    username: 'GgrDrmStl',
-    password: 'G@4321@qwer',
+    // Platform: Platform.OS,
   },
 });
 axiosInstance.interceptors.request.use(
@@ -39,7 +36,7 @@ axiosInstance.interceptors.request.use(
 // Add a response interceptor
 axiosInstance.interceptors.response.use(
   res => {
-    if (res.data?.status === true) {
+    if (res.status === 200) {
       return res;
     } else {
       showMessage({

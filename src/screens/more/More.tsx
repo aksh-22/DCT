@@ -5,7 +5,7 @@ import CustomHeader from 'src/components/header/CustomHeader';
 import moreList from 'src/constants/moreList';
 import Container from 'src/container/Container';
 import {BottomStackProps} from 'src/routes/types/navigation';
-import {setIsLoggedIn} from 'src/store/reducer/userReducer';
+import {setToken} from 'src/store/reducer/userReducer';
 import moreStyle from './more.style';
 import MoreItem from './MoreItem';
 import Share from 'react-native-share';
@@ -16,7 +16,11 @@ const More = ({navigation}: BottomStackProps) => {
   const onPress = (key: any, route: any) => {
     switch (key) {
       case 'logout':
-        dispatch(setIsLoggedIn(false));
+        const dataToSet = {
+          token: '',
+          user: '',
+        };
+        dispatch(setToken(dataToSet));
         break;
 
       case 'share':
