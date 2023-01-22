@@ -15,6 +15,7 @@ export default {
   buttonColor1: '#001247',
   buttonColor2: '#000066',
   whatsAppGreen: '#128C7E',
+  green: '#8BE58C',
   ///////////
   red: 'red',
   orange: '#fe8c12',

@@ -20,7 +20,7 @@ const More = ({navigation}: BottomStackProps) => {
         break;
 
       case 'share':
-        Share.Sheet();
+        // Share.Sheet();
         break;
 
       default:
