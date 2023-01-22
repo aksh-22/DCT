@@ -10,6 +10,7 @@ const persistConfig = {
 
 const root_reducer = (state: any, action: AnyAction) => {
   let reduxState = state;
+  console.log('action', action);
   if (action.type === 'CLEAR_REDUX') {
     for (let [key, value] of Object.entries(reduxState)) {
       if (key === 'appReducer') {

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {TouchableOpacity} from 'react-native';
+import {Keyboard, TouchableOpacity} from 'react-native';
 import {useDispatch} from 'react-redux';
 import CustomButton from 'src/components/button/CustomButton';
 import CustomText from 'src/components/CustomText';
@@ -18,24 +18,25 @@ const Login = ({navigation}: AuthStackProps) => {
   const dispatch = useDispatch();
 
   const [name, setName] = useState('test2@dct.com');
+  const [nameError, setNameError] = useState('');
   const [password, setPassword] = useState('12345678');
+  const [passwordError, setPasswordError] = useState('');
 
   const {t} = useTranslation();
 
   const loginPress = () => {
-    const data = {
-      email: name,
-      password,
-    };
-    sendRequest(data);
-  };
-
-  const onSignUpPress = () => {
-    navigation.navigate(AuthStackName.SIGN_UP);
-  };
-
-  const onForgotPasswordPress = () => {
-    navigation.navigate(AuthStackName.FORGOT_PASSWORD);
+    if (!name) {
+      setNameError('User name is required');
+    } else if (!password) {
+      setPasswordError('Password is required');
+    } else {
+      Keyboard.dismiss();
+      const data = {
+        email: name,
+        password,
+      };
+      sendRequest(data);
+    }
   };
 
   const onLoginSuccess = data => {
@@ -53,6 +54,14 @@ const Login = ({navigation}: AuthStackProps) => {
     requestType: 'POST',
   });
 
+  const onSignUpPress = () => {
+    navigation.navigate(AuthStackName.SIGN_UP);
+  };
+
+  const onForgotPasswordPress = () => {
+    navigation.navigate(AuthStackName.FORGOT_PASSWORD);
+  };
+
   return (
     <Container barStyle="dark-content" statusBarColor={colors.defaultWhite}>
       <GradientContainer style={authStyle.container}>
@@ -64,6 +73,11 @@ const Login = ({navigation}: AuthStackProps) => {
           mainContainerStyle={authStyle.inputContainer}
           iconName="person-outline"
           placeholder={t('auth:userName')}
+          onChangeText={txt => {
+            setName(txt);
+            nameError && setNameError('');
+          }}
+          errorMessage={nameError}
         />
         <CustomInput
           value={password}
@@ -71,6 +85,11 @@ const Login = ({navigation}: AuthStackProps) => {
           iconName="lock-closed-outline"
           placeholder={t('auth:password')}
           secureTextEntry
+          onChangeText={txt => {
+            setPassword(txt);
+            passwordError && setPasswordError('');
+          }}
+          errorMessage={passwordError}
         />
         <TouchableOpacity onPress={onForgotPasswordPress}>
           <CustomText style={authStyle.forgotPassText}>

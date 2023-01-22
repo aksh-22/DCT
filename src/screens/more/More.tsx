@@ -16,11 +16,7 @@ const More = ({navigation}: BottomStackProps) => {
   const onPress = (key: any, route: any) => {
     switch (key) {
       case 'logout':
-        const dataToSet = {
-          token: '',
-          user: '',
-        };
-        dispatch(setToken(dataToSet));
+        dispatch({type: 'CLEAR_REDUX'});
         break;
 
       case 'share':

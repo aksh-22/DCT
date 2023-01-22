@@ -7,7 +7,6 @@ export default StyleSheet.create({
   subContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderColor: colors.borderColor,
     borderWidth: 1,
     borderRadius: 10,
   },
@@ -18,5 +17,10 @@ export default StyleSheet.create({
     flex: 1,
     fontFamily: fonts.regular,
     color: colors.defaultBlack,
+  },
+  error: {
+    color: colors.red,
+    marginLeft: 15,
+    marginBottom: -15,
   },
 });

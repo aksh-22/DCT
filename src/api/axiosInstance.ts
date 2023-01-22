@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {showMessage} from 'src/components/MessageModal';
+import store from 'src/store/store';
 // import {getModel, getVersion} from 'react-native-device-info';
 // import {getTimeZone} from 'react-native-localize';
 // import {showMessage} from 'src/components/MessageModal';
@@ -22,9 +23,11 @@ const axiosInstance = axios.create({
 });
 axiosInstance.interceptors.request.use(
   request => {
+    let token = store.getState()?.userReducer?.token;
+
     request.baseURL = __DEV__ ? url : url;
     if (request.headers) {
-      // request.headers.Authorization = `Bearer ${token}`;
+      request.headers.Authorization = `Bearer ${token}`;
       // request.headers.lng = language;
     }
     return request;

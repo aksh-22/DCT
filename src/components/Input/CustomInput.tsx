@@ -41,6 +41,7 @@ type Props = {
   showLabel?: boolean;
   multiline?: boolean;
   inputBoxStyle?: TextStyle;
+  errorMessage?: string;
 };
 
 const CustomInput = ({
@@ -56,6 +57,7 @@ const CustomInput = ({
   showLabel,
   multiline,
   inputBoxStyle,
+  errorMessage,
 }: Props) => {
   const [secure, setSecure] = useState(secureTextEntry);
 
@@ -70,18 +72,27 @@ const CustomInput = ({
           {label ?? placeholder}
         </CustomText>
       ) : null}
-      <View style={inputStyle.subContainer}>
+      <View
+        style={[
+          inputStyle.subContainer,
+          {borderColor: errorMessage ? colors.red : colors.borderColor},
+        ]}>
         {iconName && (
           <VectorIcon
             style={inputStyle.icon}
             family={iconFamily}
             name={iconName}
+            color={errorMessage ? colors.red : colors.defaultBlack}
           />
         )}
         <TextInput
           value={value}
           placeholder={placeholder}
-          style={[inputStyle.inputField, inputBoxStyle]}
+          style={[
+            inputStyle.inputField,
+            {color: errorMessage ? colors.red : colors.defaultBlack},
+            inputBoxStyle,
+          ]}
           keyboardType={keyboardType}
           onChangeText={onChangeText}
           secureTextEntry={secure}
@@ -97,6 +108,9 @@ const CustomInput = ({
           />
         )}
       </View>
+      {errorMessage ? (
+        <CustomText style={inputStyle.error}>{errorMessage}</CustomText>
+      ) : null}
     </View>
   );
 };
