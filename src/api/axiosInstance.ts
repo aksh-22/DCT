@@ -5,7 +5,7 @@ import {showMessage} from 'src/components/MessageModal';
 // import {showMessage} from 'src/components/MessageModal';
 import {axiosError} from './axiosError';
 
-const url = 'http://digi-markets.com/ggrocer/';
+const url = 'http://cloudusweb.com/api/';
 
 const axiosInstance = axios.create({
   timeout: 30000,

@@ -1,7 +1,7 @@
 import {axiosInstance} from './axiosInstance';
 
 export const login = (data: any) =>
-  axiosInstance.post('login-user-password', data).then(res => res?.data);
+  axiosInstance.post('auth/login', data).then(res => res?.data);
 
 export const sendOtp = (data: any) =>
   axiosInstance.post('send-otp', data).then(res => res?.data);

@@ -1,4 +1,5 @@
-import {useState} from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import {useEffect, useState} from 'react';
 import {axiosInstance} from 'src/api/axiosInstance';
 
 type RProps = {
@@ -9,6 +10,7 @@ type RProps = {
   endpoint?: string;
   params?: any;
   data?: any;
+  callApiByDefault?: boolean;
 };
 
 export const useRequest = ({
@@ -19,23 +21,24 @@ export const useRequest = ({
   endpoint,
   params,
   data,
+  callApiByDefault,
 }: RProps = {}) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const api: any = async () => {
+  const api: any = async (dataToSend: any) => {
     let res;
     switch (requestType) {
       case 'POST':
-        res = await axiosInstance.post(endpoint, data);
+        res = await axiosInstance.post(endpoint, dataToSend ?? data);
         return res;
       default:
         return await axiosInstance.get(endpoint, {params});
     }
   };
 
-  const sendRequest = async () => {
+  const sendRequest = async (dataToSend?: any) => {
     setIsLoading(true);
-    await api()
+    await api(dataToSend)
       .then(res => {
         onSuccess && onSuccess(res);
       })
@@ -47,6 +50,10 @@ export const useRequest = ({
         onFinally && onFinally();
       });
   };
+
+  useEffect(() => {
+    callApiByDefault && sendRequest();
+  }, [callApiByDefault]);
 
   return {
     isLoading,

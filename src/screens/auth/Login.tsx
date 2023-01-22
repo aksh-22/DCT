@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {TouchableOpacity} from 'react-native';
 import {useDispatch} from 'react-redux';
+import {login} from 'src/api/auth.service';
 import CustomButton from 'src/components/button/CustomButton';
 import CustomText from 'src/components/CustomText';
 import CustomInput from 'src/components/Input/CustomInput';
+import colors from 'src/constants/colors';
 import {AuthStackName} from 'src/constants/routeNames';
+import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
 import GradientContainer from 'src/container/GradientContainer';
 import {AuthStackProps} from 'src/routes/types/navigation';
@@ -14,6 +17,8 @@ import authStyle from './auth.style';
 
 const Login = ({navigation}: AuthStackProps) => {
   const dispatch = useDispatch();
+
+  const [name, setName] = useState('');
 
   const {t} = useTranslation();
 
@@ -29,8 +34,10 @@ const Login = ({navigation}: AuthStackProps) => {
     navigation.navigate(AuthStackName.FORGOT_PASSWORD);
   };
 
+  const {} = useRequest({api: login});
+
   return (
-    <Container>
+    <Container barStyle="dark-content" statusBarColor={colors.defaultWhite}>
       <GradientContainer style={authStyle.container}>
         <CustomText size={30} style={authStyle.textStyle}>
           {t('auth:login')}
