@@ -10,7 +10,9 @@
     "email": "Email",
     "submit": "Submit",
     "name": "Name",
-    "mobile": "Mobile Number"
+    "mobile": "Mobile Number",
+    "otp": "OTP Verification",
+    "resend": "Resend OTP"
   },
   "common": {
     "hello": "Hello",

@@ -4,6 +4,7 @@ import {Keyboard, TouchableOpacity} from 'react-native';
 import CustomButton from 'src/components/button/CustomButton';
 import CustomText from 'src/components/CustomText';
 import CustomInput from 'src/components/Input/CustomInput';
+import colors from 'src/constants/colors';
 import {AuthStackName} from 'src/constants/routeNames';
 import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
@@ -20,7 +21,7 @@ const SignUp = ({navigation}: AuthStackProps) => {
   const [userNameError, setUserNameError] = useState('');
   const [email, setEmail] = useState('test2@dct.com');
   const [emailError, setEmailError] = useState('');
-  const [mobile, setMobile] = useState('1234567890');
+  const [mobile, setMobile] = useState('9999999991');
   const [mobileError, setMobileError] = useState('');
   const [password, setPassword] = useState('12345678');
   const [passwordError, setPasswordError] = useState('');
@@ -51,6 +52,7 @@ const SignUp = ({navigation}: AuthStackProps) => {
 
   const onSignUpSuccess = data => {
     console.log('data', JSON.stringify(data, null, 2));
+    navigation.navigate(AuthStackName.OTP);
   };
 
   const {isLoading, sendRequest} = useRequest({
@@ -64,7 +66,7 @@ const SignUp = ({navigation}: AuthStackProps) => {
   };
 
   return (
-    <Container>
+    <Container barStyle="dark-content" statusBarColor={colors.defaultWhite}>
       <GradientContainer style={authStyle.container}>
         <CustomText size={30} style={authStyle.textStyle}>
           {t('auth:signUp')}
