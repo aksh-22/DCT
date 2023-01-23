@@ -40,7 +40,6 @@ const Login = ({navigation}: AuthStackProps) => {
   };
 
   const onLoginSuccess = data => {
-    console.log('data', JSON.stringify(data, null, 2));
     const dataToSet = {
       token: data.auth_token,
       user: data.data.user,

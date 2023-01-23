@@ -27,7 +27,6 @@ export const useRequest = ({
 
   const api: any = async (dataToSend: any) => {
     let res;
-    console.log('dataToSend', dataToSend);
 
     switch (requestType) {
       case 'POST':

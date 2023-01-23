@@ -51,7 +51,6 @@ const SignUp = ({navigation}: AuthStackProps) => {
   };
 
   const onSignUpSuccess = data => {
-    console.log('data', JSON.stringify(data, null, 2));
     navigation.navigate(AuthStackName.OTP);
   };
 
