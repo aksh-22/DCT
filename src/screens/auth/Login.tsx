@@ -54,7 +54,7 @@ const Login = ({navigation}: AuthStackProps) => {
   });
 
   const onSignUpPress = () => {
-    navigation.navigate(AuthStackName.SIGN_UP);
+    navigation.navigate(AuthStackName.OTP);
   };
 
   const onForgotPasswordPress = () => {

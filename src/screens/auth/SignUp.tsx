@@ -10,16 +10,19 @@ import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
 import GradientContainer from 'src/container/GradientContainer';
 import {AuthStackProps} from 'src/routes/types/navigation';
+import randomNumber from 'src/utils/randomNumber';
 import authStyle from './auth.style';
+
+const randomNum = randomNumber;
 
 const SignUp = ({navigation}: AuthStackProps) => {
   const {t} = useTranslation();
 
-  const [name, setName] = useState('Aksh Test 1');
+  const [name, setName] = useState(`Aksh Test ${randomNum}`);
   const [nameError, setNameError] = useState('');
-  const [username, setUserName] = useState('akshTest001');
+  const [username, setUserName] = useState(`akshTest00${randomNum}`);
   const [userNameError, setUserNameError] = useState('');
-  const [email, setEmail] = useState('test2@dct.com');
+  const [email, setEmail] = useState(`test${randomNum}@dct.com`);
   const [emailError, setEmailError] = useState('');
   const [mobile, setMobile] = useState('9999999991');
   const [mobileError, setMobileError] = useState('');
@@ -51,7 +54,11 @@ const SignUp = ({navigation}: AuthStackProps) => {
   };
 
   const onSignUpSuccess = data => {
-    navigation.navigate(AuthStackName.OTP);
+    console.log('data', JSON.stringify(data, null, 2));
+    const dataToPass: any = {
+      mobile,
+    };
+    navigation.navigate(AuthStackName.OTP, dataToPass);
   };
 
   const {isLoading, sendRequest} = useRequest({
