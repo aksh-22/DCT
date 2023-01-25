@@ -62,7 +62,7 @@ const OTP = ({route}: AuthStackProps) => {
 
   const onResendOtpPress = () => {
     showMessage({message: 'Coming soon', modalType: 'Success'});
-    // resendSendRequest();
+    resendSendRequest();
   };
 
   return (
