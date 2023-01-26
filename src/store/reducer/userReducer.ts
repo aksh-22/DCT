@@ -4,12 +4,14 @@ interface UProps {
   user: any;
   isLoggedIn: boolean;
   token: string;
+  shareLink: string;
 }
 
 const initialState: UProps = {
   user: {},
   isLoggedIn: false,
   token: '',
+  shareLink: '',
 };
 
 const userSlice = createSlice({
@@ -24,9 +26,13 @@ const userSlice = createSlice({
       state.token = action.payload.token;
       state.user = action.payload.user;
     },
+    setShareLink(state: UProps, action: PayloadAction<string>) {
+      console.log('action.payload', action.payload);
+      state.shareLink = action.payload;
+    },
   },
 });
 
-export const {updateUser, setToken} = userSlice.actions;
+export const {updateUser, setToken, setShareLink} = userSlice.actions;
 
 export default userSlice.reducer;

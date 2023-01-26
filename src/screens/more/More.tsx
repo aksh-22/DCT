@@ -7,10 +7,15 @@ import moreList from 'src/constants/moreList';
 import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
 import {BottomStackProps} from 'src/routes/types/navigation';
+import {useAppSelector} from 'src/utils/reducer';
 import moreStyle from './more.style';
 import MoreItem from './MoreItem';
 
 const More = ({navigation}: BottomStackProps) => {
+  const message = useAppSelector(state => state.userReducer.shareLink);
+
+  console.log('message', message);
+
   const dispatch = useDispatch();
 
   const onLogOutSuccess = () => {
@@ -30,7 +35,7 @@ const More = ({navigation}: BottomStackProps) => {
         break;
 
       case 'share':
-        Share.open({message: 'test'});
+        Share.open({message});
         break;
 
       default:
