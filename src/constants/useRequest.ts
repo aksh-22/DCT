@@ -24,6 +24,7 @@ export const useRequest = ({
   callApiByDefault,
 }: RProps = {}) => {
   const [isLoading, setIsLoading] = useState(callApiByDefault);
+  const [dataFetched, setDataFetched] = useState(null);
 
   const api: any = async (dataToSend: any) => {
     let res;
@@ -42,6 +43,7 @@ export const useRequest = ({
     await api(dataToSend)
       .then(res => {
         onSuccess && onSuccess(res.data);
+        setDataFetched(res.data);
       })
       .catch(error => {
         onError && onError(error);
@@ -59,5 +61,6 @@ export const useRequest = ({
   return {
     isLoading,
     sendRequest,
+    dataFetched,
   };
 };

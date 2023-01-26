@@ -6,10 +6,15 @@ import colors from 'src/constants/colors';
 import globalStyles from 'src/constants/globalStyles';
 import rateList from 'src/constants/rateList';
 import {BottomStackName} from 'src/constants/routeNames';
+import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
 import rateStyle from './rate.style';
 
 const Rate = ({}: BottomStackName) => {
+  const {isLoading, dataFetched} = useRequest({
+    endpoint: 'markets',
+  });
+
   return (
     <>
       <CustomHeader isBack heading="Game Rates" />

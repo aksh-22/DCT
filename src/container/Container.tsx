@@ -11,6 +11,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import LoadingContainer from 'src/components/loading/LoadingContainer';
 import colors from 'src/constants/colors';
 
 type Props = {
@@ -23,6 +24,7 @@ type Props = {
   onRefresh?: () => void;
   refreshLoading?: boolean;
   backgroundColor?: string;
+  containerLoading?: boolean;
 };
 
 const Container = ({
@@ -35,6 +37,7 @@ const Container = ({
   onRefresh,
   refreshLoading,
   backgroundColor = colors.defaultWhite,
+  containerLoading,
 }: Props) => {
   const {addListener} = useNavigation<NativeStackNavigationProp<any>>();
 
@@ -74,7 +77,7 @@ const Container = ({
           contentContainerStyle,
         ]}
         style={[styles.view, style, {backgroundColor}]}>
-        {children}
+        {containerLoading ? <LoadingContainer /> : children}
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );
