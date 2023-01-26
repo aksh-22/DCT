@@ -1,15 +1,14 @@
 import React from 'react';
 import {View} from 'react-native';
+import Share from 'react-native-share';
 import {useDispatch} from 'react-redux';
 import CustomHeader from 'src/components/header/CustomHeader';
 import moreList from 'src/constants/moreList';
+import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
 import {BottomStackProps} from 'src/routes/types/navigation';
-import {setToken} from 'src/store/reducer/userReducer';
 import moreStyle from './more.style';
 import MoreItem from './MoreItem';
-import Share from 'react-native-share';
-import {useRequest} from 'src/constants/useRequest';
 
 const More = ({navigation}: BottomStackProps) => {
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ const More = ({navigation}: BottomStackProps) => {
     dispatch({type: 'CLEAR_REDUX'});
   };
 
-  const {isLoading, sendRequest} = useRequest({
+  const {sendRequest} = useRequest({
     endpoint: 'auth/logout',
     onSuccess: onLogOutSuccess,
   });
@@ -31,7 +30,7 @@ const More = ({navigation}: BottomStackProps) => {
         break;
 
       case 'share':
-        // Share.Sheet();
+        Share.open({message: 'test'});
         break;
 
       default:
