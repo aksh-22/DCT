@@ -44,6 +44,7 @@ export const useRequest = ({
       .then(res => {
         onSuccess && onSuccess(res.data);
         setDataFetched(res.data);
+        console.log('res.data', JSON.stringify(res.data, null, 2));
       })
       .catch(error => {
         onError && onError(error);

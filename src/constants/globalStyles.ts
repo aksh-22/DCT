@@ -73,6 +73,9 @@ export default StyleSheet.create({
   pd_20: {
     padding: 20,
   },
+  pdb_100: {
+    paddingBottom: 100,
+  },
   headingText: {
     color: colors.defaultBlack,
     fontSize: 18,
