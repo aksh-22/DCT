@@ -1,17 +1,23 @@
 import React from 'react';
-import {View} from 'react-native';
+import {ActivityIndicator, View} from 'react-native';
 import CustomText from 'src/components/CustomText';
 import VectorIcon from 'src/components/IconsFamily';
 import colors from 'src/constants/colors';
 import globalStyles from 'src/constants/globalStyles';
 import homeStyle from './home.style';
 
-type Props = {};
+type Props = {
+  customText: string;
+};
 
-const Deposit = ({}: Props) => {
+const Deposit = ({customText}: Props) => {
   return (
     <View style={homeStyle.depositBox}>
-      <CustomText size={18}>Click to deposit point</CustomText>
+      {customText ? (
+        <CustomText size={18}>{customText}</CustomText>
+      ) : (
+        <ActivityIndicator />
+      )}
       <View style={globalStyles.centerAlign}>
         <VectorIcon name="logo-whatsapp" color={colors.whatsAppGreen} />
         <CustomText style={homeStyle.phoneText} size={16}>

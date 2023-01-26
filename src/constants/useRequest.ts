@@ -23,7 +23,7 @@ export const useRequest = ({
   data,
   callApiByDefault,
 }: RProps = {}) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(callApiByDefault);
 
   const api: any = async (dataToSend: any) => {
     let res;
