@@ -42,6 +42,7 @@ type Props = {
   multiline?: boolean;
   inputBoxStyle?: TextStyle;
   errorMessage?: string;
+  editable?: boolean;
 };
 
 const CustomInput = ({
@@ -58,6 +59,7 @@ const CustomInput = ({
   multiline,
   inputBoxStyle,
   errorMessage,
+  editable,
 }: Props) => {
   const [secure, setSecure] = useState(secureTextEntry);
 
@@ -99,6 +101,7 @@ const CustomInput = ({
           placeholderTextColor={colors.placeholderColor}
           multiline={multiline}
           textAlignVertical={multiline ? 'top' : 'auto'}
+          editable={editable}
         />
         {secureTextEntry && (
           <VectorIcon
