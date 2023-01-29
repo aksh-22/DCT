@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import CustomButton from 'src/components/button/CustomButton';
@@ -17,6 +17,7 @@ type RProps = {
   dataFetched: {
     data: marketDataType;
   };
+  sendRequest: (data?: any) => void;
 };
 
 const Home = ({}: BottomStackProps) => {
@@ -27,18 +28,24 @@ const Home = ({}: BottomStackProps) => {
     dispatch(setShareLink(fData.data.share_link));
   };
 
-  const {isLoading, dataFetched}: RProps = useRequest({
+  const {isLoading, dataFetched, sendRequest}: RProps = useRequest({
     endpoint: 'markets',
     callApiByDefault: true,
     onSuccess: onSuccess,
   });
 
+  useEffect(() => {
+    console.log(dataFetched);
+  }, [dataFetched]);
+
   return (
     <>
       <CustomHeader heading="DCT" />
       <Container
+        onRefresh={sendRequest}
+        refreshLoading={dataFetched?.data?.markets?.length && isLoading}
         contentContainerStyle={homeStyle.container}
-        containerLoading={isLoading}>
+        containerLoading={!dataFetched?.data?.markets?.length && isLoading}>
         <CustomButton
           disabled
           title="Welcome To DCT"
