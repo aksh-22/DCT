@@ -6,7 +6,7 @@ type Props = {};
 const ConfirmationModal = ({}: Props) => {
   return (
     <View>
-      <Text>ConfirmationModal</Text>
+      <Text>ConfirmationModal1</Text>
     </View>
   );
 };
