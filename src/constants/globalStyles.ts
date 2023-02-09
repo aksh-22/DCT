@@ -122,4 +122,18 @@ export default StyleSheet.create({
     backgroundColor: colors.defaultBlack,
     alignSelf: 'center',
   },
+  zIndex_1: {
+    zIndex: 1,
+  },
+});
+export const margin = (
+  marginTop?: number,
+  marginBottom?: number,
+  marginLeft?: number,
+  marginRight?: number,
+) => ({
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
 });

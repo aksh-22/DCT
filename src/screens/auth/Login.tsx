@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {ImageBackground, Keyboard, TouchableOpacity} from 'react-native';
+import {ImageBackground, Keyboard, TouchableOpacity, View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import Logo from 'src/assets/svg/logo.svg';
 import CustomButton from 'src/components/button/CustomButton';
 import CustomText from 'src/components/CustomText';
 import CustomInput from 'src/components/Input/CustomInput';
+import {margin} from 'src/constants/globalStyles';
 import {AuthStackName} from 'src/constants/routeNames';
 import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
@@ -77,38 +78,40 @@ const Login = ({navigation}: AuthStackProps) => {
         <CustomText size={15} center>
           {t('auth:enter')}
         </CustomText>
-        <CustomInput
-          value={name}
-          mainContainerStyle={authStyle.inputContainer}
-          iconName="person-outline"
-          placeholder={t('auth:userName')}
-          onChangeText={txt => {
-            setName(txt);
-            nameError && setNameError('');
-          }}
-          errorMessage={nameError}
-          customIconName="person"
-        />
-        <CustomInput
-          value={password}
-          mainContainerStyle={authStyle.inputContainer}
-          iconName="lock-closed-outline"
-          placeholder={t('auth:password')}
-          secureTextEntry
-          onChangeText={txt => {
-            setPassword(txt);
-            passwordError && setPasswordError('');
-          }}
-          errorMessage={passwordError}
-        />
-        <TouchableOpacity onPress={onForgotPasswordPress}>
+        <View style={margin(30)}>
+          <CustomInput
+            value={name}
+            mainContainerStyle={authStyle.inputContainer}
+            iconName="person-outline"
+            placeholder={t('auth:userName')}
+            onChangeText={txt => {
+              setName(txt);
+              nameError && setNameError('');
+            }}
+            errorMessage={nameError}
+            customIconName="person"
+          />
+          <CustomInput
+            value={password}
+            mainContainerStyle={authStyle.inputContainer}
+            iconName="lock-closed-outline"
+            placeholder={t('auth:password')}
+            secureTextEntry
+            onChangeText={txt => {
+              setPassword(txt);
+              passwordError && setPasswordError('');
+            }}
+            errorMessage={passwordError}
+          />
+        </View>
+        <TouchableOpacity onPress={onForgotPasswordPress} style={margin(0, 10)}>
           <CustomText size={14} color="purple" style={authStyle.forgotPassText}>
             {t('auth:forgot')}
           </CustomText>
         </TouchableOpacity>
         <CustomButton
           isLoading={isLoading}
-          style={authStyle.buttonStyle}
+          style={margin(20, 40)}
           onPress={loginPress}
           title={t('auth:login')}
         />

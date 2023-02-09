@@ -9,9 +9,6 @@ export default StyleSheet.create({
   inputContainer: {
     marginTop: 20,
   },
-  buttonStyle: {
-    marginVertical: 20,
-  },
   loginImage: {
     width: SCREEN_WIDTH - 20,
     height: 300,

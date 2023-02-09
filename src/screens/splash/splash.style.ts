@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {SCREEN_HEIGHT, SCREEN_WIDTH} from 'src/constants/deviceInfo';
+import {SCREEN_WIDTH} from 'src/constants/deviceInfo';
 
 export default StyleSheet.create({
   circle: {

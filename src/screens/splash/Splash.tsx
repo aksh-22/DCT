@@ -6,7 +6,7 @@ import ContainerWithoutScroll from 'src/container/ContainerWithoutScroll';
 const Splash = () => {
   return (
     <ContainerWithoutScroll style={globalStyles.container_center}>
-      <Logo style={{zIndex: 10}} />
+      <Logo style={globalStyles.zIndex_1} />
     </ContainerWithoutScroll>
   );
 };
