@@ -62,7 +62,7 @@ const Login = ({navigation}: AuthStackProps) => {
   };
 
   return (
-    <Container barStyle="dark-content" statusBarColor={colors.defaultWhite}>
+    <Container>
       <GradientContainer style={authStyle.container}>
         <CustomText size={30} style={authStyle.textStyle}>
           {t('auth:login')}

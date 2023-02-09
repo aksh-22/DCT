@@ -32,11 +32,11 @@ const Container = ({
   SafeAreaViewStyle,
   style,
   contentContainerStyle,
-  statusBarColor = colors.buttonColor1,
+  statusBarColor = colors.background,
   barStyle = 'light-content',
   onRefresh,
   refreshLoading,
-  backgroundColor = colors.defaultWhite,
+  backgroundColor = colors.background,
   containerLoading,
 }: Props) => {
   const {addListener} = useNavigation<NativeStackNavigationProp<any>>();

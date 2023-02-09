@@ -1,5 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {RootStackName, WalletStackName} from 'src/constants/routeNames';
 import Splash from 'src/screens/splash/Splash';
 import WalletHistory from 'src/screens/wallet/wallet/WalletHistory';
@@ -17,18 +17,15 @@ const RootStack = ({}: Props) => {
 
   const isLoggedIn = useAppSelector(state => state.userReducer.isLoggedIn);
 
-  const onAnimationFinish = () => {
-    setShowLottie(false);
-  };
+  useEffect(() => {
+    setTimeout(() => {
+      // setShowLottie(false);
+    }, 2000);
+  }, []);
 
   return (
     <Navigator screenOptions={{headerShown: false}}>
-      {/* {showLottie && (
-        <Screen
-          name={RootStackName.SPLASH}
-          children={() => <Splash onAnimationFinish={onAnimationFinish} />}
-        />
-      )} */}
+      {showLottie && <Screen name={RootStackName.SPLASH} component={Splash} />}
       {!isLoggedIn ? (
         <Screen name={RootStackName.AUTH_STACK} component={AuthStack} />
       ) : (
@@ -40,12 +37,6 @@ const RootStack = ({}: Props) => {
           <Screen
             name={WalletStackName.WALLET_HISTORY}
             component={WalletHistory}
-            options={
-              {
-                // tabBarItemStyle: {display: 'none'},
-                // tabBarStyle: {display: 'none'},
-              }
-            }
           />
         </>
       )}

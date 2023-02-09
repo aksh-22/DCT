@@ -25,7 +25,7 @@ const ContainerWithoutScroll = ({
   children,
   SafeAreaViewStyle,
   style,
-  statusBarColor = colors.buttonColor1,
+  statusBarColor = colors.background,
   barStyle = 'light-content',
 }: Props) => {
   const {addListener} = useNavigation<NativeStackNavigationProp<any>>();
@@ -56,7 +56,7 @@ export default ContainerWithoutScroll;
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-    backgroundColor: colors.defaultWhite,
+    backgroundColor: colors.background,
   },
   SafeAreaView: {
     flex: 1,
