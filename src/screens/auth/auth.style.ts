@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from 'src/constants/colors';
+import {SCREEN_WIDTH} from 'src/constants/deviceInfo';
 
 export default StyleSheet.create({
   container: {
@@ -11,8 +12,12 @@ export default StyleSheet.create({
   buttonStyle: {
     marginVertical: 20,
   },
-  textStyle: {
-    textAlign: 'center',
+  loginImage: {
+    width: SCREEN_WIDTH - 20,
+    height: 300,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
   },
   forgotPassText: {
     textAlign: 'right',

@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {Keyboard, TouchableOpacity} from 'react-native';
+import {ImageBackground, Keyboard, TouchableOpacity} from 'react-native';
 import {useDispatch} from 'react-redux';
+import Logo from 'src/assets/svg/logo.svg';
 import CustomButton from 'src/components/button/CustomButton';
 import CustomText from 'src/components/CustomText';
 import CustomInput from 'src/components/Input/CustomInput';
-import colors from 'src/constants/colors';
 import {AuthStackName} from 'src/constants/routeNames';
 import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
@@ -64,8 +64,18 @@ const Login = ({navigation}: AuthStackProps) => {
   return (
     <Container>
       <GradientContainer style={authStyle.container}>
-        <CustomText size={30} style={authStyle.textStyle}>
+        <ImageBackground
+          source={require('src/assets/img/login.png')}
+          resizeMode="contain"
+          style={authStyle.loginImage}>
+          <Logo />
+          <CustomText size={47}>{t('common:dct')}</CustomText>
+        </ImageBackground>
+        <CustomText size={30} center>
           {t('auth:login')}
+        </CustomText>
+        <CustomText size={15} center>
+          {t('auth:enter')}
         </CustomText>
         <CustomInput
           value={name}
@@ -77,6 +87,7 @@ const Login = ({navigation}: AuthStackProps) => {
             nameError && setNameError('');
           }}
           errorMessage={nameError}
+          customIconName="person"
         />
         <CustomInput
           value={password}
@@ -91,7 +102,7 @@ const Login = ({navigation}: AuthStackProps) => {
           errorMessage={passwordError}
         />
         <TouchableOpacity onPress={onForgotPasswordPress}>
-          <CustomText style={authStyle.forgotPassText}>
+          <CustomText size={14} color="purple" style={authStyle.forgotPassText}>
             {t('auth:forgot')}
           </CustomText>
         </TouchableOpacity>
@@ -103,7 +114,10 @@ const Login = ({navigation}: AuthStackProps) => {
         />
         <TouchableOpacity onPress={onSignUpPress}>
           <CustomText style={authStyle.signUp}>
-            {t('auth:noAccount')} <CustomText>{t('auth:signUp')}</CustomText>
+            {t('auth:noAccount')}{' '}
+            <CustomText size={16} color="purple">
+              {t('auth:signUpNow')}
+            </CustomText>
           </CustomText>
         </TouchableOpacity>
       </GradientContainer>

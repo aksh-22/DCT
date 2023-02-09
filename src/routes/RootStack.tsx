@@ -19,7 +19,7 @@ const RootStack = ({}: Props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      // setShowLottie(false);
+      setShowLottie(false);
     }, 2000);
   }, []);
 

@@ -3,7 +3,7 @@
     "login": "Login",
     "userName": "User Name",
     "password": "Password",
-    "forgot": "Forgot Password",
+    "forgot": "Forgot Password?",
     "noAccount": "Don't have an account?",
     "haveAccount": "Already have an account?",
     "signUp": "Sign Up",
@@ -12,7 +12,9 @@
     "name": "Name",
     "mobile": "Mobile Number",
     "otp": "OTP Verification",
-    "resend": "Resend OTP"
+    "resend": "Resend OTP",
+    "enter": "Enter your credential to continue",
+    "signUpNow": "SIGN UP NOW"
   },
   "common": {
     "hello": "Hello",
@@ -20,7 +22,8 @@
     "next": "Next",
     "skip": "Skip",
     "back": "Back",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "dct": "DCT"
   },
   "splash": {
     "secretPotion": "SECRET POTION"

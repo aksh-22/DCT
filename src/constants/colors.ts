@@ -6,17 +6,19 @@
 
 export default {
   defaultWhite: '#fff',
+  white: '#fff',
   defaultBlack: '#000',
+  gradientColor: '#220E35',
+  background: '#140622',
+  background2: '#31174A',
+  purple: '#8B3CEE',
   primaryColor: '#8BE58C',
   borderColor: '#AAAAAA',
-  placeholderColor: '#2a2a2a80',
-  gradientColor1: '#220E35',
-  gradientColor2: '#220E35',
+  placeholderColor: '#67537A',
   buttonColor1: '#001247',
   buttonColor2: '#000066',
   whatsAppGreen: '#128C7E',
   green: '#8BE58C',
-  background: '#140622',
   ///////////
   red: 'red',
   orange: '#fe8c12',

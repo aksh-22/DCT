@@ -3,11 +3,13 @@ import colors from 'src/constants/colors';
 
 export default StyleSheet.create({
   container: {
-    // backgroundColor: colors.buttonColor,
+    backgroundColor: colors.purple,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 10,
-    borderRadius: 8,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    borderRadius: 24,
+    alignSelf: 'center',
   },
   titleStyle: {
     color: colors.defaultWhite,

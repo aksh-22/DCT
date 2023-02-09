@@ -7,16 +7,27 @@ export default StyleSheet.create({
   subContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 28,
+    backgroundColor: colors.background2,
   },
   icon: {
-    paddingHorizontal: 10,
+    marginRight: 30,
+    borderRadius: 20,
+  },
+  mainIcon: {
+    position: 'absolute',
+    right: -10,
+    backgroundColor: colors.purple,
+    borderRadius: 20,
+    height: 30,
+    width: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   inputField: {
     flex: 1,
     fontFamily: fonts.regular,
-    color: colors.defaultBlack,
+    paddingLeft: 20,
   },
   error: {
     color: colors.red,

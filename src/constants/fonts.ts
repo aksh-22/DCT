@@ -1,6 +1,6 @@
 export enum fonts {
   // bold = 'Poppins-Bold',
   // medium = 'Poppins-Medium',
-  regular = 'CarterOne-Regular',
+  regular = 'Itim-Regular',
   // semiBold = 'Poppins-SemiBold',
 }

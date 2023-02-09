@@ -11,6 +11,9 @@ export default key => {
     case 2:
       return colors.lightYellow;
 
+    case 'purple':
+      return colors.fontColor2;
+
     default:
       return colors.lightPink;
   }

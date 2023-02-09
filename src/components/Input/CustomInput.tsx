@@ -9,28 +9,15 @@ import {
 import {} from 'react-native-vector-icons';
 import colors from 'src/constants/colors';
 import globalStyles from 'src/constants/globalStyles';
+import {customFontFamilyType, fontFamilyType} from 'typings/icon-family-tyoe';
+import CustomIcon from '../CustomIcon';
 import CustomText from '../CustomText';
 import VectorIcon from '../IconsFamily';
 import inputStyle from './input.style';
 
 type Props = {
   iconName?: string;
-  iconFamily?:
-    | 'AntDesign'
-    | 'Entypo'
-    | 'EvilIcons'
-    | 'Feather'
-    | 'FontAwesome'
-    | 'FontAwesome5'
-    | 'Fontisto'
-    | 'Foundation'
-    | 'Ionicons'
-    | 'MaterialCommunityIcons'
-    | 'MaterialIcons'
-    | 'Octicons'
-    | 'SimpleLineIcons'
-    | 'Zocial'
-    | 'FontAwesome5Pro';
+  iconFamily?: fontFamilyType;
   placeholder?: string;
   value?: string | number | any;
   keyboardType?: KeyboardTypeOptions;
@@ -43,6 +30,7 @@ type Props = {
   inputBoxStyle?: TextStyle;
   errorMessage?: string;
   editable?: boolean;
+  customIconName?: customFontFamilyType;
 };
 
 const CustomInput = ({
@@ -60,6 +48,7 @@ const CustomInput = ({
   inputBoxStyle,
   errorMessage,
   editable,
+  customIconName,
 }: Props) => {
   const [secure, setSecure] = useState(secureTextEntry);
 
@@ -80,19 +69,26 @@ const CustomInput = ({
           {borderColor: errorMessage ? colors.red : colors.borderColor},
         ]}>
         {iconName && (
-          <VectorIcon
-            style={inputStyle.icon}
-            family={iconFamily}
-            name={iconName}
-            color={errorMessage ? colors.red : colors.defaultBlack}
-          />
+          <View style={inputStyle.mainIcon}>
+            <VectorIcon
+              family={iconFamily}
+              name={iconName}
+              color={errorMessage ? colors.red : colors.defaultWhite}
+              size={15}
+            />
+          </View>
+        )}
+        {customIconName && (
+          <View style={inputStyle.mainIcon}>
+            <CustomIcon name={customIconName} />
+          </View>
         )}
         <TextInput
           value={value}
           placeholder={placeholder}
           style={[
             inputStyle.inputField,
-            {color: errorMessage ? colors.red : colors.defaultBlack},
+            {color: errorMessage ? colors.red : colors.defaultWhite},
             inputBoxStyle,
           ]}
           keyboardType={keyboardType}
@@ -108,6 +104,7 @@ const CustomInput = ({
             style={inputStyle.icon}
             name={secure ? 'eye-outline' : 'eye-off-outline'}
             onPress={onEyePress}
+            color={colors.defaultWhite}
           />
         )}
       </View>

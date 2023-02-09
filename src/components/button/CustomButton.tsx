@@ -3,9 +3,9 @@ import {
   ActivityIndicator,
   TextStyle,
   TouchableOpacity,
+  View,
   ViewStyle,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import colors from 'src/constants/colors';
 import CustomText from '../CustomText';
 import buttonStyle from './button.style';
@@ -29,17 +29,15 @@ const CustomButton = ({
 }: Props) => {
   return (
     <TouchableOpacity disabled={disabled} onPress={onPress}>
-      <LinearGradient
-        colors={[colors.buttonColor2, colors.buttonColor1]}
-        style={[buttonStyle.container, style]}>
+      <View style={[buttonStyle.container, style]}>
         {isLoading ? (
           <ActivityIndicator color={colors.defaultWhite} />
         ) : (
-          <CustomText style={[buttonStyle.titleStyle, titleStyle]}>
+          <CustomText size={17} style={[buttonStyle.titleStyle, titleStyle]}>
             {title}
           </CustomText>
         )}
-      </LinearGradient>
+      </View>
     </TouchableOpacity>
   );
 };

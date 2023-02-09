@@ -4,6 +4,10 @@
     {
       "path": "src/assets/fonts/CarterOne-Regular.ttf",
       "sha1": "088987baf523ac206b1d9b9e350bc72bf3949bd3"
+    },
+    {
+      "path": "src/assets/fonts/Itim-Regular.ttf",
+      "sha1": "541b4ee96a4419d10f67fcc001a739a055298e47"
     }
   ]
 }
