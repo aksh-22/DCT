@@ -15,4 +15,4 @@ export type fontFamilyType =
   | 'Zocial'
   | 'FontAwesome5Pro';
 
-export type customFontFamilyType = 'person';
+export type customFontFamilyType = 'person' | 'lock';

@@ -94,7 +94,7 @@ const Login = ({navigation}: AuthStackProps) => {
           <CustomInput
             value={password}
             mainContainerStyle={authStyle.inputContainer}
-            iconName="lock-closed-outline"
+            customIconName="lock"
             placeholder={t('auth:password')}
             secureTextEntry
             onChangeText={txt => {
