@@ -20,4 +20,7 @@ export type customFontFamilyType =
   | 'lock'
   | 'name'
   | 'mobile'
-  | 'password';
+  | 'password'
+  | 'home'
+  | 'my-bet'
+  | 'withdrawal';

@@ -1,8 +1,10 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import CustomIcon from 'src/components/CustomIcon';
 import VectorIcon from 'src/components/IconsFamily';
 import colors from 'src/constants/colors';
+import {fonts} from 'src/constants/fonts';
 import globalStyles from 'src/constants/globalStyles';
 import {BottomStackName} from 'src/constants/routeNames';
 import MyBet from 'src/screens/bet/MyBet';
@@ -19,8 +21,8 @@ const BottomTabStack = () => {
     <Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: colors.Candlelight,
-        tabBarInactiveTintColor: colors.primaryColor,
+        tabBarActiveTintColor: colors.active,
+        tabBarInactiveTintColor: colors.inactive,
         tabBarStyle: styles.tabBarStyle,
         tabBarLabelStyle: styles.tabBarLabelStyle,
         // tabBarShowLabel: false,
@@ -29,38 +31,22 @@ const BottomTabStack = () => {
         name={BottomStackName.HOME}
         component={Home}
         options={{
-          tabBarIcon: color => (
-            <VectorIcon size={25} name="home" color={color.color} />
-          ),
+          tabBarIcon: color => <CustomIcon name="home" fill={color.color} />,
         }}
       />
       <Screen
         name={BottomStackName.MY_BET}
         component={MyBet}
         options={{
-          tabBarIcon: color => (
-            <VectorIcon
-              size={25}
-              family="MaterialCommunityIcons"
-              name="dice-multiple"
-              color={color.color}
-            />
-          ),
+          tabBarIcon: color => <CustomIcon name="my-bet" fill={color.color} />,
         }}
       />
       <Screen
-        name={BottomStackName.WALLET}
+        name={BottomStackName.WITHDRAWAL}
         component={WalletStack}
         options={{
           tabBarIcon: color => (
-            <VectorIcon size={20} name="wallet-outline" color={color.color} />
-            // <View>
-            //   <View style={styles.labelWrapper}>
-            //     <CustomText style={[styles.label, {color: color.color}]}>
-            //       {numberFormatter(1000)} {rupee}
-            //     </CustomText>
-            //   </View>
-            // </View>
+            <CustomIcon name="withdrawal" fill={color.color} />
           ),
         }}
       />
@@ -90,12 +76,14 @@ const styles = StyleSheet.create({
     right: 30,
     borderRadius: 20,
     height: 60,
-    backgroundColor: colors.buttonColor1,
+    backgroundColor: colors.background3,
     ...globalStyles.shadow,
   },
   tabBarLabelStyle: {
     marginBottom: 8,
     marginTop: -8,
+    fontFamily: fonts.regular,
+    fontSize: 12,
   },
   iconWrapper: {
     flexDirection: 'row',

@@ -13,6 +13,8 @@ export default {
   background2: '#31174A',
   background3: '#0C0116',
   purple: '#8B3CEE',
+  inactive: '#6A5287',
+  active: '#F58534',
   primaryColor: '#8BE58C',
   borderColor: '#AAAAAA',
   placeholderColor: '#67537A',

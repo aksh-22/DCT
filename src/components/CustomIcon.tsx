@@ -5,14 +5,18 @@ import Lock from 'src/assets/svg/lock.svg';
 import Name from 'src/assets/svg/name.svg';
 import Mobile from 'src/assets/svg/mobile.svg';
 import Password from 'src/assets/svg/password.svg';
+import Home from 'src/assets/svg/home.svg';
+import MyBet from 'src/assets/svg/myBet.svg';
+import Withdrawal from 'src/assets/svg/withdrawal.svg';
 import {customFontFamilyType} from 'typings/icon-family-tyoe';
+import {SvgProps} from 'react-native-svg';
 
-type Props = {
+interface Props extends SvgProps {
   onPress?: () => void;
   name?: customFontFamilyType;
-};
+}
 
-const CustomIcon = ({onPress, name}: Props) => {
+const CustomIcon = ({onPress, name, ...rest}: Props) => {
   let Icon;
 
   switch (name) {
@@ -36,13 +40,25 @@ const CustomIcon = ({onPress, name}: Props) => {
       Icon = Password;
       break;
 
+    case 'home':
+      Icon = Home;
+      break;
+
+    case 'my-bet':
+      Icon = MyBet;
+      break;
+
+    case 'withdrawal':
+      Icon = Withdrawal;
+      break;
+
     default:
       break;
   }
 
   return (
     <TouchableOpacity disabled={!onPress} onPress={onPress}>
-      <Icon />
+      <Icon {...rest} />
     </TouchableOpacity>
   );
 };
