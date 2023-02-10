@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   otpContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     // marginHorizontal: 20,
   },
   otpInput: {
@@ -91,11 +91,13 @@ const styles = StyleSheet.create({
     width: 50,
     backgroundColor: colors.background2,
     borderRadius: 10,
-    flex: 1,
+    // flex: 1,
     marginHorizontal: Platform.select({ios: 20, android: 15}),
     fontFamily: fonts.regular,
     textAlign: 'center',
-    color: colors.defaultBlack,
+    color: colors.defaultWhite,
+    borderWidth: 1,
+    borderColor: colors.defaultWhite,
   },
   error: {
     fontFamily: fonts.regular,

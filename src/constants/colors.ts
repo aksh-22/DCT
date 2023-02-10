@@ -11,6 +11,7 @@ export default {
   gradientColor: '#220E35',
   background: '#140622',
   background2: '#31174A',
+  background3: '#0C0116',
   purple: '#8B3CEE',
   primaryColor: '#8BE58C',
   borderColor: '#AAAAAA',

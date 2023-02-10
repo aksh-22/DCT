@@ -7,6 +7,7 @@ import CustomText from 'src/components/CustomText';
 import {showMessage} from 'src/components/MessageModal';
 import OTPInput from 'src/components/OTPInput';
 import colors from 'src/constants/colors';
+import {margin} from 'src/constants/globalStyles';
 import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
 import GradientContainer from 'src/container/GradientContainer';
@@ -66,9 +67,9 @@ const OTP = ({route}: AuthStackProps) => {
   };
 
   return (
-    <Container barStyle="dark-content" statusBarColor={colors.defaultWhite}>
+    <Container>
       <GradientContainer style={authStyle.container}>
-        <CustomText size={30} style={authStyle.textStyle}>
+        <CustomText size={30} center style={margin(0, 30)}>
           {t('auth:otp')}
         </CustomText>
         <OTPInput
@@ -84,9 +85,9 @@ const OTP = ({route}: AuthStackProps) => {
         />
         <CustomButton
           isLoading={isLoading}
-          style={authStyle.buttonStyle}
           title={t('auth:submit')}
           onPress={onSubmitPress}
+          style={margin(30)}
         />
         <TouchableOpacity
           onPress={onResendOtpPress}

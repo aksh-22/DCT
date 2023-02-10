@@ -29,8 +29,7 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   otpInputStyle: {
-    backgroundColor: colors.transparent,
-    borderBottomWidth: 2,
-    marginHorizontal: 0,
+    backgroundColor: colors.background2,
+    marginHorizontal: 5,
   },
 });
