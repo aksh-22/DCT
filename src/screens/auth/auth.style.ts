@@ -4,6 +4,7 @@ import {SCREEN_WIDTH} from 'src/constants/deviceInfo';
 
 export default StyleSheet.create({
   container: {
+    flex: 1,
     padding: 20,
   },
   inputContainer: {
@@ -26,7 +27,6 @@ export default StyleSheet.create({
   },
   signUp: {
     textAlign: 'center',
-    fontFamily: 'none',
   },
   otpInputStyle: {
     backgroundColor: colors.transparent,

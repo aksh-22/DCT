@@ -126,6 +126,7 @@ export default StyleSheet.create({
     zIndex: 1,
   },
 });
+
 export const margin = (
   marginTop?: number,
   marginBottom?: number,
@@ -136,4 +137,16 @@ export const margin = (
   marginBottom,
   marginLeft,
   marginRight,
+});
+
+export const padding = (
+  paddingTop?: number,
+  paddingBottom?: number,
+  paddingLeft?: number,
+  paddingRight?: number,
+) => ({
+  paddingTop,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
 });

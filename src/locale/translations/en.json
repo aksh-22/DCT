@@ -4,8 +4,8 @@
     "userName": "User Name",
     "password": "Password",
     "forgot": "Forgot Password?",
-    "noAccount": "Don't have an account?",
-    "haveAccount": "Already have an account?",
+    "noAccount": "Don't have an account? ",
+    "haveAccount": "Already have an account? ",
     "signUp": "Sign Up",
     "email": "Email",
     "submit": "Submit",
@@ -14,7 +14,8 @@
     "otp": "OTP Verification",
     "resend": "Resend OTP",
     "enter": "Enter your credential to continue",
-    "signUpNow": "SIGN UP NOW"
+    "signUpNow": "SIGN UP NOW",
+    "belowDetails": "Enter below details to create your account"
   },
   "common": {
     "hello": "Hello",

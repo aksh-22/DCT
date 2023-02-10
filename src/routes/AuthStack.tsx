@@ -2,9 +2,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {AuthStackName} from 'src/constants/routeNames';
 import ForgotPassword from 'src/screens/auth/ForgotPassword';
-import Login from 'src/screens/auth/Login';
+import Login from 'src/screens/auth/login/Login';
 import OTP from 'src/screens/auth/OTP';
-import SignUp from 'src/screens/auth/SignUp';
+import SignUp from 'src/screens/auth/signup/SignUp';
 const Stack = createNativeStackNavigator();
 
 type Props = {};
