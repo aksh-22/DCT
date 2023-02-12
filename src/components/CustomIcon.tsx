@@ -18,6 +18,7 @@ import GameRate from 'src/assets/svg/game-rate.svg';
 import Feedback from 'src/assets/svg/feedback.svg';
 import Share from 'src/assets/svg/share.svg';
 import HowToPlay from 'src/assets/svg/howToPlay.svg';
+import Edit from 'src/assets/svg/edit.svg';
 
 interface Props extends SvgProps {
   name?: customFontFamilyType;
@@ -72,6 +73,9 @@ const getIcon = (name: customFontFamilyType) => {
 
     case 'how-to-play':
       return HowToPlay;
+
+    case 'edit':
+      return Edit;
 
     default:
       return Lock;

@@ -29,4 +29,5 @@ export type customFontFamilyType =
   | 'game-rate'
   | 'feedback'
   | 'share'
-  | 'how-to-play';
+  | 'how-to-play'
+  | 'edit';

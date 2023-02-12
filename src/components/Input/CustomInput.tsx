@@ -24,6 +24,7 @@ type Props = {
   onChangeText?: (text: string) => void;
   secureTextEntry?: boolean;
   mainContainerStyle?: ViewStyle;
+  mainIconStyle?: ViewStyle;
   label?: string;
   showLabel?: boolean;
   multiline?: boolean;
@@ -49,8 +50,11 @@ const CustomInput = ({
   errorMessage,
   editable,
   customIconName,
+  mainIconStyle,
 }: Props) => {
   const [secure, setSecure] = useState(secureTextEntry);
+
+  console.log('mainIconStyle', mainIconStyle);
 
   const onEyePress = () => {
     setSecure(prev => !prev);
@@ -69,7 +73,7 @@ const CustomInput = ({
           {borderColor: errorMessage ? colors.red : colors.borderColor},
         ]}>
         {iconName && (
-          <View style={inputStyle.mainIcon}>
+          <View style={[inputStyle.mainIcon, mainIconStyle]}>
             <VectorIcon
               family={iconFamily}
               name={iconName}
@@ -79,7 +83,7 @@ const CustomInput = ({
           </View>
         )}
         {customIconName && (
-          <View style={inputStyle.mainIcon}>
+          <View style={[inputStyle.mainIcon, mainIconStyle]}>
             <CustomIcon name={customIconName} />
           </View>
         )}

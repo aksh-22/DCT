@@ -20,6 +20,8 @@ const Feedback = ({}: Props) => {
           multiline
           inputBoxStyle={feedbackStyle.input}
           placeholder="Write your feedback here..."
+          customIconName="edit"
+          mainIconStyle={feedbackStyle.mainIconStyle}
         />
         <CustomButton title="Submit" style={margin(30)} />
       </Container>
