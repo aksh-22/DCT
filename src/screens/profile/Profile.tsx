@@ -14,7 +14,7 @@ const Profile = ({}: Props) => {
 
   return (
     <>
-      <CustomHeader isBack heading="Profile" />
+      <CustomHeader isBack />
       <Container contentContainerStyle={globalStyles.pd_20}>
         <CustomInput
           mainContainerStyle={profileStyle.input}
@@ -22,6 +22,7 @@ const Profile = ({}: Props) => {
           label="Name"
           value={user.name}
           editable={false}
+          customIconName="name"
         />
         <CustomInput
           mainContainerStyle={profileStyle.input}
@@ -29,6 +30,7 @@ const Profile = ({}: Props) => {
           label="Email"
           value={user.email}
           editable={false}
+          iconName="mail-outline"
         />
         <CustomInput
           mainContainerStyle={profileStyle.input}
@@ -36,6 +38,7 @@ const Profile = ({}: Props) => {
           label="Mobile"
           value={user.mobile}
           editable={false}
+          customIconName="mobile"
         />
         <CustomInput
           mainContainerStyle={profileStyle.input}

@@ -20,12 +20,14 @@ const CustomHeader = ({isBack, leftSmallTitle, leftTitle}: Props) => {
 
   return (
     <View style={headerStyle.header}>
-      <View>
-        {leftSmallTitle ? (
-          <CustomText size={13}>{leftSmallTitle}</CustomText>
-        ) : null}
-        {leftTitle ? <CustomText size={30}>{leftTitle}</CustomText> : null}
-      </View>
+      {leftSmallTitle || leftTitle ? (
+        <View>
+          {leftSmallTitle ? (
+            <CustomText size={13}>{leftSmallTitle}</CustomText>
+          ) : null}
+          {leftTitle ? <CustomText size={30}>{leftTitle}</CustomText> : null}
+        </View>
+      ) : null}
       {isBack ? (
         <TouchableOpacity onPress={goBack} style={headerStyle.backIconWrapper}>
           <CustomIcon name="back" color={colors.defaultWhite} />
