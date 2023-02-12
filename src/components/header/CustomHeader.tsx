@@ -12,9 +12,17 @@ type Props = {
   isBack?: boolean;
   leftSmallTitle?: string;
   leftTitle?: string;
+  showWallet?: boolean;
+  showBell?: boolean;
 };
 
-const CustomHeader = ({isBack, leftSmallTitle, leftTitle}: Props) => {
+const CustomHeader = ({
+  isBack,
+  leftSmallTitle,
+  leftTitle,
+  showWallet = true,
+  showBell = true,
+}: Props) => {
   // const {colors} = useTheme();
   const {goBack} = useNavigation<NativeStackNavigationProp<any>>();
 
@@ -34,25 +42,29 @@ const CustomHeader = ({isBack, leftSmallTitle, leftTitle}: Props) => {
         </TouchableOpacity>
       ) : null}
       <View style={headerStyle.rightIconArea}>
-        <TouchableOpacity style={headerStyle.icon}>
-          <CustomIcon
-            name="withdrawal"
-            fill={colors.defaultBlack}
-            height={20}
-            width={20}
-          />
-          <CustomText size={10} color="black" style={margin(0, 0, 5)}>
-            100.00
-          </CustomText>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <CustomIcon
-            name="bell"
-            color={colors.defaultWhite}
-            height={32}
-            width={32}
-          />
-        </TouchableOpacity>
+        {showWallet ? (
+          <TouchableOpacity style={headerStyle.icon}>
+            <CustomIcon
+              name="withdrawal"
+              fill={colors.defaultBlack}
+              height={20}
+              width={20}
+            />
+            <CustomText size={10} color="black" style={margin(0, 0, 5)}>
+              100.00
+            </CustomText>
+          </TouchableOpacity>
+        ) : null}
+        {showBell ? (
+          <TouchableOpacity>
+            <CustomIcon
+              name="bell"
+              color={colors.defaultWhite}
+              height={32}
+              width={32}
+            />
+          </TouchableOpacity>
+        ) : null}
       </View>
     </View>
   );

@@ -18,7 +18,7 @@ type Props = {
   children: ReactNode;
   SafeAreaViewStyle?: ViewStyle;
   style?: ViewStyle;
-  contentContainerStyle?: ViewStyle;
+  contentContainerStyle?: ViewStyle | ViewStyle[];
   statusBarColor?: string;
   barStyle?: StatusBarStyle;
   onRefresh?: () => void;

@@ -2,8 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import CustomText from 'src/components/CustomText';
 import CustomHeader from 'src/components/header/CustomHeader';
-import colors from 'src/constants/colors';
-import globalStyles from 'src/constants/globalStyles';
+import {margin, padding} from 'src/constants/globalStyles';
 import {BottomStackName} from 'src/constants/routeNames';
 import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
@@ -25,32 +24,25 @@ const Rate = ({}: BottomStackName) => {
 
   return (
     <>
-      <CustomHeader isBack heading="Game Rates" />
+      <CustomHeader isBack showBell={false} showWallet={false} />
       <Container
-        contentContainerStyle={globalStyles.pdb_100}
+        contentContainerStyle={padding(0, 100, 20, 20)}
         containerLoading={isLoading}>
+        <CustomText size={30} style={margin(20, 20)}>
+          Game Rate
+        </CustomText>
         <View style={rateStyle.listHeader}>
-          <View style={rateStyle.column}>
-            <CustomText size={20}>Game Name</CustomText>
-          </View>
-          <View style={[rateStyle.column, {borderLeftWidth: 0}]}>
-            <CustomText size={20}>Price</CustomText>
-          </View>
-          {/* <View style={globalStyles.verticalLine} /> */}
-        </View>
-        <View style={rateStyle.lineArea}>
-          <View style={globalStyles.verticalLine} />
-          <View style={globalStyles.verticalLine} />
+          <CustomText size={15} color="light_purple">
+            Game Name
+          </CustomText>
+          <CustomText size={15} color="light_purple">
+            Price
+          </CustomText>
         </View>
         {dataFetched?.data?.gamerates.map(el => (
           <View style={rateStyle.row} key={el.id}>
-            <View style={rateStyle.column}>
-              <CustomText color={colors.label}>{el.game?.name}</CustomText>
-            </View>
-            <View style={[rateStyle.column, {borderLeftWidth: 0}]}>
-              <CustomText color={colors.label}>{el.price}</CustomText>
-            </View>
-            {/* <View style={globalStyles.verticalLine} /> */}
+            <CustomText color="white">{el.game?.name}</CustomText>
+            <CustomText color="white">{el.price}</CustomText>
           </View>
         ))}
       </Container>

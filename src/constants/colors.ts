@@ -19,6 +19,7 @@ export default {
   primaryColor: '#8BE58C',
   borderColor: '#AAAAAA',
   placeholderColor: '#67537A',
+  light_purple: '#67537A',
   buttonColor1: '#001247',
   buttonColor2: '#000066',
   whatsAppGreen: '#128C7E',

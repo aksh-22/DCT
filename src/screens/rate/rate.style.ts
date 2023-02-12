@@ -5,13 +5,12 @@ export default StyleSheet.create({
   listHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    margin: 20,
-    marginBottom: 0,
+    justifyContent: 'space-between',
+    marginHorizontal: 30,
+    // marginTop: 40,
+    // backgroundColor: 'red',
   },
   column: {
-    borderColor: colors.buttonColor1,
-    borderWidth: 1,
     flex: 1,
     alignItems: 'center',
     height: 70,
@@ -20,9 +19,12 @@ export default StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginHorizontal: 20,
-    marginBottom: 10,
+    justifyContent: 'space-between',
+    backgroundColor: colors.background2,
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    marginVertical: 10,
+    borderRadius: 15,
   },
   lineArea: {
     flexDirection: 'row',
