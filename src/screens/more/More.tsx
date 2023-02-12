@@ -2,7 +2,9 @@ import React from 'react';
 import {View} from 'react-native';
 import Share from 'react-native-share';
 import {useDispatch} from 'react-redux';
+import CustomButton from 'src/components/button/CustomButton';
 import CustomHeader from 'src/components/header/CustomHeader';
+import {margin} from 'src/constants/globalStyles';
 import moreList from 'src/constants/moreList';
 import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
@@ -22,18 +24,13 @@ const More = ({navigation}: BottomStackProps) => {
     dispatch({type: 'CLEAR_REDUX'});
   };
 
-  const {sendRequest} = useRequest({
+  const {sendRequest, isLoading} = useRequest({
     endpoint: 'auth/logout',
     onSuccess: onLogOutSuccess,
   });
 
   const onPress = (key: any, route: any) => {
     switch (key) {
-      case 'logout':
-        sendRequest();
-
-        break;
-
       case 'share':
         Share.open({message});
         break;
@@ -46,11 +43,18 @@ const More = ({navigation}: BottomStackProps) => {
 
   return (
     <Container>
-      <CustomHeader heading="More" />
+      <CustomHeader leftTitle="More" />
       <View style={moreStyle.listArea}>
         {moreList.map(el => (
           <MoreItem item={el} key={el.id} onPress={onPress} />
         ))}
+        <CustomButton
+          onPress={sendRequest}
+          isLoading={isLoading}
+          width="80%"
+          title="Logout"
+          style={margin(60)}
+        />
       </View>
     </Container>
   );

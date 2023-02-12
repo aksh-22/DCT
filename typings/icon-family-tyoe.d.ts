@@ -25,4 +25,8 @@ export type customFontFamilyType =
   | 'my-bet'
   | 'withdrawal'
   | 'back'
-  | 'bell';
+  | 'bell'
+  | 'game-rate'
+  | 'feedback'
+  | 'share'
+  | 'how-to-play';

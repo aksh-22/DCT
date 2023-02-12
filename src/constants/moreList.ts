@@ -1,20 +1,27 @@
+import {customFontFamilyType} from 'typings/icon-family-tyoe';
 import {MoreStackName} from './routeNames';
 
-const moreList = [
+type Props = {
+  id: number;
+  name: string;
+  key: string;
+  iconName: customFontFamilyType;
+  route?: string;
+};
+
+const moreList: Props[] = [
   {
     id: 1,
     name: 'Profile',
     key: 'profile',
-    iconName: 'user-tie',
-    familyName: 'FontAwesome5',
+    iconName: 'person',
     route: MoreStackName.PROFILE,
   },
   {
     id: 2,
     name: 'Game Rate',
     key: 'rate',
-    iconName: 'price-ribbon',
-    familyName: 'Entypo',
+    iconName: 'game-rate',
     route: MoreStackName.GAME_RATE,
   },
   {
@@ -22,29 +29,20 @@ const moreList = [
     name: 'Feedback',
     key: 'feedback',
     iconName: 'feedback',
-    familyName: 'MaterialIcons',
     route: MoreStackName.FEEDBACK,
   },
   {
     id: 4,
     name: 'Share App',
     key: 'share',
-    iconName: 'share-social-outline',
+    iconName: 'share',
   },
   {
     id: 5,
     name: 'How to play',
     key: 'play',
-    iconName: 'cards-playing-club-multiple-outline',
-    familyName: 'MaterialCommunityIcons',
+    iconName: 'how-to-play',
     route: MoreStackName.PLAY,
-  },
-  {
-    id: 6,
-    name: 'Logout',
-    key: 'logout',
-    iconName: 'logout',
-    familyName: 'MaterialIcons',
   },
 ];
 

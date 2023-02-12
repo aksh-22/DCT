@@ -14,6 +14,10 @@ import Name from 'src/assets/svg/name.svg';
 import Password from 'src/assets/svg/password.svg';
 import Person from 'src/assets/svg/person.svg';
 import Withdrawal from 'src/assets/svg/withdrawal.svg';
+import GameRate from 'src/assets/svg/game-rate.svg';
+import Feedback from 'src/assets/svg/feedback.svg';
+import Share from 'src/assets/svg/share.svg';
+import HowToPlay from 'src/assets/svg/howToPlay.svg';
 
 interface Props extends SvgProps {
   name?: customFontFamilyType;
@@ -57,8 +61,20 @@ const getIcon = (name: customFontFamilyType) => {
     case 'bell':
       return Bell;
 
+    case 'game-rate':
+      return GameRate;
+
+    case 'feedback':
+      return Feedback;
+
+    case 'share':
+      return Share;
+
+    case 'how-to-play':
+      return HowToPlay;
+
     default:
-      break;
+      return Lock;
   }
 };
 
