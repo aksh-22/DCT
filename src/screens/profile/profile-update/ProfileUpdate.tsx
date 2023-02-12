@@ -3,18 +3,16 @@ import CustomHeader from 'src/components/header/CustomHeader';
 import CustomInput from 'src/components/Input/CustomInput';
 import globalStyles from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
-import profileStyle from './profile.style';
+import profileStyle from './../profile.style';
 import {useAppSelector} from 'src/utils/reducer';
-
 type Props = {};
 
-const Profile = ({}: Props) => {
+const ProfileUpdate = ({}: Props) => {
   const user = useAppSelector(state => state.userReducer.user);
-  console.log('user', JSON.stringify(user, null, 2));
 
   return (
     <>
-      <CustomHeader isBack heading="Profile" />
+      <CustomHeader isBack />
       <Container contentContainerStyle={globalStyles.pd_20}>
         <CustomInput
           mainContainerStyle={profileStyle.input}
@@ -52,4 +50,4 @@ const Profile = ({}: Props) => {
   );
 };
 
-export default Profile;
+export default ProfileUpdate;
