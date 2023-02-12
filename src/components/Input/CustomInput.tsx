@@ -54,8 +54,6 @@ const CustomInput = ({
 }: Props) => {
   const [secure, setSecure] = useState(secureTextEntry);
 
-  console.log('mainIconStyle', mainIconStyle);
-
   const onEyePress = () => {
     setSecure(prev => !prev);
   };

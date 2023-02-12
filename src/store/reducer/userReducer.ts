@@ -27,7 +27,6 @@ const userSlice = createSlice({
       state.user = action.payload.user;
     },
     setShareLink(state: UProps, action: PayloadAction<string>) {
-      console.log('action.payload', action.payload);
       state.shareLink = action.payload;
     },
   },

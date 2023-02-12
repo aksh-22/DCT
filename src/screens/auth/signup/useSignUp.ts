@@ -45,7 +45,6 @@ const useSignUp = ({navigate}: Props) => {
   };
 
   const onSignUpSuccess = data => {
-    console.log('data', JSON.stringify(data, null, 2));
     const dataToPass: any = {
       mobile,
     };

@@ -16,7 +16,6 @@ import {setToken} from 'src/store/reducer/userReducer';
 import authStyle from './auth.style';
 
 const OTP = ({route}: AuthStackProps) => {
-  console.log('route', route.params);
   const params: any = route.params;
   const {t} = useTranslation();
   const [otpVal, setOtpVal] = useState('');
@@ -25,7 +24,6 @@ const OTP = ({route}: AuthStackProps) => {
   const dispatch = useDispatch();
 
   const onVerifySuccess = data => {
-    console.log('data', JSON.stringify(data, null, 2));
     const dataToSet = {
       token: data.auth_token,
       user: data.data.user,
@@ -74,7 +72,6 @@ const OTP = ({route}: AuthStackProps) => {
         </CustomText>
         <OTPInput
           onChange={txt => {
-            console.log('txt', txt);
             setOtpVal(txt);
             otpValError && setOtpValError('');
           }}

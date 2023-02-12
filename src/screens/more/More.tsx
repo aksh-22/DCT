@@ -16,8 +16,6 @@ import MoreItem from './MoreItem';
 const More = ({navigation}: BottomStackProps) => {
   const message = useAppSelector(state => state.userReducer.shareLink);
 
-  console.log('message', message);
-
   const dispatch = useDispatch();
 
   const onLogOutSuccess = () => {

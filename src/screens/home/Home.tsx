@@ -24,7 +24,6 @@ const Home = ({}: BottomStackProps) => {
   const dispatch = useDispatch();
 
   const onSuccess = (fData: {data: marketDataType}) => {
-    console.log('fData', JSON.stringify(fData, null, 2));
     dispatch(setShareLink(fData.data.share_link));
   };
 
@@ -33,10 +32,6 @@ const Home = ({}: BottomStackProps) => {
     callApiByDefault: true,
     onSuccess: onSuccess,
   });
-
-  useEffect(() => {
-    console.log(dataFetched);
-  }, [dataFetched]);
 
   return (
     <>
