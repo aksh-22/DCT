@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import colors from 'src/constants/colors';
 
 export default StyleSheet.create({
   listArea: {
@@ -17,5 +18,13 @@ export default StyleSheet.create({
   },
   text: {
     marginLeft: 10,
+  },
+  iconWrapper: {
+    height: 30,
+    width: 30,
+    backgroundColor: colors.active,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

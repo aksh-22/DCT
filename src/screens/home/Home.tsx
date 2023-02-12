@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import CustomButton from 'src/components/button/CustomButton';

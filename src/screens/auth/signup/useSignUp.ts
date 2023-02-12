@@ -44,7 +44,7 @@ const useSignUp = ({navigate}: Props) => {
     }
   };
 
-  const onSignUpSuccess = data => {
+  const onSignUpSuccess = () => {
     const dataToPass: any = {
       mobile,
     };

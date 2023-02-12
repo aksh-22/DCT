@@ -32,6 +32,7 @@ export enum WalletStackName {
 
 export enum MoreStackName {
   PROFILE = 'profile',
+  PROFILE_UPDATE = 'profile-update',
   GAME_RATE = 'rate',
   FEEDBACK = 'feedback',
   PLAY = 'play',

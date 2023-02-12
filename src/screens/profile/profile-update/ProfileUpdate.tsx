@@ -1,10 +1,11 @@
 import React from 'react';
+import CustomButton from 'src/components/button/CustomButton';
 import CustomHeader from 'src/components/header/CustomHeader';
 import CustomInput from 'src/components/Input/CustomInput';
-import globalStyles from 'src/constants/globalStyles';
+import {margin, padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
-import profileStyle from './../profile.style';
 import {useAppSelector} from 'src/utils/reducer';
+import profileStyle from './../profile.style';
 type Props = {};
 
 const ProfileUpdate = ({}: Props) => {
@@ -12,39 +13,32 @@ const ProfileUpdate = ({}: Props) => {
 
   return (
     <>
-      <CustomHeader isBack />
-      <Container contentContainerStyle={globalStyles.pd_20}>
+      <CustomHeader isBack heading="Update Profile" />
+      <Container contentContainerStyle={padding('0', '20')}>
         <CustomInput
           mainContainerStyle={profileStyle.input}
-          showLabel
-          label="Name"
+          placeholder="Name"
           value={user.name}
-          editable={false}
           customIconName="name"
         />
         <CustomInput
           mainContainerStyle={profileStyle.input}
-          showLabel
-          label="Email"
+          placeholder="Email"
           value={user.email}
-          editable={false}
           iconName="mail-outline"
         />
         <CustomInput
           mainContainerStyle={profileStyle.input}
-          showLabel
-          label="Mobile"
+          placeholder="Mobile"
           value={user.mobile}
-          editable={false}
           customIconName="mobile"
         />
         <CustomInput
           mainContainerStyle={profileStyle.input}
-          showLabel
-          label="Referral Code"
+          placeholder="Referral Code"
           value={user.name}
-          editable={false}
         />
+        <CustomButton title="Update Profile" style={margin(40)} />
       </Container>
     </>
   );

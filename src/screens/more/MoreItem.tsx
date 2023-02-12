@@ -2,7 +2,7 @@ import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import CustomIcon from 'src/components/CustomIcon';
 import CustomText from 'src/components/CustomText';
-import VectorIcon from 'src/components/IconsFamily';
+import colors from 'src/constants/colors';
 import {customFontFamilyType} from 'typings/icon-family-tyoe';
 import moreStyle from './more.style';
 
@@ -24,10 +24,12 @@ const MoreItem = ({item, onPress}: Props) => {
       style={moreStyle.item}
       onPress={() => onPress(item.key, item.route)}>
       <View style={moreStyle.textArea}>
-        <CustomIcon name={item.iconName} />
+        <View style={moreStyle.iconWrapper}>
+          <CustomIcon name={item.iconName} />
+        </View>
         <CustomText style={moreStyle.text}>{item.name}</CustomText>
       </View>
-      <VectorIcon name="right" family="AntDesign" />
+      <CustomIcon name="right" color={colors.defaultWhite} />
     </TouchableOpacity>
   );
 };

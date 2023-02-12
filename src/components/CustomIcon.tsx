@@ -19,6 +19,7 @@ import Feedback from 'src/assets/svg/feedback.svg';
 import Share from 'src/assets/svg/share.svg';
 import HowToPlay from 'src/assets/svg/howToPlay.svg';
 import Edit from 'src/assets/svg/edit.svg';
+import Right from 'src/assets/svg/right.svg';
 
 interface Props extends SvgProps {
   name?: customFontFamilyType;
@@ -76,6 +77,9 @@ const getIcon = (name: customFontFamilyType) => {
 
     case 'edit':
       return Edit;
+
+    case 'right':
+      return Right;
 
     default:
       return Lock;

@@ -18,6 +18,8 @@ type Props = {
   titleStyle?: TextStyle;
   isLoading?: boolean;
   width?: number | string;
+  variant?: 'standard' | 'outline';
+  titleSize?: number;
 };
 
 const CustomButton = ({
@@ -28,14 +30,18 @@ const CustomButton = ({
   titleStyle,
   isLoading,
   width,
+  variant = 'standard',
+  titleSize = 17,
 }: Props) => {
   return (
     <TouchableOpacity disabled={disabled} onPress={onPress}>
-      <View style={[buttonStyle.container, style, {width}]}>
+      <View style={[buttonStyle[variant], style, {width}]}>
         {isLoading ? (
           <ActivityIndicator color={colors.defaultWhite} />
         ) : (
-          <CustomText size={17} style={[buttonStyle.titleStyle, titleStyle]}>
+          <CustomText
+            size={titleSize}
+            style={[buttonStyle[`${variant}_title`], titleStyle]}>
             {title}
           </CustomText>
         )}

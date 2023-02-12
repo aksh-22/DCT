@@ -30,4 +30,5 @@ export type customFontFamilyType =
   | 'feedback'
   | 'share'
   | 'how-to-play'
-  | 'edit';
+  | 'edit'
+  | 'right';

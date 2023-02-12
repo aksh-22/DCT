@@ -29,7 +29,7 @@ const CustomHeader = ({
   const {goBack} = useNavigation<NativeStackNavigationProp<any>>();
 
   return (
-    <>
+    <View style={headerStyle.wrapper}>
       <View style={headerStyle.header}>
         {leftSmallTitle || leftTitle ? (
           <View>
@@ -77,7 +77,7 @@ const CustomHeader = ({
           {heading}
         </CustomText>
       ) : null}
-    </>
+    </View>
   );
 };
 

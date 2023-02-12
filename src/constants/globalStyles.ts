@@ -128,25 +128,68 @@ export default StyleSheet.create({
 });
 
 export const margin = (
-  marginTop?: number,
-  marginBottom?: number,
+  marginTop?: number | string,
+  marginBottom?: number | string,
   marginLeft?: number,
   marginRight?: number,
-) => ({
-  marginTop,
-  marginBottom,
-  marginLeft,
-  marginRight,
-});
+) => {
+  if (typeof marginTop === 'string') {
+    marginTop = Number(marginTop);
+
+    if (typeof marginBottom === 'string') {
+      marginBottom = Number(marginBottom);
+      return {
+        marginTop: marginTop,
+        marginBottom: marginTop,
+        marginLeft: marginBottom,
+        marginRight: marginBottom,
+      };
+    }
+    return {
+      marginTop: marginTop,
+      marginBottom: marginTop,
+      marginLeft: marginTop,
+      marginRight: marginTop,
+    };
+  }
+  return {
+    marginTop,
+    marginBottom,
+    marginLeft,
+    marginRight,
+  };
+};
 
 export const padding = (
-  paddingTop?: number,
-  paddingBottom?: number,
+  paddingTop?: number | string,
+  paddingBottom?: number | string,
   paddingLeft?: number,
   paddingRight?: number,
-) => ({
-  paddingTop,
-  paddingBottom,
-  paddingLeft,
-  paddingRight,
-});
+) => {
+  if (typeof paddingTop === 'string') {
+    paddingTop = Number(paddingTop);
+
+    if (typeof paddingBottom === 'string') {
+      paddingBottom = Number(paddingBottom);
+      return {
+        paddingTop: paddingTop,
+        paddingBottom: paddingTop,
+        paddingLeft: paddingBottom,
+        paddingRight: paddingBottom,
+      };
+    }
+    return {
+      paddingTop: paddingTop,
+      paddingBottom: paddingTop,
+      paddingLeft: paddingTop,
+      paddingRight: paddingTop,
+    };
+  }
+
+  return {
+    paddingTop,
+    paddingBottom,
+    paddingLeft,
+    paddingRight,
+  };
+};

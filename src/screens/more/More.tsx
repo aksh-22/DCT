@@ -49,7 +49,7 @@ const More = ({navigation}: BottomStackProps) => {
         <CustomButton
           onPress={sendRequest}
           isLoading={isLoading}
-          width="80%"
+          width="90%"
           title="Logout"
           style={margin(60)}
         />
