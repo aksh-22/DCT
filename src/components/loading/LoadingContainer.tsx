@@ -6,7 +6,7 @@ import globalStyles from 'src/constants/globalStyles';
 const LoadingContainer = () => {
   return (
     <View style={globalStyles.container_center}>
-      <ActivityIndicator size={'large'} color={colors.buttonColor1} />
+      <ActivityIndicator size={'large'} color={colors.defaultWhite} />
     </View>
   );
 };

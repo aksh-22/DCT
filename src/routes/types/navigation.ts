@@ -34,6 +34,7 @@ export type BottomStackParamList = {
   [BottomStackName.WITHDRAWAL]: undefined;
   [WalletStackName.WALLET_HISTORY]: undefined;
   [MoreStackName.PROFILE_UPDATE]: undefined;
+  [MoreStackName.CHANGE_PASSWORD]: undefined;
 };
 
 export type AuthStackProps = NativeStackScreenProps<AuthStackParamList>;

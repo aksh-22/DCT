@@ -18,6 +18,10 @@ const Profile = ({navigation}: BottomStackProps) => {
     navigation.navigate(MoreStackName.PROFILE_UPDATE);
   };
 
+  const onChangePasswordPress = () => {
+    navigation.navigate(MoreStackName.CHANGE_PASSWORD);
+  };
+
   return (
     <>
       <CustomHeader isBack heading="Profile" />
@@ -35,6 +39,7 @@ const Profile = ({navigation}: BottomStackProps) => {
             title="Change Password"
             variant="outline"
             titleSize={14}
+            onPress={onChangePasswordPress}
           />
           <CustomButton
             onPress={onUpdateProfilePress}

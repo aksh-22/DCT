@@ -1,9 +1,8 @@
 import React from 'react';
 import CustomButton from 'src/components/button/CustomButton';
-import CustomText from 'src/components/CustomText';
 import CustomHeader from 'src/components/header/CustomHeader';
 import CustomInput from 'src/components/Input/CustomInput';
-import globalStyles, {margin} from 'src/constants/globalStyles';
+import {margin, padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
 import feedbackStyle from './feedback.style';
 
@@ -12,9 +11,8 @@ type Props = {};
 const Feedback = ({}: Props) => {
   return (
     <>
-      <CustomHeader isBack />
-      <Container contentContainerStyle={globalStyles.pd_20}>
-        <CustomText size={30}>Feedback</CustomText>
+      <CustomHeader isBack heading="Feedback" />
+      <Container contentContainerStyle={padding('0', '20')}>
         <CustomInput
           mainContainerStyle={margin(20)}
           multiline

@@ -37,4 +37,5 @@ export enum MoreStackName {
   FEEDBACK = 'feedback',
   PLAY = 'play',
   MORE = 'More page',
+  CHANGE_PASSWORD = 'change-password',
 }

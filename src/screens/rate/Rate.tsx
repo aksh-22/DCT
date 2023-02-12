@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import CustomText from 'src/components/CustomText';
 import CustomHeader from 'src/components/header/CustomHeader';
-import {margin, padding} from 'src/constants/globalStyles';
+import {padding} from 'src/constants/globalStyles';
 import {BottomStackName} from 'src/constants/routeNames';
 import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
@@ -24,13 +24,15 @@ const Rate = ({}: BottomStackName) => {
 
   return (
     <>
-      <CustomHeader isBack showBell={false} showWallet={false} />
+      <CustomHeader
+        isBack
+        showBell={false}
+        showWallet={false}
+        heading=" Game Rate"
+      />
       <Container
         contentContainerStyle={padding(0, 100, 20, 20)}
         containerLoading={isLoading}>
-        <CustomText size={30} style={margin(20, 20)}>
-          Game Rate
-        </CustomText>
         <View style={rateStyle.listHeader}>
           <CustomText size={15} color="light_purple">
             Game Name

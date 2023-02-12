@@ -4,6 +4,7 @@ import {MoreStackName} from 'src/constants/routeNames';
 import Feedback from 'src/screens/feedback/Feedback';
 import HowToPlay from 'src/screens/howToPlay/HowToPlay';
 import More from 'src/screens/more/More';
+import ChangePassword from 'src/screens/profile/change-password/ChangePassword';
 import Profile from 'src/screens/profile/Profile';
 import ProfileUpdate from 'src/screens/profile/profile-update/ProfileUpdate';
 import Rate from 'src/screens/rate/Rate';
@@ -19,6 +20,7 @@ const MoreStack = ({}: Props) => {
       <Screen name={MoreStackName.MORE} component={More} />
       <Screen name={MoreStackName.PROFILE} component={Profile} />
       <Screen name={MoreStackName.PROFILE_UPDATE} component={ProfileUpdate} />
+      <Screen name={MoreStackName.CHANGE_PASSWORD} component={ChangePassword} />
       <Screen name={MoreStackName.GAME_RATE} component={Rate} />
       <Screen name={MoreStackName.FEEDBACK} component={Feedback} />
       <Screen name={MoreStackName.PLAY} component={HowToPlay} />

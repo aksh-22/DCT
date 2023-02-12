@@ -3,23 +3,24 @@ import colors from 'src/constants/colors';
 import {fonts} from 'src/constants/fonts';
 
 export default StyleSheet.create({
-  timeStyle: {
-    display: 'none',
+  item: {
+    // height: 100,
+    // marginBottom: 5,
+    paddingVertical: 20,
+    paddingHorizontal: 25,
+    borderTopLeftRadius: 54,
+    borderBottomRightRadius: 54,
+    backgroundColor: colors.purple,
+    marginBottom: 20,
+  },
+  svgWrapper: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   descriptionStyle: {
-    color: colors.lightBlack,
-    fontFamily: fonts.regular,
-  },
-  circleStyle: {
-    // marginLeft: -52,
-  },
-  listViewContainerStyle: {
-    marginTop: 20,
-    paddingBottom: 130,
-    padding: 15,
-  },
-  titleStyle: {
-    marginTop: -10,
-    fontFamily: fonts.regular,
+    opacity: 0.7,
   },
 });
