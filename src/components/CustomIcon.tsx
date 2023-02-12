@@ -1,66 +1,65 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
-import Person from 'src/assets/svg/person.svg';
-import Lock from 'src/assets/svg/lock.svg';
-import Name from 'src/assets/svg/name.svg';
-import Mobile from 'src/assets/svg/mobile.svg';
-import Password from 'src/assets/svg/password.svg';
-import Home from 'src/assets/svg/home.svg';
-import MyBet from 'src/assets/svg/myBet.svg';
-import Withdrawal from 'src/assets/svg/withdrawal.svg';
-import {customFontFamilyType} from 'typings/icon-family-tyoe';
 import {SvgProps} from 'react-native-svg';
+import {customFontFamilyType} from 'typings/icon-family-tyoe';
+
+//?---------------icons---------------
+
+import Back from 'src/assets/svg/back.svg';
+import Bell from 'src/assets/svg/bell.svg';
+import Home from 'src/assets/svg/home.svg';
+import Lock from 'src/assets/svg/lock.svg';
+import Mobile from 'src/assets/svg/mobile.svg';
+import MyBet from 'src/assets/svg/myBet.svg';
+import Name from 'src/assets/svg/name.svg';
+import Password from 'src/assets/svg/password.svg';
+import Person from 'src/assets/svg/person.svg';
+import Withdrawal from 'src/assets/svg/withdrawal.svg';
 
 interface Props extends SvgProps {
-  onPress?: () => void;
   name?: customFontFamilyType;
 }
 
-const CustomIcon = ({onPress, name, ...rest}: Props) => {
-  let Icon;
+const CustomIcon = ({name, ...rest}: Props) => {
+  let Icon = getIcon(name);
 
+  return <Icon {...rest} />;
+};
+
+const getIcon = (name: customFontFamilyType) => {
   switch (name) {
     case 'person':
-      Icon = Person;
-      break;
+      return Person;
 
     case 'lock':
-      Icon = Lock;
-      break;
+      return Lock;
 
     case 'name':
-      Icon = Name;
-      break;
+      return Name;
 
     case 'mobile':
-      Icon = Mobile;
-      break;
+      return Mobile;
 
     case 'password':
-      Icon = Password;
-      break;
+      return Password;
 
     case 'home':
-      Icon = Home;
-      break;
+      return Home;
 
     case 'my-bet':
-      Icon = MyBet;
-      break;
+      return MyBet;
 
     case 'withdrawal':
-      Icon = Withdrawal;
-      break;
+      return Withdrawal;
+
+    case 'back':
+      return Back;
+
+    case 'bell':
+      return Bell;
 
     default:
       break;
   }
-
-  return (
-    <TouchableOpacity disabled={!onPress} onPress={onPress}>
-      <Icon {...rest} />
-    </TouchableOpacity>
-  );
 };
 
 export default CustomIcon;

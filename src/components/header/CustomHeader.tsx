@@ -3,49 +3,52 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import colors from 'src/constants/colors';
+import {margin} from 'src/constants/globalStyles';
+import CustomIcon from '../CustomIcon';
 import CustomText from '../CustomText';
-import VectorIcon from '../IconsFamily';
 import headerStyle from './header.style';
 
 type Props = {
-  heading?: string;
   isBack?: boolean;
+  leftSmallTitle?: string;
+  leftTitle?: string;
 };
 
-const CustomHeader = ({heading, isBack}: Props) => {
+const CustomHeader = ({isBack, leftSmallTitle, leftTitle}: Props) => {
   // const {colors} = useTheme();
   const {goBack} = useNavigation<NativeStackNavigationProp<any>>();
 
   return (
     <View style={headerStyle.header}>
-      <TouchableOpacity onPress={goBack} disabled={!isBack}>
-        <VectorIcon
-          name="chevron-back-outline"
-          color={isBack ? colors.defaultWhite : colors.buttonColor1}
-          size={28}
-        />
-      </TouchableOpacity>
-      {heading && (
-        <CustomText style={[headerStyle.heading, {color: colors.defaultWhite}]}>
-          {heading}
-        </CustomText>
-      )}
+      <View>
+        {leftSmallTitle ? (
+          <CustomText size={13}>{leftSmallTitle}</CustomText>
+        ) : null}
+        {leftTitle ? <CustomText size={30}>{leftTitle}</CustomText> : null}
+      </View>
+      {isBack ? (
+        <TouchableOpacity onPress={goBack} style={headerStyle.backIconWrapper}>
+          <CustomIcon name="back" color={colors.defaultWhite} />
+        </TouchableOpacity>
+      ) : null}
       <View style={headerStyle.rightIconArea}>
-        {/* <TouchableOpacity style={headerStyle.icon}>
-          <VectorIcon
-            name="wallet-outline"
-            color={colors.defaultWhite}
-            size={20}
+        <TouchableOpacity style={headerStyle.icon}>
+          <CustomIcon
+            name="withdrawal"
+            fill={colors.defaultBlack}
+            height={20}
+            width={20}
           />
-          <CustomText size={10} style={headerStyle.price}>
-            20.00
+          <CustomText size={10} color="black" style={margin(0, 0, 5)}>
+            100.00
           </CustomText>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
         <TouchableOpacity>
-          <VectorIcon
-            name="notifications-outline"
+          <CustomIcon
+            name="bell"
             color={colors.defaultWhite}
-            size={28}
+            height={32}
+            width={32}
           />
         </TouchableOpacity>
       </View>

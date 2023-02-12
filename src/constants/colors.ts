@@ -8,6 +8,7 @@ export default {
   defaultWhite: '#fff',
   white: '#fff',
   defaultBlack: '#000',
+  black: '#000',
   gradientColor: '#220E35',
   background: '#140622',
   background2: '#31174A',

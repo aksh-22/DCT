@@ -8,7 +8,7 @@ type Props = {
   style?: TextStyle | TextStyle[];
   children: ReactNode;
   size?: number;
-  color?: 'white' | 'purple';
+  color?: 'white' | 'purple' | 'black';
   removeFontFamily?: boolean;
   center?: boolean;
   fontWeight?: TextStyle['fontWeight'];

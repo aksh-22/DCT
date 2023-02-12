@@ -23,4 +23,6 @@ export type customFontFamilyType =
   | 'password'
   | 'home'
   | 'my-bet'
-  | 'withdrawal';
+  | 'withdrawal'
+  | 'back'
+  | 'bell';

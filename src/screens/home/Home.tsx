@@ -40,7 +40,7 @@ const Home = ({}: BottomStackProps) => {
 
   return (
     <>
-      <CustomHeader heading="DCT" />
+      <CustomHeader leftSmallTitle="Welcome to" leftTitle="DCT" />
       <Container
         onRefresh={sendRequest}
         refreshLoading={dataFetched?.data?.markets?.length && isLoading}
