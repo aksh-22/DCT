@@ -9,7 +9,7 @@ export default StyleSheet.create({
     marginTop: 20,
   },
   noteStyle: {
-    color: colors.red,
+    color: colors.placeholderColor,
     marginTop: 20,
     fontSize: 13,
   },
