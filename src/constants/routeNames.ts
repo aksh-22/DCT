@@ -24,9 +24,9 @@ export enum BottomStackName {
 }
 
 export enum WalletStackName {
-  WITHDRAWAL = 'withdrawal',
-  PENDING = 'pending',
-  APPROVED = 'approved',
+  WITHDRAWAL = 'Add withdrawal',
+  PENDING = 'Pending History',
+  APPROVED = 'Approved History',
   WALLET_HISTORY = 'wallet_history',
 }
 
