@@ -15,7 +15,9 @@ const WalletStack = ({navigation}: BottomStackProps) => {
   return (
     <>
       <CustomHeader leftTitle="Withdrawal" showWallet={false} />
-      <Tab.Navigator tabBar={props => <MyTabBar {...props} />}>
+      <Tab.Navigator
+        initialRouteName={WalletStackName.PENDING}
+        tabBar={props => <MyTabBar {...props} />}>
         <Tab.Screen name={WalletStackName.WITHDRAWAL} component={Withdrawal} />
         <Tab.Screen name={WalletStackName.PENDING} component={Pending} />
         <Tab.Screen name={WalletStackName.APPROVED} component={Approved} />
