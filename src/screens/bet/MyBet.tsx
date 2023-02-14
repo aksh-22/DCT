@@ -1,15 +1,27 @@
 import React from 'react';
+import {FlatList} from 'react-native';
 import CustomText from 'src/components/CustomText';
+import CustomHeader from 'src/components/header/CustomHeader';
+import {padding} from 'src/constants/globalStyles';
 import ContainerWithoutScroll from 'src/container/ContainerWithoutScroll';
+import BetItem from './BetItem';
 
 type Props = {};
 
 const MyBet = ({}: Props) => {
   return (
-    <ContainerWithoutScroll
-      style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
-      <CustomText size={30}>Coming soon</CustomText>
-    </ContainerWithoutScroll>
+    <>
+      <CustomHeader leftTitle="My Bet" />
+      <ContainerWithoutScroll>
+        <FlatList
+          contentContainerStyle={padding(0, 100, 20, 20)}
+          data={Array(10).fill('')}
+          // renderItem={() => <BetItem />}
+          renderItem={BetItem}
+          showsVerticalScrollIndicator={false}
+        />
+      </ContainerWithoutScroll>
+    </>
   );
 };
 

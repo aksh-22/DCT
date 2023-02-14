@@ -14,7 +14,8 @@ type Props = {
     | 'black'
     | 'light_purple'
     | 'active'
-    | 'placeholderColor';
+    | 'placeholderColor'
+    | string;
   removeFontFamily?: boolean;
   center?: boolean;
   fontWeight?: TextStyle['fontWeight'];
@@ -36,7 +37,7 @@ const CustomText = ({
         styles.text,
         {
           fontSize: size,
-          color: colors[color],
+          color: colors[color] ?? color,
           fontFamily: removeFontFamily ? 'none' : fonts.regular,
           textAlign: center ? 'center' : null,
           fontWeight,
