@@ -1,6 +1,5 @@
 import React from 'react';
 import {FlatList} from 'react-native';
-import CustomText from 'src/components/CustomText';
 import CustomHeader from 'src/components/header/CustomHeader';
 import {padding} from 'src/constants/globalStyles';
 import ContainerWithoutScroll from 'src/container/ContainerWithoutScroll';

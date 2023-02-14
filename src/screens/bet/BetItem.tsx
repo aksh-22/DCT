@@ -11,7 +11,7 @@ type Props = {
 };
 
 const BetItem = ({index, item}: Props) => {
-  console.log('index', item);
+  console.log('index', item, index);
   return (
     <View style={betStyle.item}>
       <CustomText size={19} style={margin('0', '10')}>
