@@ -1,6 +1,4 @@
 import React from 'react';
-import Timeline from 'react-native-timeline-flatlist';
-import CustomText from 'src/components/CustomText';
 import CustomTimeline from 'src/components/timeline/CustomTimeline';
 import ContainerWithoutScroll from 'src/container/ContainerWithoutScroll';
 

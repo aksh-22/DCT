@@ -2,6 +2,10 @@ import {StyleSheet} from 'react-native';
 import colors from 'src/constants/colors';
 
 export default StyleSheet.create({
+  timelineStyle: {
+    width: '100%',
+    alignSelf: 'center',
+  },
   row: {
     flexDirection: 'row',
   },
