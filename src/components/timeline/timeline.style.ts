@@ -5,6 +5,8 @@ export default StyleSheet.create({
   timelineStyle: {
     width: '100%',
     alignSelf: 'center',
+    marginTop: 50,
+    paddingBottom: 150,
   },
   row: {
     flexDirection: 'row',

@@ -17,6 +17,7 @@ const CustomTimeline = ({data}: Props) => {
       renderItem={renderItem}
       data={data}
       contentContainerStyle={timelineStyle.timelineStyle}
+      showsVerticalScrollIndicator={false}
     />
   );
 };
