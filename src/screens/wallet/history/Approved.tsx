@@ -1,12 +1,29 @@
 import React from 'react';
-import CustomText from 'src/components/CustomText';
+import CustomTimeline from 'src/components/timeline/CustomTimeline';
 import ContainerWithoutScroll from 'src/container/ContainerWithoutScroll';
+
+const data = [
+  {title: 'Pillip Baptista', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Emery Rosser', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Craig Franci', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Alfonso Botosh', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Emerson Herwitz', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Pillip Baptista', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Emery Rosser', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Craig Franci', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Alfonso Botosh', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Emerson Herwitz', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Pillip Baptista', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Emery Rosser', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Craig Franci', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Alfonso Botosh', amount: '1000.00', date: '26 Jan 2023'},
+  {title: 'Emerson Herwitz', amount: '1000.00', date: '26 Jan 2023'},
+];
 
 const Approved = () => {
   return (
-    <ContainerWithoutScroll
-      style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
-      <CustomText size={30}>Coming soon</CustomText>
+    <ContainerWithoutScroll>
+      <CustomTimeline data={data} />
     </ContainerWithoutScroll>
   );
 };

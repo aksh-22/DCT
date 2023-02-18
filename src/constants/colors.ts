@@ -10,6 +10,7 @@ export default {
   defaultBlack: '#000',
   black: '#000',
   gradientColor: '#220E35',
+  wrapperBackground: '#3F2856',
   background: '#140622',
   background2: '#31174A',
   background3: '#0C0116',

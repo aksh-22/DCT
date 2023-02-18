@@ -4,6 +4,7 @@ import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import colors from 'src/constants/colors';
 import {margin} from 'src/constants/globalStyles';
+import {RootStackName} from 'src/constants/routeNames';
 import CustomIcon from '../CustomIcon';
 import CustomText from '../CustomText';
 import headerStyle from './header.style';
@@ -26,7 +27,11 @@ const CustomHeader = ({
   heading,
 }: Props) => {
   // const {colors} = useTheme();
-  const {goBack} = useNavigation<NativeStackNavigationProp<any>>();
+  const {goBack, navigate} = useNavigation<NativeStackNavigationProp<any>>();
+
+  const onBellIconPress = () => {
+    navigate(RootStackName.NOTIFICATION);
+  };
 
   return (
     <View style={headerStyle.wrapper}>
@@ -61,7 +66,7 @@ const CustomHeader = ({
             </TouchableOpacity>
           ) : null}
           {showBell ? (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onBellIconPress}>
               <CustomIcon
                 name="bell"
                 color={colors.defaultWhite}

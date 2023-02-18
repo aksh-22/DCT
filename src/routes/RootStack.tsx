@@ -1,6 +1,7 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {useEffect, useState} from 'react';
 import {RootStackName, WalletStackName} from 'src/constants/routeNames';
+import Notification from 'src/screens/notification/Notification';
 import Splash from 'src/screens/splash/Splash';
 import WalletHistory from 'src/screens/wallet/wallet/WalletHistory';
 import {useAppSelector} from 'src/utils/reducer';
@@ -38,6 +39,7 @@ const RootStack = ({}: Props) => {
             name={WalletStackName.WALLET_HISTORY}
             component={WalletHistory}
           />
+          <Screen name={RootStackName.NOTIFICATION} component={Notification} />
         </>
       )}
     </Navigator>

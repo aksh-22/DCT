@@ -3,6 +3,7 @@ export enum RootStackName {
   BOTTOM_TAB_STACK = 'bottomTabStack',
   SPLASH = 'splash',
   AUTHORIZED_STACK = 'authorized_stack',
+  NOTIFICATION = 'notification',
 }
 
 export enum AuthStackName {
