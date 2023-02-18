@@ -14,10 +14,6 @@ type Props = {
 const RenderDetail = ({data, index}: Props) => {
   const isEven = index % 2 === 0;
 
-  console.log('index', index);
-
-  console.log('isEven', isEven);
-
   return (
     <View style={timelineStyle.row}>
       <View style={[timelineStyle.rowItem, {borderRightWidth: isEven ? 1 : 0}]}>
