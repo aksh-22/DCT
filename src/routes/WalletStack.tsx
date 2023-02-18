@@ -3,9 +3,9 @@ import React from 'react';
 import CustomHeader from 'src/components/header/CustomHeader';
 import MyTabBar from 'src/components/TabBar';
 import {WalletStackName} from 'src/constants/routeNames';
-import Approved from 'src/screens/wallet/history/Approved';
-import Pending from 'src/screens/wallet/history/Pending';
-import Withdrawal from 'src/screens/wallet/withdrawal/Withdrawal';
+import Approved from 'src/screens/withdrawal/history/Approved';
+import Pending from 'src/screens/withdrawal/history/Pending';
+import Withdrawal from 'src/screens/withdrawal/withdrawal/Withdrawal';
 
 const Tab = createMaterialTopTabNavigator();
 

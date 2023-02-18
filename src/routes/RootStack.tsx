@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {RootStackName, WalletStackName} from 'src/constants/routeNames';
 import Notification from 'src/screens/notification/Notification';
 import Splash from 'src/screens/splash/Splash';
-import WalletHistory from 'src/screens/wallet/wallet/WalletHistory';
+import WalletHistory from 'src/screens/withdrawal/wallet/WalletHistory';
 import {useAppSelector} from 'src/utils/reducer';
 import AuthStack from './AuthStack';
 import BottomTabStack from './BottomTabStack';
