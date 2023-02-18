@@ -13,8 +13,10 @@ export enum AuthStackName {
   FORGOT_PASSWORD = 'forgot_password',
 }
 
-export enum AuthorizedStackName {
-  BOTTOM_TAB_STACK = 'bottomTab',
+export enum AuthorizeStackName {
+  BOTTOM_TAB_STACK = 'bottomTabStack',
+  WALLET_HISTORY = 'wallet_history',
+  NOTIFICATION = 'notification',
 }
 
 export enum BottomStackName {
@@ -28,7 +30,6 @@ export enum WalletStackName {
   WITHDRAWAL = 'Add withdrawal',
   PENDING = 'Pending History',
   APPROVED = 'Approved History',
-  WALLET_HISTORY = 'wallet_history',
 }
 
 export enum MoreStackName {

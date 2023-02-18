@@ -4,7 +4,7 @@ import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import colors from 'src/constants/colors';
 import {margin} from 'src/constants/globalStyles';
-import {RootStackName} from 'src/constants/routeNames';
+import {AuthorizeStackName} from 'src/constants/routeNames';
 import CustomIcon from '../CustomIcon';
 import CustomText from '../CustomText';
 import headerStyle from './header.style';
@@ -30,7 +30,10 @@ const CustomHeader = ({
   const {goBack, navigate} = useNavigation<NativeStackNavigationProp<any>>();
 
   const onBellIconPress = () => {
-    navigate(RootStackName.NOTIFICATION);
+    navigate(AuthorizeStackName.NOTIFICATION);
+  };
+  const onWalletIconPress = () => {
+    navigate(AuthorizeStackName.WALLET_HISTORY);
   };
 
   return (
@@ -53,7 +56,9 @@ const CustomHeader = ({
         ) : null}
         <View style={headerStyle.rightIconArea}>
           {showWallet ? (
-            <TouchableOpacity style={headerStyle.icon}>
+            <TouchableOpacity
+              onPress={onWalletIconPress}
+              style={headerStyle.icon}>
               <CustomIcon
                 name="withdrawal"
                 fill={colors.defaultBlack}

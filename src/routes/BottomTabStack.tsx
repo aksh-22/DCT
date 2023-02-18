@@ -19,7 +19,6 @@ const BottomTabStack = () => {
 
   return (
     <Navigator
-      initialRouteName={BottomStackName.WITHDRAWAL}
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: colors.active,

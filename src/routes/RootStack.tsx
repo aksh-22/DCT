@@ -1,12 +1,10 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {useEffect, useState} from 'react';
-import {RootStackName, WalletStackName} from 'src/constants/routeNames';
-import Notification from 'src/screens/notification/Notification';
+import {RootStackName} from 'src/constants/routeNames';
 import Splash from 'src/screens/splash/Splash';
-import WalletHistory from 'src/screens/withdrawal/wallet/WalletHistory';
 import {useAppSelector} from 'src/utils/reducer';
+import AuthorizeStack from './AuthorizeStack';
 import AuthStack from './AuthStack';
-import BottomTabStack from './BottomTabStack';
 
 type Props = {};
 
@@ -30,17 +28,10 @@ const RootStack = ({}: Props) => {
       {!isLoggedIn ? (
         <Screen name={RootStackName.AUTH_STACK} component={AuthStack} />
       ) : (
-        <>
-          <Screen
-            name={RootStackName.BOTTOM_TAB_STACK}
-            component={BottomTabStack}
-          />
-          <Screen
-            name={WalletStackName.WALLET_HISTORY}
-            component={WalletHistory}
-          />
-          <Screen name={RootStackName.NOTIFICATION} component={Notification} />
-        </>
+        <Screen
+          name={RootStackName.AUTHORIZED_STACK}
+          component={AuthorizeStack}
+        />
       )}
     </Navigator>
   );
