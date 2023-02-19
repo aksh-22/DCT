@@ -2,6 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import CustomHeader from 'src/components/header/CustomHeader';
 import CustomModal from 'src/components/modal/CustomModal';
+import MarketModal from 'src/components/modal/MarketModal';
 import {padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
 import {BottomStackProps} from 'src/routes/types/navigation';
@@ -43,12 +44,14 @@ const Home = ({}: BottomStackProps) => {
       </Container>
       <CustomModal
         isVisible={currIndex !== null}
-        modalType="MarketModal"
-        header={marketData[currIndex]?.name}
-        onCancel={onCancel}
-        onClosePress={onClosePress}
-        onOpenPress={onOpenPress}
-      />
+        header={marketData[currIndex]?.name}>
+        <MarketModal
+          onCancel={onCancel}
+          onClosePress={onClosePress}
+          onOpenPress={onOpenPress}
+          data={marketData[currIndex]}
+        />
+      </CustomModal>
     </>
   );
 };

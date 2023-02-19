@@ -40,8 +40,8 @@ const CustomButton = ({
       <View
         style={[
           buttonStyle.button,
-          {backgroundColor},
           buttonStyle[variant],
+          backgroundColor && {backgroundColor},
           style,
           {width},
         ]}>
