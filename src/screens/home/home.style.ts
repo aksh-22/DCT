@@ -9,6 +9,7 @@ export default StyleSheet.create({
     height: 100,
     overflow: 'hidden',
     borderBottomRightRadius: 24,
+    marginTop: -10,
   },
   rectangleIcon: {
     position: 'absolute',
@@ -30,5 +31,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
     height: '100%',
     marginTop: 15,
+  },
+  marketList: {
+    marginTop: 20,
   },
 });

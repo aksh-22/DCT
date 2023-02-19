@@ -1,7 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
 import {useDispatch} from 'react-redux';
-import CustomButton from 'src/components/button/CustomButton';
 import CustomHeader from 'src/components/header/CustomHeader';
 import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
@@ -41,12 +40,12 @@ const Home = ({}: BottomStackProps) => {
         refreshLoading={dataFetched?.data?.markets?.length && isLoading}
         contentContainerStyle={homeStyle.container}
         containerLoading={!dataFetched?.data?.markets?.length && isLoading}>
-        <Deposit customText={dataFetched?.data?.custom_text} />
-        {/* <View style={homeStyle.marketList}>
+        <Deposit />
+        <View style={homeStyle.marketList}>
           {dataFetched?.data?.markets?.map((el, index) => (
             <MarketItem item={el} key={index} />
           ))}
-        </View> */}
+        </View>
       </Container>
     </>
   );

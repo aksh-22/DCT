@@ -6,16 +6,12 @@ import CustomText from 'src/components/CustomText';
 import {margin} from 'src/constants/globalStyles';
 import homeStyle from './home.style';
 
-type Props = {
-  customText: string;
-};
-
 const SIZE = 70;
 
-const Deposit = ({customText}: Props) => {
+const Deposit = () => {
   return (
     <View style={homeStyle.depositBox}>
-      <DepositSvg width={'100%'} style={homeStyle.rectangleIcon} height={120} />
+      <DepositSvg width={'100%'} style={homeStyle.rectangleIcon} height={113} />
       <CustomIcon
         name="Whatsapp"
         fill="#fff"
