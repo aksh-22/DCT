@@ -7,9 +7,10 @@ import marketItemStyle from './marketItem.style';
 
 type Props = {
   status: string;
+  onPlayNowPress: () => void;
 };
 
-const MarketItmStatus = ({status}: Props) => {
+const MarketItmStatus = ({status, onPlayNowPress}: Props) => {
   let isClosed = !status.includes('Closed');
 
   return (
@@ -25,6 +26,7 @@ const MarketItmStatus = ({status}: Props) => {
       )}
       {!isClosed && (
         <CustomButton
+          onPress={onPlayNowPress}
           title="Play Now"
           style={marketItemStyle.playNow}
           titleSize={11}

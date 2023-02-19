@@ -20,6 +20,7 @@ type Props = {
   width?: number | string;
   variant?: 'standard' | 'outline';
   titleSize?: number;
+  backgroundColor?: string;
 };
 
 const CustomButton = ({
@@ -32,10 +33,18 @@ const CustomButton = ({
   width,
   variant = 'standard',
   titleSize = 17,
+  backgroundColor,
 }: Props) => {
   return (
     <TouchableOpacity disabled={disabled} onPress={onPress}>
-      <View style={[buttonStyle[variant], style, {width}]}>
+      <View
+        style={[
+          buttonStyle.button,
+          {backgroundColor},
+          buttonStyle[variant],
+          style,
+          {width},
+        ]}>
         {isLoading ? (
           <ActivityIndicator color={colors.defaultWhite} />
         ) : (

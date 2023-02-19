@@ -2,8 +2,7 @@ import {StyleSheet} from 'react-native';
 import colors from 'src/constants/colors';
 
 export default StyleSheet.create({
-  standard: {
-    backgroundColor: colors.purple,
+  button: {
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 30,
@@ -11,14 +10,11 @@ export default StyleSheet.create({
     borderRadius: 24,
     alignSelf: 'center',
   },
+  standard: {
+    backgroundColor: colors.purple,
+  },
   outline: {
     backgroundColor: colors.transparent,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 25,
-    paddingVertical: 10,
-    borderRadius: 24,
-    alignSelf: 'center',
     borderWidth: 1,
     borderColor: colors.purple,
   },

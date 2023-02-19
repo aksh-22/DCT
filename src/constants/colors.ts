@@ -15,6 +15,7 @@ export default {
   background2: '#31174A',
   background3: '#0C0116',
   background4: '#300F51',
+  background5: '#4F1E81',
   purple: '#8B3CEE',
   purple2: '#AB88CD',
   inactive: '#6A5287',

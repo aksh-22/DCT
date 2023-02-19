@@ -8,9 +8,10 @@ import MarketItmStatus from './MarketItmStatus';
 
 type Props = {
   item: marketsItemType;
+  onPlayNowPress: () => void;
 };
 
-const MarketItem = ({item}: Props) => {
+const MarketItem = ({item, onPlayNowPress}: Props) => {
   return (
     <View style={marketItemStyle.marketItem}>
       <View style={marketItemStyle.marketItemLeft}>
@@ -18,7 +19,7 @@ const MarketItem = ({item}: Props) => {
         <CustomText size={17} color="active" style={margin(5, 10)}>
           {item.result_string ? item.result_string : '550-02-246'}
         </CustomText>
-        <MarketItmStatus status={item.status} />
+        <MarketItmStatus onPlayNowPress={onPlayNowPress} status={item.status} />
       </View>
       <View style={marketItemStyle.marketItemRight}>
         <View style={marketItemStyle.openBid}>
