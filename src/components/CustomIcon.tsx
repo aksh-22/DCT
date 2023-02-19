@@ -20,6 +20,7 @@ import Share from 'src/assets/svg/share.svg';
 import HowToPlay from 'src/assets/svg/howToPlay.svg';
 import Edit from 'src/assets/svg/edit.svg';
 import Right from 'src/assets/svg/right.svg';
+import Whatsapp from 'src/assets/svg/whatsapp.svg';
 
 interface Props extends SvgProps {
   name?: customFontFamilyType;
@@ -80,6 +81,9 @@ const getIcon = (name: customFontFamilyType) => {
 
     case 'right':
       return Right;
+
+    case 'Whatsapp':
+      return Whatsapp;
 
     default:
       return Lock;

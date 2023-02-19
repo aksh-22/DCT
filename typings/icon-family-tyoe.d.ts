@@ -31,4 +31,6 @@ export type customFontFamilyType =
   | 'share'
   | 'how-to-play'
   | 'edit'
-  | 'right';
+  | 'right'
+  | 'Whatsapp'
+  | 'whatsappWhite';

@@ -41,17 +41,12 @@ const Home = ({}: BottomStackProps) => {
         refreshLoading={dataFetched?.data?.markets?.length && isLoading}
         contentContainerStyle={homeStyle.container}
         containerLoading={!dataFetched?.data?.markets?.length && isLoading}>
-        <CustomButton
-          disabled
-          title="Welcome To DCT"
-          style={homeStyle.welcomeBox}
-        />
         <Deposit customText={dataFetched?.data?.custom_text} />
-        <View style={homeStyle.marketList}>
+        {/* <View style={homeStyle.marketList}>
           {dataFetched?.data?.markets?.map((el, index) => (
             <MarketItem item={el} key={index} />
           ))}
-        </View>
+        </View> */}
       </Container>
     </>
   );
