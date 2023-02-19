@@ -2,14 +2,15 @@ import React from 'react';
 import {View} from 'react-native';
 import {useDispatch} from 'react-redux';
 import CustomHeader from 'src/components/header/CustomHeader';
+import {padding} from 'src/constants/globalStyles';
 import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
 import {BottomStackProps} from 'src/routes/types/navigation';
 import {setShareLink} from 'src/store/reducer/userReducer';
 import {marketDataType} from 'typings/market-data-type';
-import Deposit from './Deposit';
+import Deposit from './deposit/Deposit';
 import homeStyle from './home.style';
-import MarketItem from './MarketItem';
+import MarketItem from './marketItem/MarketItem';
 
 type RProps = {
   isLoading: boolean;
@@ -38,7 +39,7 @@ const Home = ({}: BottomStackProps) => {
       <Container
         onRefresh={sendRequest}
         refreshLoading={dataFetched?.data?.markets?.length && isLoading}
-        contentContainerStyle={homeStyle.container}
+        contentContainerStyle={padding(0, 100, 20, 20)}
         containerLoading={!dataFetched?.data?.markets?.length && isLoading}>
         <Deposit />
         <View style={homeStyle.marketList}>

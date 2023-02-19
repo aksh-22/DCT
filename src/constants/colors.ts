@@ -26,9 +26,10 @@ export default {
   buttonColor1: '#001247',
   buttonColor2: '#000066',
   whatsAppGreen: '#128C7E',
-  green: '#8BE58C',
+  green: '#0BFF98',
+  red: '#C23131',
+  gray: '#6B6B6B',
   ///////////
-  red: 'red',
   orange: '#fe8c12',
 
   avatarBorder: '#D9D9D9',

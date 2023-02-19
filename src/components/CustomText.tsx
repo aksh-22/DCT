@@ -11,7 +11,8 @@ type color =
   | 'light_purple'
   | 'active'
   | 'placeholderColor'
-  | string;
+  | 'green';
+// | string;
 
 type Props = {
   style?: TextStyle | TextStyle[];
