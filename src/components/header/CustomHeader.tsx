@@ -32,8 +32,6 @@ const CustomHeader = ({
 
   const user = useAppSelector(state => state.userReducer.user);
 
-  console.log('user', user);
-
   const onBellIconPress = () => {
     navigate(AuthorizeStackName.NOTIFICATION);
   };
