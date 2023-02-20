@@ -4,6 +4,7 @@ import {AuthorizeStackName} from 'src/constants/routeNames';
 import Notification from 'src/screens/notification/Notification';
 import WalletHistory from 'src/screens/wallet/WalletHistory';
 import BottomTabStack from './BottomTabStack';
+import GameStack from './HomeStack';
 const Stack = createNativeStackNavigator();
 
 type Props = {};
@@ -22,6 +23,7 @@ const AuthorizeStack = ({}: Props) => {
         component={WalletHistory}
       />
       <Screen name={AuthorizeStackName.NOTIFICATION} component={Notification} />
+      <Screen name={AuthorizeStackName.GAME_STACK} component={GameStack} />
     </Navigator>
   );
 };

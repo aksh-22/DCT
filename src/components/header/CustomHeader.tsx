@@ -5,6 +5,7 @@ import {TouchableOpacity, View} from 'react-native';
 import colors from 'src/constants/colors';
 import {margin} from 'src/constants/globalStyles';
 import {AuthorizeStackName} from 'src/constants/routeNames';
+import {useAppSelector} from 'src/utils/reducer';
 import CustomIcon from '../CustomIcon';
 import CustomText from '../CustomText';
 import headerStyle from './header.style';
@@ -28,6 +29,10 @@ const CustomHeader = ({
 }: Props) => {
   // const {colors} = useTheme();
   const {goBack, navigate} = useNavigation<NativeStackNavigationProp<any>>();
+
+  const user = useAppSelector(state => state.userReducer.user);
+
+  console.log('user', user);
 
   const onBellIconPress = () => {
     navigate(AuthorizeStackName.NOTIFICATION);
@@ -66,7 +71,7 @@ const CustomHeader = ({
                 width={20}
               />
               <CustomText size={10} color="black" style={margin(0, 0, 5)}>
-                100.00
+                {user?.wallet}
               </CustomText>
             </TouchableOpacity>
           ) : null}

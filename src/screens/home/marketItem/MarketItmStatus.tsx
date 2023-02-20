@@ -12,7 +12,7 @@ type Props = {
 };
 
 const MarketItmStatus = ({status, onPlayNowPress}: Props) => {
-  let isClosed = !status.includes('Closed');
+  let isClosed = status.includes('Closed');
 
   return (
     <View style={globalStyles.row_spaceBetween}>
@@ -30,7 +30,7 @@ const MarketItmStatus = ({status, onPlayNowPress}: Props) => {
           name="play"
           style={marketItemStyle.playNow}
           color={colors.green}
-          size={25}
+          size={35}
           family="AntDesign"
           onPress={onPlayNowPress}
         />

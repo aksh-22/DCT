@@ -20,4 +20,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     padding: 15,
   },
+  disable: {
+    opacity: 0.5,
+  },
 });

@@ -37,6 +37,7 @@ const useLogin = ({navigate}: Props) => {
       token: data.auth_token,
       user: data.data.user,
     };
+    console.log('data', JSON.stringify(data, null, 2));
     dispatch(setToken(dataToSet));
   };
 

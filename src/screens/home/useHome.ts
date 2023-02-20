@@ -12,7 +12,7 @@ type RProps = {
   sendRequest: (data?: any) => void;
 };
 
-const useHome = () => {
+const useHome = ({}) => {
   const dispatch = useDispatch();
   const [marketData, setMarketData] = useState([]);
   const [currIndex, setCurrIndex] = useState(null);
@@ -26,8 +26,11 @@ const useHome = () => {
     setCurrIndex(index);
   };
 
-  const onOpenPress = () => {};
+  const onOpenPress = () => {
+    // navigate(GameStackName.GAME_LIST);
+  };
   const onClosePress = () => {};
+
   const onCancel = () => {
     setCurrIndex(null);
   };

@@ -10,7 +10,9 @@ export default StyleSheet.create({
   },
   marketItemLeft: {
     flex: 1,
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
   },
   marketItemRight: {
     borderLeftWidth: 1,

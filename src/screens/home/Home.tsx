@@ -11,7 +11,7 @@ import homeStyle from './home.style';
 import MarketItem from './marketItem/MarketItem';
 import useHome from './useHome';
 
-const Home = ({}: BottomStackProps) => {
+const Home = ({navigation}: BottomStackProps) => {
   const {
     isLoading,
     marketData,
@@ -21,7 +21,7 @@ const Home = ({}: BottomStackProps) => {
     onClosePress,
     onCancel,
     currIndex,
-  } = useHome();
+  } = useHome({navigate: navigation.navigate});
 
   return (
     <>

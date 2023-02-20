@@ -1,7 +1,10 @@
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import colors from 'src/constants/colors';
 import {margin, padding} from 'src/constants/globalStyles';
+import {AuthorizeStackName, HomeStackName} from 'src/constants/routeNames';
 import {useRequest} from 'src/constants/useRequest';
 import CustomButton from '../button/CustomButton';
 import CustomText from '../CustomText';
@@ -15,9 +18,11 @@ export interface MarketModalProps {
   data?: any;
 }
 
+const DELAY_TIME = 500;
+
 const MarketModal = ({
-  onClosePress,
-  onOpenPress,
+  // onClosePress,
+  // onOpenPress,
   onCancel,
   data,
 }: MarketModalProps) => {
@@ -26,7 +31,27 @@ const MarketModal = ({
     callApiByDefault: ![null, undefined].includes(data?.id),
   });
 
-  console.log('dataFetched', dataFetched);
+  const {navigate} = useNavigation<NativeStackNavigationProp<any>>();
+
+  const isOpenMarketOpen = !dataFetched?.data?.status?.open?.length;
+  const isCloseMarketOpen = !dataFetched?.data?.status?.close?.length;
+
+  const onOpenPress = () => {
+    onCancel();
+    setTimeout(() => {
+      navigate(AuthorizeStackName.GAME_STACK, {
+        screen: HomeStackName.GAME_LIST,
+      });
+    }, DELAY_TIME);
+  };
+  const onClosePress = () => {
+    onCancel();
+    setTimeout(() => {
+      navigate(AuthorizeStackName.GAME_STACK, {
+        screen: HomeStackName.GAME_LIST,
+      });
+    }, DELAY_TIME);
+  };
 
   return (
     <View>
@@ -35,15 +60,23 @@ const MarketModal = ({
       ) : (
         <>
           <TouchableOpacity
+            disabled={isOpenMarketOpen}
             onPress={onOpenPress}
-            style={modalStyle.marketModalItem}>
+            style={[
+              modalStyle.marketModalItem,
+              isOpenMarketOpen && modalStyle.disable,
+            ]}>
             <CustomText center size={20}>
               Open
             </CustomText>
           </TouchableOpacity>
           <TouchableOpacity
+            disabled={isCloseMarketOpen}
             onPress={onClosePress}
-            style={modalStyle.marketModalItem}>
+            style={[
+              modalStyle.marketModalItem,
+              isCloseMarketOpen && modalStyle.disable,
+            ]}>
             <CustomText center size={20}>
               Close
             </CustomText>

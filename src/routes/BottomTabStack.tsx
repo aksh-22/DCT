@@ -8,7 +8,7 @@ import {fonts} from 'src/constants/fonts';
 import globalStyles from 'src/constants/globalStyles';
 import {BottomStackName} from 'src/constants/routeNames';
 import MyBet from 'src/screens/bet/MyBet';
-import Home from 'src/screens/home/Home';
+import HomeStack from './HomeStack';
 import MoreStack from './MoreStack';
 import WalletStack from './WalletStack';
 
@@ -28,8 +28,8 @@ const BottomTabStack = () => {
         // tabBarShowLabel: false,
       }}>
       <Screen
-        name={BottomStackName.HOME}
-        component={Home}
+        name={BottomStackName.HOME_STACK}
+        component={HomeStack}
         options={{
           tabBarIcon: color => <CustomIcon name="home" fill={color.color} />,
         }}

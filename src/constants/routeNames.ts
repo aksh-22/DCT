@@ -17,10 +17,16 @@ export enum AuthorizeStackName {
   BOTTOM_TAB_STACK = 'bottomTabStack',
   WALLET_HISTORY = 'wallet_history',
   NOTIFICATION = 'notification',
+  GAME_STACK = 'game_stack',
+}
+
+export enum HomeStackName {
+  GAME_LIST = 'game_list',
+  HOME = 'home',
 }
 
 export enum BottomStackName {
-  HOME = 'Home',
+  HOME_STACK = 'Home_Stack',
   MY_BET = 'My Bet',
   WITHDRAWAL = 'Withdrawal',
   MORE_STACK = 'More',
