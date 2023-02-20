@@ -1,7 +1,8 @@
 import React from 'react';
 import {View} from 'react-native';
-import CustomButton from 'src/components/button/CustomButton';
 import CustomText from 'src/components/CustomText';
+import VectorIcon from 'src/components/IconsFamily';
+import colors from 'src/constants/colors';
 import globalStyles from 'src/constants/globalStyles';
 import marketItemStyle from './marketItem.style';
 
@@ -25,11 +26,13 @@ const MarketItmStatus = ({status, onPlayNowPress}: Props) => {
         </CustomText>
       )}
       {!isClosed && (
-        <CustomButton
-          onPress={onPlayNowPress}
-          title="Play Now"
+        <VectorIcon
+          name="play"
           style={marketItemStyle.playNow}
-          titleSize={11}
+          color={colors.green}
+          size={25}
+          family="AntDesign"
+          onPress={onPlayNowPress}
         />
       )}
     </View>

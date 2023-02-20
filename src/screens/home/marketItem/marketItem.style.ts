@@ -22,11 +22,8 @@ export default StyleSheet.create({
     backgroundColor: colors.red,
   },
   playNow: {
-    height: 22,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 0,
-    paddingHorizontal: 15,
     marginLeft: 15,
   },
   openBid: {
