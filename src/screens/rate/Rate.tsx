@@ -22,6 +22,8 @@ const Rate = ({}: BottomStackName) => {
     callApiByDefault: true,
   });
 
+  console.log('dataFetched', JSON.stringify(dataFetched, null, 2));
+
   return (
     <>
       <CustomHeader
