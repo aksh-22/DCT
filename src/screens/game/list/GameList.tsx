@@ -4,6 +4,7 @@ import SvgBackground from 'src/components/SvgBackground';
 import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
 import {gameDataType} from 'typings/game-type';
+import ListItem from './ListItem';
 
 type Props = {};
 
@@ -23,9 +24,9 @@ const GameList = ({}: Props) => {
   return (
     <>
       <CustomHeader isBack showBell={false} />
-      <Container>
+      <Container containerLoading={isLoading}>
         {gametypes.map(el => (
-          <SvgBackground key={el.id}>{el.name}</SvgBackground>
+          <ListItem key={el.id} item={el} />
         ))}
       </Container>
     </>
