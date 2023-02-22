@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {useEffect, useState} from 'react';
+import {Keyboard} from 'react-native';
 import {axiosInstance} from 'src/api/axiosInstance';
 
 type RProps = {
@@ -11,6 +12,7 @@ type RProps = {
   params?: any;
   data?: any;
   callApiByDefault?: boolean;
+  hideKeyboard?: boolean;
 };
 
 export const useRequest = ({
@@ -22,6 +24,7 @@ export const useRequest = ({
   params,
   data,
   callApiByDefault,
+  hideKeyboard = true,
 }: RProps = {}) => {
   const [isLoading, setIsLoading] = useState(callApiByDefault);
   const [dataFetched, setDataFetched] = useState(null);
@@ -52,6 +55,7 @@ export const useRequest = ({
       .finally(() => {
         setIsLoading(false);
         onFinally && onFinally();
+        hideKeyboard && Keyboard.dismiss();
       });
   };
 

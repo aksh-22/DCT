@@ -26,6 +26,7 @@ const BottomTabStack = () => {
         tabBarStyle: styles.tabBarStyle,
         tabBarLabelStyle: styles.tabBarLabelStyle,
         // tabBarShowLabel: false,
+        tabBarHideOnKeyboard: true,
       }}>
       <Screen
         name={BottomStackName.HOME_STACK}
