@@ -18,7 +18,6 @@ const GameList = ({}: Props) => {
 
   if (dataFetched?.data) {
     gametypes = dataFetched?.data?.gametypes;
-    console.log('dataFetched', JSON.stringify(gametypes, null, 2));
   }
 
   return (

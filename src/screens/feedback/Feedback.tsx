@@ -14,7 +14,6 @@ const Feedback = ({navigation}: BottomStackProps) => {
   const [feedbackError, setFeedbackError] = useState('');
 
   const onSuccess = data => {
-    console.log('data', JSON.stringify(data, null, 2));
     showMessage({
       message: data.message,
       modalType: 'Success',
