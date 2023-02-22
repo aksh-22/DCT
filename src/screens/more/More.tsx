@@ -4,6 +4,7 @@ import Share from 'react-native-share';
 import {useDispatch} from 'react-redux';
 import CustomButton from 'src/components/button/CustomButton';
 import CustomHeader from 'src/components/header/CustomHeader';
+import {showMessage} from 'src/components/MessageModal';
 import {margin} from 'src/constants/globalStyles';
 import moreList from 'src/constants/moreList';
 import {useRequest} from 'src/constants/useRequest';
@@ -20,6 +21,14 @@ const More = ({navigation}: BottomStackProps) => {
 
   const onLogOutSuccess = () => {
     dispatch({type: 'CLEAR_REDUX'});
+  };
+
+  const onLogoutPress = () => {
+    showMessage({
+      message: 'Are you sure!?',
+      otherActionOnClose: false,
+      onPress: () => sendRequest(),
+    });
   };
 
   const {sendRequest, isLoading} = useRequest({
@@ -47,7 +56,7 @@ const More = ({navigation}: BottomStackProps) => {
           <MoreItem item={el} key={el.id} onPress={onPress} />
         ))}
         <CustomButton
-          onPress={sendRequest}
+          onPress={onLogoutPress}
           isLoading={isLoading}
           width="90%"
           title="Logout"

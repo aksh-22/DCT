@@ -20,6 +20,7 @@ interface props {
   message: string;
   modalType?: 'Error' | 'Success' | 'Info';
   onPress?: () => void;
+  otherActionOnClose?: boolean;
 }
 
 const color = {
@@ -38,6 +39,7 @@ export let showMessage = ({
   isVisible = true,
   message = '',
   modalType = 'Info',
+  otherActionOnClose = true,
   onPress = () => null,
 }: props) => null;
 
@@ -46,6 +48,7 @@ const MessageModal = ({children}: {children: any}) => {
     message: '',
     isVisible: false,
     modalType: 'Info',
+    otherActionOnClose: true,
   });
 
   useEffect(() => {
@@ -54,13 +57,20 @@ const MessageModal = ({children}: {children: any}) => {
       message = '',
       modalType = 'Info',
       onPress,
+      otherActionOnClose = true,
     }: props) => {
-      setController({message, modalType, isVisible, ...(onPress && {onPress})});
+      setController({
+        message,
+        modalType,
+        isVisible,
+        otherActionOnClose,
+        ...(onPress && {onPress}),
+      });
     };
   }, []);
 
-  const closeModal = () => {
-    controller?.onPress && controller?.onPress();
+  const closeModal = performOtherAction => {
+    controller?.onPress && performOtherAction && controller?.onPress();
     setController(prev => {
       return {
         ...prev,
@@ -76,7 +86,8 @@ const MessageModal = ({children}: {children: any}) => {
       }}>
       {children}
       {controller?.isVisible === true ? (
-        <TouchableWithoutFeedback onPress={closeModal}>
+        <TouchableWithoutFeedback
+          onPress={() => closeModal(controller.otherActionOnClose)}>
           <View style={styles.wrapper}>
             <View style={styles.container}>
               <View style={styles.top}>
@@ -93,7 +104,7 @@ const MessageModal = ({children}: {children: any}) => {
               <TouchableOpacity
                 activeOpacity={0.8}
                 style={styles.pressableText}
-                onPress={closeModal}>
+                onPress={() => closeModal(true)}>
                 <Text
                   style={[styles.text, {color: color[controller?.modalType]}]}>
                   OK

@@ -9,8 +9,6 @@ import Container from 'src/container/Container';
 import {BottomStackProps} from 'src/routes/types/navigation';
 import feedbackStyle from './feedback.style';
 
-type Props = {};
-
 const Feedback = ({navigation}: BottomStackProps) => {
   const [feedback, setFeedback] = useState('');
   const [feedbackError, setFeedbackError] = useState('');
