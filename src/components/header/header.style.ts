@@ -43,4 +43,14 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  status: {
+    borderWidth: 1,
+    borderColor: colors.green,
+    borderRadius: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 20,
+    paddingVertical: 3,
+    paddingHorizontal: 10,
+  },
 });

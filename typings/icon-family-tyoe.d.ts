@@ -33,4 +33,7 @@ export type customFontFamilyType =
   | 'edit'
   | 'right'
   | 'Whatsapp'
-  | 'whatsappWhite';
+  | 'whatsappWhite'
+  | 'single'
+  | 'jodi'
+  | 'panel';

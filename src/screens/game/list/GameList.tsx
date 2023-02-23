@@ -4,28 +4,20 @@ import {useRequest} from 'src/constants/useRequest';
 import Container from 'src/container/Container';
 import {gameDataType} from 'typings/game-type';
 import ListItem from './ListItem';
+import useGameList from './useGameList';
 
 type Props = {};
 
 const GameList = ({}: Props) => {
-  const {dataFetched, isLoading} = useRequest({
-    endpoint: 'game-types',
-    callApiByDefault: true,
-  });
-
-  let gametypes: gameDataType[] = [];
-
-  if (dataFetched?.data) {
-    gametypes = dataFetched?.data?.gametypes;
-  }
+  const {isLoading, jodi, panel, single} = useGameList();
 
   return (
     <>
-      <CustomHeader isBack showBell={false} />
+      <CustomHeader heading="Capital morning" isBack showBell={false} status />
       <Container containerLoading={isLoading}>
-        {gametypes.map(el => (
-          <ListItem key={el.id} item={el} />
-        ))}
+        <ListItem title="Single Aankda" items={single} />
+        <ListItem title="Play Jodi" items={jodi} />
+        <ListItem title="Play Patti" items={panel} />
       </Container>
     </>
   );

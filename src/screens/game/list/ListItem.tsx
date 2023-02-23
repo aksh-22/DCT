@@ -1,24 +1,34 @@
-import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
+import {TouchableOpacity, View} from 'react-native';
+import CustomIcon from 'src/components/CustomIcon';
+import CustomText from 'src/components/CustomText';
 import SvgBackground from 'src/components/SvgBackground';
-import {gameDataType} from 'typings/game-type';
+import {margin} from 'src/constants/globalStyles';
+import listStyle from './list.style';
 
 type Props = {
-  item: gameDataType;
+  items: any[];
+  title: string;
 };
 
-const ListItem = ({item}: Props) => {
+const ListItem = ({items, title}: Props) => {
   return (
-    <TouchableOpacity
-      style={{
-        alignSelf: 'center',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 20,
-      }}>
-      <SvgBackground>{item.name}</SvgBackground>
-      <SvgBackground bg="gameWrapper">{item.name}</SvgBackground>
-    </TouchableOpacity>
+    <View style={listStyle.item}>
+      <View style={margin(10)}>
+        <SvgBackground>{title}</SvgBackground>
+      </View>
+      <View style={listStyle.row}>
+        {items.map((el, i) => (
+          <TouchableOpacity
+            style={{justifyContent: 'center', alignItems: 'center'}}>
+            <SvgBackground marginTop={0} key={i} bg="gameWrapper">
+              <SvgBackground bg="single" />
+            </SvgBackground>
+            <CustomText>{el.name}</CustomText>
+          </TouchableOpacity>
+        ))}
+      </View>
+    </View>
   );
 };
 

@@ -21,6 +21,9 @@ import HowToPlay from 'src/assets/svg/howToPlay.svg';
 import Edit from 'src/assets/svg/edit.svg';
 import Right from 'src/assets/svg/right.svg';
 import Whatsapp from 'src/assets/svg/whatsapp.svg';
+import Single from 'src/assets/svg/single-ankda.svg';
+import Jodi from 'src/assets/svg/jodi.svg';
+import Panel from 'src/assets/svg/panel.svg';
 
 interface Props extends SvgProps {
   name?: customFontFamilyType;
@@ -84,6 +87,15 @@ const getIcon = (name: customFontFamilyType) => {
 
     case 'Whatsapp':
       return Whatsapp;
+
+    case 'single':
+      return Single;
+
+    case 'jodi':
+      return Jodi;
+
+    case 'panel':
+      return Panel;
 
     default:
       return Lock;

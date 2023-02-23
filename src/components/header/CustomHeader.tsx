@@ -3,7 +3,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import colors from 'src/constants/colors';
-import {margin} from 'src/constants/globalStyles';
+import globalStyles, {margin} from 'src/constants/globalStyles';
 import {AuthorizeStackName} from 'src/constants/routeNames';
 import {useAppSelector} from 'src/utils/reducer';
 import CustomIcon from '../CustomIcon';
@@ -17,6 +17,7 @@ type Props = {
   showWallet?: boolean;
   showBell?: boolean;
   heading?: string;
+  status?: boolean;
 };
 
 const CustomHeader = ({
@@ -26,6 +27,7 @@ const CustomHeader = ({
   showWallet = true,
   showBell = true,
   heading,
+  status,
 }: Props) => {
   // const {colors} = useTheme();
   const {goBack, navigate} = useNavigation<NativeStackNavigationProp<any>>();
@@ -86,9 +88,18 @@ const CustomHeader = ({
         </View>
       </View>
       {heading ? (
-        <CustomText size={30} style={margin(20, 20, 20)}>
-          {heading}
-        </CustomText>
+        <View style={globalStyles.row_spaceBetween}>
+          <CustomText size={30} style={margin(20, 20, 20)}>
+            {heading}
+          </CustomText>
+          {status && (
+            <View style={headerStyle.status}>
+              <CustomText size={11} color="green">
+                Open
+              </CustomText>
+            </View>
+          )}
+        </View>
       ) : null}
     </View>
   );
