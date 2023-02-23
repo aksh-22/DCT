@@ -9,9 +9,10 @@ import listStyle from './list.style';
 type Props = {
   items: any[];
   title: string;
+  icon: 'single' | 'jodi' | 'panel';
 };
 
-const ListItem = ({items, title}: Props) => {
+const ListItem = ({items, title, icon}: Props) => {
   return (
     <View style={listStyle.item}>
       <View style={margin(10)}>
@@ -26,7 +27,7 @@ const ListItem = ({items, title}: Props) => {
               marginHorizontal: 5,
             }}>
             <SvgBackground marginTop={0} key={i} bg="gameWrapper">
-              <SvgBackground bg="single" />
+              <CustomIcon name={icon} />
             </SvgBackground>
             <CustomText numberOfLines={1} style={{width: 80}}>
               {el.name}
