@@ -14,7 +14,7 @@ type color =
   | 'green';
 // | string;
 
-type Props = {
+interface Props {
   style?: TextStyle | TextStyle[];
   children: ReactNode;
   size?: number;
@@ -23,7 +23,8 @@ type Props = {
   center?: boolean;
   fontWeight?: TextStyle['fontWeight'];
   textColor?: string;
-};
+  numberOfLines?: number;
+}
 
 const CustomText = ({
   style,
@@ -33,9 +34,11 @@ const CustomText = ({
   removeFontFamily,
   center,
   fontWeight = '400',
+  numberOfLines,
 }: Props) => {
   return (
     <Text
+      numberOfLines={numberOfLines}
       style={[
         styles.text,
         {

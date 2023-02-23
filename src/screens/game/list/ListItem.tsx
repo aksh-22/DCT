@@ -20,11 +20,17 @@ const ListItem = ({items, title}: Props) => {
       <View style={listStyle.row}>
         {items.map((el, i) => (
           <TouchableOpacity
-            style={{justifyContent: 'center', alignItems: 'center'}}>
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginHorizontal: 5,
+            }}>
             <SvgBackground marginTop={0} key={i} bg="gameWrapper">
               <SvgBackground bg="single" />
             </SvgBackground>
-            <CustomText>{el.name}</CustomText>
+            <CustomText numberOfLines={1} style={{width: 80}}>
+              {el.name}
+            </CustomText>
           </TouchableOpacity>
         ))}
       </View>
