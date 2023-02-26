@@ -10,7 +10,7 @@ import {BottomStackName} from 'src/constants/routeNames';
 import MyBet from 'src/screens/bet/MyBet';
 import HomeStack from './HomeStack';
 import MoreStack from './MoreStack';
-import WalletStack from './WalletStack';
+import WithdrawalStack from './WithdrawalStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +44,7 @@ const BottomTabStack = () => {
       />
       <Screen
         name={BottomStackName.WITHDRAWAL}
-        component={WalletStack}
+        component={WithdrawalStack}
         options={{
           tabBarIcon: color => (
             <CustomIcon name="withdrawal" fill={color.color} />

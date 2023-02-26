@@ -6,7 +6,7 @@ import {
   BottomStackName,
   MoreStackName,
   RootStackName,
-  WalletStackName,
+  WithdrawalStackName,
 } from 'src/constants/routeNames';
 
 export type RootStackParamList = {
@@ -32,7 +32,7 @@ export type BottomStackParamList = {
   [BottomStackName.MORE_STACK]: undefined;
   [BottomStackName.MY_BET]: undefined;
   [BottomStackName.WITHDRAWAL]: undefined;
-  [WalletStackName.WALLET_HISTORY]: undefined;
+  [WithdrawalStackName.WALLET_HISTORY]: undefined;
   [MoreStackName.PROFILE_UPDATE]: undefined;
   [MoreStackName.CHANGE_PASSWORD]: undefined;
 };

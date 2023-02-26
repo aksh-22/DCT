@@ -32,7 +32,7 @@ export enum BottomStackName {
   MORE_STACK = 'More',
 }
 
-export enum WalletStackName {
+export enum WithdrawalStackName {
   WITHDRAWAL = 'Add withdrawal',
   PENDING = 'Pending History',
   APPROVED = 'Approved History',
