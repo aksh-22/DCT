@@ -1,5 +1,6 @@
 import React from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, View} from 'react-native';
+import CustomText from '../CustomText';
 import RenderDetail from './RenderDetail';
 import timelineStyle from './timeline.style';
 
@@ -18,6 +19,13 @@ const CustomTimeline = ({data}: Props) => {
       data={data}
       contentContainerStyle={timelineStyle.timelineStyle}
       showsVerticalScrollIndicator={false}
+      ListEmptyComponent={
+        <View>
+          <CustomText size={30} center>
+            No data found
+          </CustomText>
+        </View>
+      }
     />
   );
 };

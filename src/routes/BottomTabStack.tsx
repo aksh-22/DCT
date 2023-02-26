@@ -33,6 +33,7 @@ const BottomTabStack = () => {
         component={HomeStack}
         options={{
           tabBarIcon: color => <CustomIcon name="home" fill={color.color} />,
+          title: 'Home',
         }}
       />
       <Screen

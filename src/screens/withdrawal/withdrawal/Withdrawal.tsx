@@ -5,12 +5,14 @@ import CustomText from 'src/components/CustomText';
 import CustomInput from 'src/components/Input/CustomInput';
 import globalStyles, {margin} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
+import useAddWithdrawal from './useWithdrawal';
 import withdrawalStyle from './withdrawal.style';
 
 type Props = {};
 
 const Withdrawal = ({}: Props) => {
-  const onPress = () => {};
+  const {onChange, amount, balance, onSubmit, isLoading, amountError} =
+    useAddWithdrawal();
 
   return (
     <Container contentContainerStyle={withdrawalStyle.container}>
@@ -20,14 +22,18 @@ const Withdrawal = ({}: Props) => {
           Available Balance :
         </CustomText>
         <CustomText size={17} color="active">
-          10.00
+          {balance}
         </CustomText>
       </View>
       <CustomInput
+        value={amount}
         iconFamily="FontAwesome5"
         iconName="rupee-sign"
         mainContainerStyle={withdrawalStyle.input}
         placeholder="Amount"
+        onChangeText={onChange}
+        keyboardType="decimal-pad"
+        errorMessage={amountError}
       />
       <CustomText style={margin(20)} color="placeholderColor">
         Note: Please share your request on whatsapp.
@@ -38,7 +44,8 @@ const Withdrawal = ({}: Props) => {
       <CustomButton
         style={withdrawalStyle.button}
         title="Proceed"
-        onPress={onPress}
+        onPress={onSubmit}
+        isLoading={isLoading}
       />
     </Container>
   );

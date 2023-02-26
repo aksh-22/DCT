@@ -36,7 +36,7 @@ const CustomButton = ({
   backgroundColor,
 }: Props) => {
   return (
-    <TouchableOpacity disabled={disabled} onPress={onPress}>
+    <TouchableOpacity disabled={disabled || isLoading} onPress={onPress}>
       <View
         style={[
           buttonStyle.button,

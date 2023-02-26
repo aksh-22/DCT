@@ -10,7 +10,7 @@ type Props = {
 };
 
 const useLogin = ({navigate}: Props) => {
-  const [name, setName] = useState('test2@dct.com');
+  const [name, setName] = useState('test44@dct.com');
   const [nameError, setNameError] = useState('');
   const [password, setPassword] = useState('12345678');
   const [passwordError, setPasswordError] = useState('');

@@ -10,6 +10,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import LoadingContainer from 'src/components/loading/LoadingContainer';
 import colors from 'src/constants/colors';
 
 type Props = {
@@ -19,6 +20,7 @@ type Props = {
   statusBarColor?: string;
   barStyle?: StatusBarStyle;
   showCartBar?: boolean;
+  containerLoading?: boolean;
 };
 
 const ContainerWithoutScroll = ({
@@ -27,6 +29,7 @@ const ContainerWithoutScroll = ({
   style,
   statusBarColor = colors.background,
   barStyle = 'light-content',
+  containerLoading,
 }: Props) => {
   const {addListener} = useNavigation<NativeStackNavigationProp<any>>();
 
@@ -46,7 +49,11 @@ const ContainerWithoutScroll = ({
   return (
     <SafeAreaView style={[styles.SafeAreaView, SafeAreaViewStyle]}>
       <StatusBar backgroundColor={statusBarColor} barStyle={barStyle} />
-      <View style={[styles.view, style]}>{children}</View>
+      {containerLoading ? (
+        <LoadingContainer />
+      ) : (
+        <View style={[styles.view, style]}>{children}</View>
+      )}
     </SafeAreaView>
   );
 };

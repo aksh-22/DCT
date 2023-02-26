@@ -45,6 +45,7 @@ export const useRequest = ({
     setIsLoading(true);
     await api(dataToSend)
       .then(res => {
+        console.log('res', JSON.stringify(res, null, 2));
         onSuccess && onSuccess(res.data);
         setDataFetched(res.data);
         // console.log('res.data', JSON.stringify(res.data, null, 2));
