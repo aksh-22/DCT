@@ -1,5 +1,7 @@
 import {useState} from 'react';
+import {useDispatch} from 'react-redux';
 import {useRequest} from 'src/constants/useRequest';
+import {updateUser} from 'src/store/reducer/userReducer';
 import {useAppSelector} from 'src/utils/reducer';
 
 type Props = {};
@@ -7,21 +9,30 @@ type Props = {};
 const useProfileUpdate = ({}: Props = {}) => {
   const user = useAppSelector(state => state.userReducer.user);
 
-  const [name, setName] = useState({value: user?.name, error: ''});
-  const [email, setEmail] = useState({value: user?.email, error: ''});
-  const [mobile, setMobile] = useState({value: user?.mobile, error: ''});
-  const [userName, setUserName] = useState({value: user?.name, error: ''});
+  const dispatch = useDispatch();
+
+  const [name, setName] = useState({value: user?.name ?? '', error: ''});
+  const [email, setEmail] = useState({value: user?.email ?? '', error: ''});
+  const [mobile, setMobile] = useState({value: user?.mobile ?? '', error: ''});
+  const [userName, setUserName] = useState({
+    value: user?.username ?? '',
+    error: '',
+  });
 
   const onNameChange = (txt: string) => {
-    setName(prev => ({...prev, value: txt}));
+    setName({error: '', value: txt});
   };
 
   const onEmailChange = (txt: string) => {
-    setEmail(prev => ({...prev, value: txt}));
+    setEmail({error: '', value: txt});
   };
 
   const onMobileChange = (txt: string) => {
-    setMobile(prev => ({...prev, value: txt}));
+    setMobile({error: '', value: txt});
+  };
+
+  const onUserNameChange = (txt: string) => {
+    setUserName({error: '', value: txt});
   };
 
   const onUpdate = () => {
@@ -51,6 +62,7 @@ const useProfileUpdate = ({}: Props = {}) => {
 
   const onSuccess = fData => {
     console.log('fData', JSON.stringify(fData, null, 2));
+    dispatch(updateUser(fData.data.profile));
   };
 
   const {isLoading, sendRequest} = useRequest({
@@ -66,6 +78,7 @@ const useProfileUpdate = ({}: Props = {}) => {
     onNameChange,
     onEmailChange,
     onMobileChange,
+    onUserNameChange,
     isLoading,
     onUpdate,
     userName,

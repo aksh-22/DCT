@@ -19,6 +19,7 @@ const ProfileUpdate = ({}: Props) => {
     onNameChange,
     isLoading,
     onUpdate,
+    onUserNameChange,
   } = useProfileUpdate();
 
   return (
@@ -28,29 +29,34 @@ const ProfileUpdate = ({}: Props) => {
         <CustomInput
           mainContainerStyle={profileStyle.input}
           placeholder="Name"
-          value={email?.value}
+          value={name?.value}
+          errorMessage={name?.error}
           customIconName="name"
-          onChangeText={onEmailChange}
+          onChangeText={onNameChange}
         />
         <CustomInput
           mainContainerStyle={profileStyle.input}
           placeholder="Email"
           value={email?.value}
+          errorMessage={email?.error}
           iconName="mail-outline"
-          onChangeText={onMobileChange}
+          onChangeText={onEmailChange}
         />
         <CustomInput
           mainContainerStyle={profileStyle.input}
           placeholder="Mobile"
           value={mobile?.value}
+          errorMessage={mobile?.error}
           customIconName="mobile"
-          onChangeText={onNameChange}
+          onChangeText={onMobileChange}
         />
         <CustomInput
           mainContainerStyle={profileStyle.input}
-          placeholder="Referral Code"
-          value={name?.value}
+          placeholder="User Name"
+          value={userName?.value}
+          errorMessage={userName?.error}
           customIconName="person"
+          onChangeText={onUserNameChange}
         />
         <CustomButton
           isLoading={isLoading}
