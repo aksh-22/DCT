@@ -4,12 +4,22 @@ import CustomHeader from 'src/components/header/CustomHeader';
 import CustomInput from 'src/components/Input/CustomInput';
 import {margin, padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
-import {useAppSelector} from 'src/utils/reducer';
 import profileStyle from './../profile.style';
+import useProfileUpdate from './useProfileUpdate';
 type Props = {};
 
 const ProfileUpdate = ({}: Props) => {
-  const user = useAppSelector(state => state.userReducer.user);
+  const {
+    email,
+    mobile,
+    name,
+    userName,
+    onEmailChange,
+    onMobileChange,
+    onNameChange,
+    isLoading,
+    onUpdate,
+  } = useProfileUpdate();
 
   return (
     <>
@@ -18,27 +28,36 @@ const ProfileUpdate = ({}: Props) => {
         <CustomInput
           mainContainerStyle={profileStyle.input}
           placeholder="Name"
-          value={user.name}
+          value={email?.value}
           customIconName="name"
+          onChangeText={onEmailChange}
         />
         <CustomInput
           mainContainerStyle={profileStyle.input}
           placeholder="Email"
-          value={user.email}
+          value={email?.value}
           iconName="mail-outline"
+          onChangeText={onMobileChange}
         />
         <CustomInput
           mainContainerStyle={profileStyle.input}
           placeholder="Mobile"
-          value={user.mobile}
+          value={mobile?.value}
           customIconName="mobile"
+          onChangeText={onNameChange}
         />
         <CustomInput
           mainContainerStyle={profileStyle.input}
           placeholder="Referral Code"
-          value={user.name}
+          value={name?.value}
+          customIconName="person"
         />
-        <CustomButton title="Update Profile" style={margin(40)} />
+        <CustomButton
+          isLoading={isLoading}
+          title="Update Profile"
+          style={margin(40)}
+          onPress={onUpdate}
+        />
       </Container>
     </>
   );
