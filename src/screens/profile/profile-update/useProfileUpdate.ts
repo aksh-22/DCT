@@ -1,12 +1,15 @@
 import {useState} from 'react';
 import {useDispatch} from 'react-redux';
+import {showMessage} from 'src/components/MessageModal';
 import {useRequest} from 'src/constants/useRequest';
 import {updateUser} from 'src/store/reducer/userReducer';
 import {useAppSelector} from 'src/utils/reducer';
 
-type Props = {};
+type Props = {
+  goBack?: () => void;
+};
 
-const useProfileUpdate = ({}: Props = {}) => {
+const useProfileUpdate = ({goBack}: Props = {}) => {
   const user = useAppSelector(state => state.userReducer.user);
 
   const dispatch = useDispatch();
@@ -61,8 +64,12 @@ const useProfileUpdate = ({}: Props = {}) => {
   };
 
   const onSuccess = fData => {
-    console.log('fData', JSON.stringify(fData, null, 2));
+    showMessage({
+      message: 'Profile updated successfully',
+      modalType: 'Success',
+    });
     dispatch(updateUser(fData.data.profile));
+    goBack();
   };
 
   const {isLoading, sendRequest} = useRequest({

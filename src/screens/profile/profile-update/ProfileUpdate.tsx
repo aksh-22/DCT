@@ -4,11 +4,11 @@ import CustomHeader from 'src/components/header/CustomHeader';
 import CustomInput from 'src/components/Input/CustomInput';
 import {margin, padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
+import {BottomStackProps} from 'src/routes/types/navigation';
 import profileStyle from './../profile.style';
 import useProfileUpdate from './useProfileUpdate';
-type Props = {};
 
-const ProfileUpdate = ({}: Props) => {
+const ProfileUpdate = ({navigation}: BottomStackProps) => {
   const {
     email,
     mobile,
@@ -20,7 +20,7 @@ const ProfileUpdate = ({}: Props) => {
     isLoading,
     onUpdate,
     onUserNameChange,
-  } = useProfileUpdate();
+  } = useProfileUpdate({goBack: navigation.goBack});
 
   return (
     <>
