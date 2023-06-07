@@ -1,6 +1,6 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {TouchableOpacity, View} from 'react-native';
-import CustomIcon from 'src/components/CustomIcon';
+import {Image, TouchableOpacity, View} from 'react-native';
 import CustomText from 'src/components/CustomText';
 import SvgBackground from 'src/components/SvgBackground';
 import {margin} from 'src/constants/globalStyles';
@@ -9,7 +9,23 @@ import listStyle from './list.style';
 type Props = {
   items: any[];
   title: string;
-  icon: 'single' | 'jodi' | 'panel';
+  icon: ('single' | 'jodi' | 's_panel' | 'd_panel' | 't_panel' | 'c_panel') &
+    any;
+};
+
+const images = {
+  single: {
+    path: require('src/assets/img/single.png'),
+    size: 40,
+  },
+  jodi: {
+    path: require('src/assets/img/jodi.png'),
+    size: 50,
+  },
+  panel: {
+    path: require('src/assets/img/single.png'),
+    size: 40,
+  },
 };
 
 const ListItem = ({items, title, icon}: Props) => {
@@ -21,14 +37,23 @@ const ListItem = ({items, title, icon}: Props) => {
       <View style={listStyle.row}>
         {items.map((el, i) => (
           <TouchableOpacity
+            key={i}
             style={{
               justifyContent: 'center',
               alignItems: 'center',
               marginHorizontal: 5,
             }}>
-            <SvgBackground marginTop={0} key={i} bg="gameWrapper">
-              <CustomIcon name={icon} />
-            </SvgBackground>
+            <View style={listStyle.iconWrapper}>
+              <Image
+                resizeMode="contain"
+                source={images[icon].path}
+                style={[
+                  listStyle.icon,
+                  {height: images[icon].size, width: images[icon].size},
+                ]}
+              />
+            </View>
+            <SvgBackground marginTop={0} key={i} bg="gameWrapper" />
             <CustomText numberOfLines={1} style={{width: 80}}>
               {el.name}
             </CustomText>

@@ -14,4 +14,18 @@ export default StyleSheet.create({
     flexWrap: 'wrap',
     marginTop: 20,
   },
+  iconWrapper: {
+    position: 'absolute',
+    zIndex: 10,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  icon: {
+    height: 30,
+    width: 30,
+  },
 });
