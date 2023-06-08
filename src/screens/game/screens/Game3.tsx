@@ -3,12 +3,12 @@ import React from 'react';
 
 type Props = {};
 
-const Game1 = ({}: Props) => {
+const Game3 = ({}: Props) => {
   return (
     <View>
-      <Text>Game1</Text>
+      <Text>Game3</Text>
     </View>
   );
 };
 
-export default Game1;
+export default Game3;

@@ -11,6 +11,7 @@ type Props = {
   title: string;
   icon: ('single' | 'jodi' | 's_panel' | 'd_panel' | 't_panel' | 'c_panel') &
     any;
+  onGamePress: () => void;
 };
 
 const images = {
@@ -28,7 +29,7 @@ const images = {
   },
 };
 
-const ListItem = ({items, title, icon}: Props) => {
+const ListItem = ({items, title, icon, onGamePress}: Props) => {
   return (
     <View style={listStyle.item}>
       <View style={margin(10)}>
@@ -37,6 +38,7 @@ const ListItem = ({items, title, icon}: Props) => {
       <View style={listStyle.row}>
         {items.map((el, i) => (
           <TouchableOpacity
+            onPress={onGamePress}
             key={i}
             style={{
               justifyContent: 'center',

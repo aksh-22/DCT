@@ -1,8 +1,13 @@
 import {useState} from 'react';
+import {HomeStackName} from 'src/constants/routeNames';
 import {useRequest} from 'src/constants/useRequest';
 import {gameDataType} from 'typings/game-type';
 
-const useGameList = () => {
+type Props = {
+  navigation: any;
+};
+
+const useGameList = ({navigation}: Props) => {
   const [single, setSingle] = useState([]);
   const [jodi, setJodi] = useState([]);
   const [panel, setPanel] = useState([]);
@@ -35,7 +40,11 @@ const useGameList = () => {
     onSuccess,
   });
 
-  return {isLoading, panel, jodi, single};
+  const onGamePress = () => {
+    navigation.navigate(HomeStackName.GAME1);
+  };
+
+  return {isLoading, panel, jodi, single, onGamePress};
 };
 
 export default useGameList;
