@@ -1,15 +1,18 @@
-import {View, Text, TextInput} from 'react-native';
 import React from 'react';
-import CustomHeader from 'src/components/header/CustomHeader';
-import Container from 'src/container/Container';
+import {TextInput, View} from 'react-native';
 import CustomText from 'src/components/CustomText';
-import {padding} from 'src/constants/globalStyles';
-import {margin} from 'src/constants/globalStyles';
+import CustomButton from 'src/components/button/CustomButton';
+import CustomHeader from 'src/components/header/CustomHeader';
+import {margin, padding} from 'src/constants/globalStyles';
+import Container from 'src/container/Container';
+import {game1Data} from 'src/utils/gameData';
 import gameStyle from './game.style';
+import useGame1 from './useGame1';
 
 type Props = {};
 
 const Game1 = ({}: Props) => {
+  const {onChange, total} = useGame1();
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
@@ -21,15 +24,28 @@ const Game1 = ({}: Props) => {
           </CustomText>
         </View>
         <View style={gameStyle.boxArea}>
-          {Array(10)
-            .fill('')
-            .map((el, i) => {
-              return (
-                <View key={i} style={gameStyle.box1}>
-                  <TextInput maxLength={1} keyboardType="decimal-pad" />
+          {game1Data.map(el => {
+            return (
+              <View key={el} style={margin(30)}>
+                <CustomText center>{el}</CustomText>
+                <View style={gameStyle.box1}>
+                  <TextInput
+                    onChangeText={txt => {
+                      onChange({[el]: txt});
+                    }}
+                    maxLength={5}
+                    keyboardType="decimal-pad"
+                  />
                 </View>
-              );
-            })}
+              </View>
+            );
+          })}
+        </View>
+        <View style={gameStyle.amountArea}>
+          <CustomText center color="purple">
+            Total {total}
+          </CustomText>
+          <CustomButton title="Place bid" />
         </View>
       </Container>
     </>

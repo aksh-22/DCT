@@ -11,10 +11,15 @@ export default StyleSheet.create({
   box1: {
     width: 67,
     height: 58,
-    borderRadius: 28.5,
+    borderRadius: 25.5,
     backgroundColor: colors.background2,
-    marginVertical: 20,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  amountArea: {
+    position: 'absolute',
+    bottom: 20,
+    left: 0,
+    right: 0,
   },
 });

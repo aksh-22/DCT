@@ -24,6 +24,7 @@ const More = ({navigation}: BottomStackProps) => {
   };
 
   const onLogoutPress = () => {
+    dispatch({type: 'CLEAR_REDUX'});
     showMessage({
       message: 'Are you sure!?',
       otherActionOnClose: false,
