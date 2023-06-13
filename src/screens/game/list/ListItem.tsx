@@ -5,11 +5,27 @@ import CustomText from 'src/components/CustomText';
 import SvgBackground from 'src/components/SvgBackground';
 import {margin} from 'src/constants/globalStyles';
 import listStyle from './list.style';
+import {getImage} from './getImage';
 
 type Props = {
   items: any[];
   title: string;
-  icon: ('single' | 'jodi' | 's_panel' | 'd_panel' | 't_panel' | 'c_panel') &
+  icon: (
+    | 'single_ankda'
+    | 'single_ank_dp_panel'
+    | 'half_jack'
+    | 'red_family_jodi'
+    | 'family_jodi'
+    | 'single_ank_sp_panel'
+    | 'red_jodi'
+    | 'cycle_panel'
+    | 'jodi'
+    | 's_p_panel'
+    | 'family_panel'
+    | 't_p_panel'
+    | 'd_p_panel'
+    | 'full_jack'
+  ) &
     any;
   onGamePress: () => void;
 };
@@ -48,7 +64,7 @@ const ListItem = ({items, title, icon, onGamePress}: Props) => {
             <View style={listStyle.iconWrapper}>
               <Image
                 resizeMode="contain"
-                source={images[icon].path}
+                source={getImage(el?.slug)}
                 style={[
                   listStyle.icon,
                   {height: images[icon].size, width: images[icon].size},
