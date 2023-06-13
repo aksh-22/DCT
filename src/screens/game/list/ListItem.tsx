@@ -10,42 +10,10 @@ import {getImage} from './getImage';
 type Props = {
   items: any[];
   title: string;
-  icon: (
-    | 'single_ankda'
-    | 'single_ank_dp_panel'
-    | 'half_jack'
-    | 'red_family_jodi'
-    | 'family_jodi'
-    | 'single_ank_sp_panel'
-    | 'red_jodi'
-    | 'cycle_panel'
-    | 'jodi'
-    | 's_p_panel'
-    | 'family_panel'
-    | 't_p_panel'
-    | 'd_p_panel'
-    | 'full_jack'
-  ) &
-    any;
   onGamePress: () => void;
 };
 
-const images = {
-  single: {
-    path: require('src/assets/img/single.png'),
-    size: 40,
-  },
-  jodi: {
-    path: require('src/assets/img/jodi.png'),
-    size: 50,
-  },
-  panel: {
-    path: require('src/assets/img/single.png'),
-    size: 40,
-  },
-};
-
-const ListItem = ({items, title, icon, onGamePress}: Props) => {
+const ListItem = ({items, title, onGamePress}: Props) => {
   return (
     <View style={listStyle.item}>
       <View style={margin(10)}>
@@ -60,19 +28,23 @@ const ListItem = ({items, title, icon, onGamePress}: Props) => {
               justifyContent: 'center',
               alignItems: 'center',
               marginHorizontal: 5,
+              marginBottom: 20,
             }}>
             <View style={listStyle.iconWrapper}>
               <Image
                 resizeMode="contain"
                 source={getImage(el?.slug)}
-                style={[
-                  listStyle.icon,
-                  {height: images[icon].size, width: images[icon].size},
-                ]}
+                style={listStyle.icon}
               />
             </View>
             <SvgBackground marginTop={0} key={i} bg="gameWrapper" />
-            <CustomText numberOfLines={1} style={{width: 80}}>
+            <CustomText
+              center
+              style={{
+                width: 80,
+                textTransform: 'capitalize',
+                alignSelf: 'center',
+              }}>
               {el.name}
             </CustomText>
           </TouchableOpacity>

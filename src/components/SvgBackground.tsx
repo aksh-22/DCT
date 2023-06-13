@@ -6,6 +6,7 @@ import GameWrapper from 'src/assets/svg/gameWrapper.svg';
 import Single from 'src/assets/svg/single-ankda.svg';
 import Jodi from 'src/assets/svg/jodi.svg';
 import Panel from 'src/assets/svg/panel.svg';
+import {SCREEN_WIDTH} from 'src/constants/deviceInfo';
 
 type Props = {
   bg?: 'rectangle' | 'gameWrapper' | 'single' | 'jodi' | 'panel';
@@ -15,7 +16,9 @@ type Props = {
 
 const svg = {
   rectangle: <Rect />,
-  gameWrapper: <GameWrapper />,
+  gameWrapper: (
+    <GameWrapper height={SCREEN_WIDTH * 0.2} width={SCREEN_WIDTH * 0.2} />
+  ),
   single: <Single />,
   jodi: <Jodi />,
   panel: <Panel />,

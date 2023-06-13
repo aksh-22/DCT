@@ -4,6 +4,8 @@ export const getImage = (key: game_image_slug) => {
   console.log('key', key);
   switch (key) {
     case 'single_ankda':
+    case 'half_jack':
+    case 'full_jack':
       return require('src/assets/img/single.png');
 
     case 'jodi':

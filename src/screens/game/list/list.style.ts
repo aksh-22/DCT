@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    // justifyContent: 'space-around',
     alignItems: 'center',
     flexWrap: 'wrap',
     marginTop: 20,
@@ -25,7 +25,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   icon: {
-    height: 30,
-    width: 30,
+    height: 40,
+    width: 40,
   },
 });
