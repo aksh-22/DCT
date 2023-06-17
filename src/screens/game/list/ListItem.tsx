@@ -5,7 +5,7 @@ import CustomText from 'src/components/CustomText';
 import SvgBackground from 'src/components/SvgBackground';
 import {margin} from 'src/constants/globalStyles';
 import listStyle from './list.style';
-import {getImage} from './getImage';
+import {getGameData} from './getGameData';
 
 type Props = {
   items: any[];
@@ -20,35 +20,37 @@ const ListItem = ({items, title, onGamePress}: Props) => {
         <SvgBackground>{title}</SvgBackground>
       </View>
       <View style={listStyle.row}>
-        {items.map((el, i) => (
-          <TouchableOpacity
-            onPress={onGamePress}
-            key={i}
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginHorizontal: 5,
-              marginBottom: 20,
-            }}>
-            <View style={listStyle.iconWrapper}>
-              <Image
-                resizeMode="contain"
-                source={getImage(el?.slug)}
-                style={listStyle.icon}
-              />
+        {items.map((el, i) => {
+          const {image, route} = getGameData(el?.slug) ?? {};
+          return (
+            <View style={margin(10)}>
+              <TouchableOpacity
+                onPress={onGamePress.bind(this, route)}
+                key={i}
+                style={{
+                  marginHorizontal: 5,
+                }}>
+                <View style={listStyle.iconWrapper}>
+                  <Image
+                    resizeMode="contain"
+                    source={image}
+                    style={listStyle.icon}
+                  />
+                </View>
+                <SvgBackground marginTop={0} key={i} bg="gameWrapper" />
+              </TouchableOpacity>
+              <CustomText
+                center
+                style={{
+                  width: 80,
+                  textTransform: 'capitalize',
+                  alignSelf: 'center',
+                }}>
+                {el.name}
+              </CustomText>
             </View>
-            <SvgBackground marginTop={0} key={i} bg="gameWrapper" />
-            <CustomText
-              center
-              style={{
-                width: 80,
-                textTransform: 'capitalize',
-                alignSelf: 'center',
-              }}>
-              {el.name}
-            </CustomText>
-          </TouchableOpacity>
-        ))}
+          );
+        })}
       </View>
     </View>
   );

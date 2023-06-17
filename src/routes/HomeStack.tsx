@@ -2,7 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {HomeStackName} from 'src/constants/routeNames';
 import GameList from 'src/screens/game/list/GameList';
-import Game1 from 'src/screens/game/screens/Game1';
+import Game1 from 'src/screens/game/screens/Game1/Game1';
 import Game2 from 'src/screens/game/screens/Game2';
 import Game3 from 'src/screens/game/screens/Game3';
 import Game4 from 'src/screens/game/screens/Game4';

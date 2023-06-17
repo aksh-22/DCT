@@ -6,8 +6,8 @@ import CustomHeader from 'src/components/header/CustomHeader';
 import {margin, padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
 import {game1Data} from 'src/utils/gameData';
-import gameStyle from './game.style';
-import useGame1 from './Game1/useGame1';
+import gameStyle from '../game.style';
+import useGame1 from './useGame1';
 
 type Props = {};
 

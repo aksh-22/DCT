@@ -19,22 +19,11 @@ const GameList = ({navigation}: Props) => {
       <Container containerLoading={isLoading}>
         <ListItem
           onGamePress={onGamePress}
-          icon="single"
           title="Single Aankda"
           items={single}
         />
-        <ListItem
-          onGamePress={onGamePress}
-          icon="jodi"
-          title="Play Jodi"
-          items={jodi}
-        />
-        <ListItem
-          onGamePress={onGamePress}
-          icon="panel"
-          title="Play Patti"
-          items={panel}
-        />
+        <ListItem onGamePress={onGamePress} title="Play Jodi" items={jodi} />
+        <ListItem onGamePress={onGamePress} title="Play Patti" items={panel} />
       </Container>
     </>
   );

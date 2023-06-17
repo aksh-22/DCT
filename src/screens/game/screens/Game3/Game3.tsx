@@ -5,14 +5,14 @@ import CustomButton from 'src/components/button/CustomButton';
 import CustomHeader from 'src/components/header/CustomHeader';
 import {margin, padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
-import {game1Data} from 'src/utils/gameData';
-import gameStyle from './game.style';
-import useGame1 from './Game1/useGame1';
+import {game3Data} from 'src/utils/gameData';
+import gameStyle from '../game.style';
+import useGame3 from './useGame3';
 
 type Props = {};
 
-const Game1 = ({}: Props) => {
-  const {onChange, total} = useGame1();
+const Game3 = ({}: Props) => {
+  const {onChange, total} = useGame3();
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
@@ -24,7 +24,7 @@ const Game1 = ({}: Props) => {
           </CustomText>
         </View>
         <View style={gameStyle.boxArea}>
-          {game1Data.map(el => {
+          {game3Data.map(el => {
             return (
               <View key={el} style={margin(30)}>
                 <CustomText center>{el}</CustomText>
@@ -52,4 +52,4 @@ const Game1 = ({}: Props) => {
   );
 };
 
-export default Game1;
+export default Game3;

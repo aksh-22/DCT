@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 
 type Props = {};
 
-const useGame1 = ({}: Props = {}) => {
+const useGame4 = ({}: Props = {}) => {
   const [bidData, setBidData] = useState({});
 
   const onChange = val => {
@@ -19,4 +19,4 @@ const useGame1 = ({}: Props = {}) => {
   return {onChange, total};
 };
 
-export default useGame1;
+export default useGame4;

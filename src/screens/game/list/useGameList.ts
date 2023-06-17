@@ -1,5 +1,4 @@
 import {useState} from 'react';
-import {HomeStackName} from 'src/constants/routeNames';
 import {useRequest} from 'src/constants/useRequest';
 import {gameDataType} from 'typings/game-type';
 
@@ -40,8 +39,8 @@ const useGameList = ({navigation}: Props) => {
     onSuccess,
   });
 
-  const onGamePress = () => {
-    navigation.navigate(HomeStackName.GAME1);
+  const onGamePress = route => {
+    navigation.navigate(route);
   };
 
   return {isLoading, panel, jodi, single, onGamePress};

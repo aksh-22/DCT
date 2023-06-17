@@ -10,7 +10,7 @@ export default StyleSheet.create({
   row: {
     flexDirection: 'row',
     // justifyContent: 'space-around',
-    alignItems: 'center',
+    // alignItems: 'center',
     flexWrap: 'wrap',
     marginTop: 20,
   },
@@ -20,7 +20,7 @@ export default StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    bottom: 20,
+    bottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
   },
