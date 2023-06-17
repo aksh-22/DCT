@@ -3,10 +3,10 @@ import React from 'react';
 import {HomeStackName} from 'src/constants/routeNames';
 import GameList from 'src/screens/game/list/GameList';
 import Game1 from 'src/screens/game/screens/Game1/Game1';
-import Game2 from 'src/screens/game/screens/Game2';
-import Game3 from 'src/screens/game/screens/Game3';
-import Game4 from 'src/screens/game/screens/Game4';
-import Game5 from 'src/screens/game/screens/Game5';
+import Game2 from 'src/screens/game/screens/Game2/Game2';
+import Game3 from 'src/screens/game/screens/Game3/Game3';
+import Game4 from 'src/screens/game/screens/Game4/Game4';
+import Game5 from 'src/screens/game/screens/Game5/Game5';
 import Home from 'src/screens/home/Home';
 const Stack = createNativeStackNavigator();
 

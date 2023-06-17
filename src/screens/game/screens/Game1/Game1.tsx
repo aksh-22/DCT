@@ -1,11 +1,11 @@
 import React from 'react';
 import {TextInput, View} from 'react-native';
 import CustomText from 'src/components/CustomText';
-import CustomButton from 'src/components/button/CustomButton';
 import CustomHeader from 'src/components/header/CustomHeader';
 import {margin, padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
 import {game1Data} from 'src/utils/gameData';
+import AmountBox from '../AmountBox';
 import gameStyle from '../game.style';
 import useGame1 from './useGame1';
 
@@ -41,12 +41,7 @@ const Game1 = ({}: Props) => {
             );
           })}
         </View>
-        <View style={gameStyle.amountArea}>
-          <CustomText center color="purple">
-            Total {total}
-          </CustomText>
-          <CustomButton title="Place bid" />
-        </View>
+        <AmountBox total={total} />
       </Container>
     </>
   );
