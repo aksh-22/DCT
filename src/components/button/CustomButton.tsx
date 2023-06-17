@@ -11,7 +11,7 @@ import CustomText from '../CustomText';
 import buttonStyle from './button.style';
 
 type Props = {
-  title: string;
+  title?: string;
   onPress?: () => void;
   disabled?: boolean;
   style?: ViewStyle;
@@ -21,6 +21,7 @@ type Props = {
   variant?: 'standard' | 'outline';
   titleSize?: number;
   backgroundColor?: string;
+  children?: any;
 };
 
 const CustomButton = ({
@@ -34,6 +35,7 @@ const CustomButton = ({
   variant = 'standard',
   titleSize = 17,
   backgroundColor,
+  children,
 }: Props) => {
   return (
     <TouchableOpacity disabled={disabled || isLoading} onPress={onPress}>
@@ -48,11 +50,13 @@ const CustomButton = ({
         {isLoading ? (
           <ActivityIndicator color={colors.defaultWhite} />
         ) : (
-          <CustomText
-            size={titleSize}
-            style={[buttonStyle[`${variant}_title`], titleStyle]}>
-            {title}
-          </CustomText>
+          children ?? (
+            <CustomText
+              size={titleSize}
+              style={[buttonStyle[`${variant}_title`], titleStyle]}>
+              {title}
+            </CustomText>
+          )
         )}
       </View>
     </TouchableOpacity>

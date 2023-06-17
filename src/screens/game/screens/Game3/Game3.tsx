@@ -8,6 +8,11 @@ import {game3Data} from 'src/utils/gameData';
 import AmountBox from '../AmountBox';
 import gameStyle from '../game.style';
 import useGame3 from './useGame3';
+import CustomInput from 'src/components/Input/CustomInput';
+import game3Style from './game3.style';
+import CustomButton from 'src/components/button/CustomButton';
+import VectorIcon from 'src/components/IconsFamily';
+import colors from 'src/constants/colors';
 
 type Props = {};
 
@@ -23,23 +28,20 @@ const Game3 = ({}: Props) => {
             28 Jan 2023
           </CustomText>
         </View>
-        <View style={gameStyle.boxArea}>
-          {game3Data.map(el => {
-            return (
-              <View key={el} style={margin(30)}>
-                <CustomText center>{el}</CustomText>
-                <View style={gameStyle.box1}>
-                  <TextInput
-                    onChangeText={txt => {
-                      onChange({[el]: txt});
-                    }}
-                    maxLength={5}
-                    keyboardType="decimal-pad"
-                  />
-                </View>
-              </View>
-            );
-          })}
+        <View style={game3Style.container}>
+          <View style={game3Style.inputBozArea}>
+            <CustomInput
+              mainContainerStyle={game3Style.inputSTyle}
+              placeholder="Group jodi"
+            />
+            <CustomInput
+              mainContainerStyle={game3Style.inputSTyle}
+              placeholder="Points"
+            />
+          </View>
+          <CustomButton style={game3Style.button}>
+            <VectorIcon color={colors.white} size={20} name="add" />
+          </CustomButton>
         </View>
         <AmountBox total={total} />
       </Container>

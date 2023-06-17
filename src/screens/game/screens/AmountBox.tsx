@@ -14,7 +14,7 @@ const AmountBox = ({total}: Props) => {
   const {isKeyboardVisible} = useKeyboard({delay: 300});
   return !isKeyboardVisible ? (
     <View style={gameStyle.amountArea}>
-      <CustomText style={padding('10')} center color="purple">
+      <CustomText size={20} style={padding('10')} center color="purple">
         Total {total}
       </CustomText>
       <CustomButton title="Place bid" />

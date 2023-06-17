@@ -26,7 +26,7 @@ export const getGameData = (key: game_image_slug) => {
     case 'single_ank_dp_panel':
       return {
         image: require('src/assets/img/panel-1.png'),
-        route: HomeStackName.GAME1,
+        route: HomeStackName.GAME3,
       };
 
     case 'd_p_panel':
