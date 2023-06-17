@@ -128,6 +128,19 @@ export default StyleSheet.create({
   },
 });
 
+export const shadow = (t: number = 5) => {
+  return {
+    shadowColor: colors.white,
+    shadowOffset: {
+      width: 0,
+      height: t,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: t,
+    elevation: t,
+  };
+};
+
 export const margin = (
   marginTop?: number | string,
   marginBottom?: number | string,

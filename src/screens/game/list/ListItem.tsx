@@ -10,7 +10,7 @@ import {getGameData} from './getGameData';
 type Props = {
   items: any[];
   title: string;
-  onGamePress: () => void;
+  onGamePress: (data: any) => void;
 };
 
 const ListItem = ({items, title, onGamePress}: Props) => {
@@ -23,10 +23,9 @@ const ListItem = ({items, title, onGamePress}: Props) => {
         {items.map((el, i) => {
           const {image, route} = getGameData(el?.slug) ?? {};
           return (
-            <View style={margin(10)}>
+            <View style={margin(10)} key={el.id}>
               <TouchableOpacity
                 onPress={onGamePress.bind(this, route)}
-                key={i}
                 style={{
                   marginHorizontal: 5,
                 }}>

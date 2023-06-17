@@ -1,18 +1,18 @@
 import React from 'react';
 import {TextInput, View} from 'react-native';
 import CustomText from 'src/components/CustomText';
-import CustomButton from 'src/components/button/CustomButton';
 import CustomHeader from 'src/components/header/CustomHeader';
 import {margin, padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
-import {game1Data} from 'src/utils/gameData';
+import {game2Data, game2HeaderData} from 'src/utils/gameData';
+import AmountBox from './AmountBox';
+import useGame2 from './Game2/useGame2';
 import gameStyle from './game.style';
-import useGame1 from './Game1/useGame1';
 
 type Props = {};
 
-const Game1 = ({}: Props) => {
-  const {onChange, total} = useGame1();
+const Game2 = ({}: Props) => {
+  const {total, onChange} = useGame2();
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
@@ -20,15 +20,26 @@ const Game1 = ({}: Props) => {
         <View>
           <CustomText size={20}>Single Ank</CustomText>
           <CustomText color="active" style={padding(5)}>
-            28 Jan 2023
+            18 Jan 2023
           </CustomText>
         </View>
-        <View style={gameStyle.boxArea}>
-          {game1Data.map(el => {
+        <View style={gameStyle.boxHeaderArea}>
+          {game2HeaderData.map(el => {
             return (
-              <View key={el} style={margin(30)}>
+              <View key={el} style={gameStyle.headerBoxWrapper}>
+                <View style={gameStyle.headerBox}>
+                  <CustomText>{el}</CustomText>
+                </View>
+              </View>
+            );
+          })}
+        </View>
+        <View style={gameStyle.boxArea}>
+          {game2Data.map((el, i) => {
+            return (
+              <View key={i} style={margin(30)}>
                 <CustomText center>{el}</CustomText>
-                <View style={gameStyle.box1}>
+                <View style={gameStyle.box2}>
                   <TextInput
                     onChangeText={txt => {
                       onChange({[el]: txt});
@@ -41,15 +52,10 @@ const Game1 = ({}: Props) => {
             );
           })}
         </View>
-        <View style={gameStyle.amountArea}>
-          <CustomText center color="purple">
-            Total {total}
-          </CustomText>
-          <CustomButton title="Place bid" />
-        </View>
       </Container>
+      <AmountBox total={total} />
     </>
   );
 };
 
-export default Game1;
+export default Game2;
