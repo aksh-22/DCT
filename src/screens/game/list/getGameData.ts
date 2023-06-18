@@ -44,13 +44,13 @@ export const getGameData = (key: game_image_slug) => {
     case 'family_panel':
       return {
         image: require('src/assets/img/panel-4.png'),
-        route: HomeStackName.GAME1,
+        route: HomeStackName.GAME4,
       };
 
     case 'cycle_panel':
       return {
         image: require('src/assets/img/panel-5.png'),
-        route: HomeStackName.GAME1,
+        route: HomeStackName.GAME5,
       };
 
     default:

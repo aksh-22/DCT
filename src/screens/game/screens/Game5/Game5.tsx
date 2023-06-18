@@ -1,18 +1,24 @@
 import React from 'react';
-import {TextInput, View} from 'react-native';
+import {View} from 'react-native';
 import CustomText from 'src/components/CustomText';
+import VectorIcon from 'src/components/IconsFamily';
+import CustomInput from 'src/components/Input/CustomInput';
+import CustomButton from 'src/components/button/CustomButton';
 import CustomHeader from 'src/components/header/CustomHeader';
-import {margin, padding} from 'src/constants/globalStyles';
+import colors from 'src/constants/colors';
+import {padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
-import {game5Data} from 'src/utils/gameData';
 import AmountBox from '../AmountBox';
-import gameStyle from '../game.style';
 import useGame5 from './useGame5';
+import game3Style from '../Game3/game3.style';
+import game4Style from '../Game4/game4.style';
+import game5Style from './game5.style';
+import Checkbox from 'src/components/Checkbox';
 
 type Props = {};
 
 const Game5 = ({}: Props) => {
-  const {onChange, total} = useGame5();
+  const {total} = useGame5();
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
@@ -23,26 +29,63 @@ const Game5 = ({}: Props) => {
             28 Jan 2023
           </CustomText>
         </View>
-        <View style={gameStyle.boxArea}>
-          {game5Data.map(el => {
-            return (
-              <View key={el} style={margin(30)}>
-                <CustomText center>{el}</CustomText>
-                <View style={gameStyle.box1}>
-                  <TextInput
-                    onChangeText={txt => {
-                      onChange({[el]: txt});
-                    }}
-                    maxLength={5}
-                    keyboardType="decimal-pad"
+        <View style={game3Style.container}>
+          <View style={game4Style.typeBox}>
+            <CustomText size={15} color="white">
+              Open Patti{'   '}
+              {'<'} {'='} {'>'}
+              {'   '}Close Patti
+            </CustomText>
+            <View style={game5Style.split}>
+              <Checkbox />
+              <CustomText>Split</CustomText>
+            </View>
+          </View>
+          <View style={game3Style.inputArea}>
+            <View style={game3Style.inputBoxArea}>
+              <CustomInput
+                mainContainerStyle={game4Style.inputStyle}
+                placeholder="Open Panna"
+                inputBoxStyle={game4Style.inputBoxStyle}
+                keyboardType="decimal-pad"
+              />
+              <CustomInput
+                mainContainerStyle={game4Style.inputStyle}
+                placeholder="Close Panna"
+                inputBoxStyle={game4Style.inputBoxStyle}
+                keyboardType="decimal-pad"
+              />
+              <CustomInput
+                mainContainerStyle={game4Style.inputStyle}
+                placeholder="Points"
+                inputBoxStyle={game4Style.inputBoxStyle}
+                keyboardType="decimal-pad"
+              />
+            </View>
+            <CustomButton style={game3Style.button}>
+              <VectorIcon color={colors.white} size={20} name="add" />
+            </CustomButton>
+          </View>
+          <View style={game3Style.listArea}>
+            {Array(3)
+              .fill('')
+              .map((el, i) => (
+                <View key={i} style={game3Style.listItem}>
+                  <CustomText color="borderColor">
+                    Number:56, Points:10
+                  </CustomText>
+                  <VectorIcon
+                    color={colors.active}
+                    family="Ionicons"
+                    name="close-circle-outline"
+                    size={30}
                   />
                 </View>
-              </View>
-            );
-          })}
+              ))}
+          </View>
         </View>
-        <AmountBox total={total} />
       </Container>
+      <AmountBox total={total} />
     </>
   );
 };
