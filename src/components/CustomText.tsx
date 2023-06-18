@@ -4,14 +4,17 @@ import {StyleSheet, Text, TextStyle} from 'react-native';
 import colors from 'src/constants/colors';
 import {fonts} from 'src/constants/fonts';
 
-type color =
+type color = (
   | 'white'
   | 'purple'
   | 'black'
   | 'light_purple'
   | 'active'
   | 'placeholderColor'
-  | 'green';
+  | 'green'
+  | 'borderColor'
+) &
+  string;
 // | string;
 
 interface Props {
