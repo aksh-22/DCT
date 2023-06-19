@@ -31,10 +31,15 @@ const MarketModal = ({
     callApiByDefault: ![null, undefined].includes(data?.id),
   });
 
+  console.log('dataFetched', JSON.stringify(dataFetched, null, 2));
+
   const {navigate} = useNavigation<NativeStackNavigationProp<any>>();
 
   const isOpenMarketOpen = !dataFetched?.data?.status?.open?.length;
   const isCloseMarketOpen = !dataFetched?.data?.status?.close?.length;
+
+  console.log('isOpenMarketOpen', isOpenMarketOpen);
+  console.log('isCloseMarketOpen', isCloseMarketOpen);
 
   const onOpenPress = () => {
     onCancel();
@@ -60,22 +65,22 @@ const MarketModal = ({
       ) : (
         <>
           <TouchableOpacity
-            disabled={isOpenMarketOpen}
+            disabled={!isOpenMarketOpen}
             onPress={onOpenPress}
             style={[
               modalStyle.marketModalItem,
-              isOpenMarketOpen && modalStyle.disable,
+              !isOpenMarketOpen && modalStyle.disable,
             ]}>
             <CustomText center size={20}>
               Open
             </CustomText>
           </TouchableOpacity>
           <TouchableOpacity
-            disabled={isCloseMarketOpen}
+            disabled={!isCloseMarketOpen}
             onPress={onClosePress}
             style={[
               modalStyle.marketModalItem,
-              isCloseMarketOpen && modalStyle.disable,
+              !isCloseMarketOpen && modalStyle.disable,
             ]}>
             <CustomText center size={20}>
               Close

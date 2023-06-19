@@ -23,6 +23,7 @@ const useHome = ({}) => {
   };
 
   const onPlayNowPress = (index: number) => {
+    console.log('marketData', JSON.stringify(marketData[index], null, 2));
     setCurrIndex(index);
   };
 

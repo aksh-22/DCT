@@ -41,8 +41,8 @@ const Game1 = ({}: Props) => {
             );
           })}
         </View>
-        <AmountBox total={total} />
       </Container>
+      <AmountBox total={total} />
     </>
   );
 };
