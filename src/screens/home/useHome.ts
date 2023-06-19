@@ -1,7 +1,9 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {useRequest} from 'src/constants/useRequest';
+import {updateNumber} from 'src/store/reducer/numberReducer';
 import {setShareLink} from 'src/store/reducer/userReducer';
+import {useAppSelector} from 'src/utils/reducer';
 import {marketDataType} from 'typings/market-data-type';
 
 type RProps = {
@@ -16,6 +18,12 @@ const useHome = ({}) => {
   const dispatch = useDispatch();
   const [marketData, setMarketData] = useState([]);
   const [currIndex, setCurrIndex] = useState(null);
+
+  const data = useAppSelector(state => state.numberReducer);
+
+  useEffect(() => {
+    console.log('data', data?.numberData.numbers);
+  }, [data]);
 
   const onSuccess = (fData: {data: marketDataType}) => {
     dispatch(setShareLink(fData.data.share_link));
@@ -34,6 +42,16 @@ const useHome = ({}) => {
     endpoint: 'markets',
     callApiByDefault: true,
     onSuccess: onSuccess,
+  });
+
+  const onNumberSuccess = dFetched => {
+    dispatch(updateNumber(dFetched));
+  };
+
+  useRequest({
+    endpoint: 'numbers',
+    callApiByDefault: true,
+    onSuccess: onNumberSuccess,
   });
 
   return {
