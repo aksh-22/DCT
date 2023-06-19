@@ -12,34 +12,22 @@ import LoadingContainer from '../loading/LoadingContainer';
 import modalStyle from './modal.style';
 
 export interface MarketModalProps {
-  onOpenPress?: () => void;
-  onClosePress?: () => void;
   onCancel?: () => void;
   data?: any;
 }
 
 const DELAY_TIME = 500;
 
-const MarketModal = ({
-  // onClosePress,
-  // onOpenPress,
-  onCancel,
-  data,
-}: MarketModalProps) => {
+const MarketModal = ({onCancel, data}: MarketModalProps) => {
   const {dataFetched, isLoading} = useRequest({
     endpoint: `markets/status/${data?.id}`,
     callApiByDefault: ![null, undefined].includes(data?.id),
   });
 
-  console.log('dataFetched', JSON.stringify(dataFetched, null, 2));
-
   const {navigate} = useNavigation<NativeStackNavigationProp<any>>();
 
   const isOpenMarketOpen = !dataFetched?.data?.status?.open?.length;
   const isCloseMarketOpen = !dataFetched?.data?.status?.close?.length;
-
-  console.log('isOpenMarketOpen', isOpenMarketOpen);
-  console.log('isCloseMarketOpen', isCloseMarketOpen);
 
   const onOpenPress = () => {
     onCancel();

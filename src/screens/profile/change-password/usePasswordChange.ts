@@ -36,8 +36,6 @@ const usePasswordChange = ({goBack}: Props = {}) => {
     } else if (!newPassword.value) {
       setNewPassword(prev => ({...prev, error: 'New password is required*'}));
     } else if (confirmPassword.value !== newPassword.value) {
-      console.log('confirmPassword', confirmPassword);
-      console.log('newPassword', newPassword);
       setConfirmPassword(prev => ({
         ...prev,
         error: 'New password and confirm password should match',

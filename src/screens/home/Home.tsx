@@ -17,8 +17,6 @@ const Home = ({navigation}: BottomStackProps) => {
     marketData,
     sendRequest,
     onPlayNowPress,
-    onOpenPress,
-    onClosePress,
     onCancel,
     currIndex,
   } = useHome({navigate: navigation.navigate});
@@ -45,12 +43,7 @@ const Home = ({navigation}: BottomStackProps) => {
       <CustomModal
         isVisible={currIndex !== null}
         header={marketData[currIndex]?.name}>
-        <MarketModal
-          onCancel={onCancel}
-          onClosePress={onClosePress}
-          onOpenPress={onOpenPress}
-          data={marketData[currIndex]}
-        />
+        <MarketModal onCancel={onCancel} data={marketData[currIndex]} />
       </CustomModal>
     </>
   );

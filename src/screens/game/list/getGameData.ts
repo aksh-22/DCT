@@ -2,7 +2,6 @@ import {HomeStackName} from 'src/constants/routeNames';
 import {game_image_slug} from 'typings/game-type';
 
 export const getGameData = (key: game_image_slug) => {
-  console.log('key', key);
   switch (key) {
     case 'single_ankda':
     case 'half_jack':

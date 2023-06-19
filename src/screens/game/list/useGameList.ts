@@ -17,8 +17,6 @@ const useGameList = ({navigation}: Props) => {
     const tempJodi = [];
     const tempPanel = [];
 
-    console.log('newData', JSON.stringify(newData, null, 2));
-
     newData.forEach(element => {
       if (element.name.includes('SUNGUM')) {
         tempSingle.push(element);

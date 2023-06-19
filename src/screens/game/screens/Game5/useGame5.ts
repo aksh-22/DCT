@@ -9,8 +9,6 @@ const useGame5 = ({}: Props = {}) => {
     setBidData(prev => ({...prev, ...val}));
   };
 
-  console.log('bidData', JSON.stringify(bidData, null, 2));
-
   let total = 0;
   Object.keys(bidData).forEach(el => {
     total += Number(bidData[el]);

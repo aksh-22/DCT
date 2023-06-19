@@ -23,14 +23,8 @@ const useHome = ({}) => {
   };
 
   const onPlayNowPress = (index: number) => {
-    console.log('marketData', JSON.stringify(marketData[index], null, 2));
     setCurrIndex(index);
   };
-
-  const onOpenPress = () => {
-    // navigate(GameStackName.GAME_LIST);
-  };
-  const onClosePress = () => {};
 
   const onCancel = () => {
     setCurrIndex(null);
@@ -48,8 +42,6 @@ const useHome = ({}) => {
     sendRequest,
     onPlayNowPress,
     currIndex,
-    onOpenPress,
-    onClosePress,
     onCancel,
   };
 };
