@@ -10,25 +10,32 @@ const useGameList = ({navigation}: Props) => {
   const [single, setSingle] = useState([]);
   const [jodi, setJodi] = useState([]);
   const [panel, setPanel] = useState([]);
+  const [sungum, setSungum] = useState([]);
 
   const onSuccess = fetchedData => {
+    console.log('fetchedData', JSON.stringify(fetchedData, null, 2));
     const newData: gameDataType[] = fetchedData.data.gametypes;
     const tempSingle = [];
     const tempJodi = [];
     const tempPanel = [];
+    const tempSungum = [];
 
     newData.forEach(element => {
-      if (element.name.includes('SUNGUM')) {
+      // console.log('element', JSON.stringify(element, null, 2));
+      if (element.slug.includes('single_ankda')) {
         tempSingle.push(element);
-      } else if (element.name.includes('PANEL')) {
+      } else if (element.slug.includes('panel')) {
         tempPanel.push(element);
-      } else if (element.name.includes('JODI')) {
+      } else if (element.slug.includes('jodi')) {
         tempJodi.push(element);
+      } else if (element.slug.includes('jack')) {
+        tempSungum.push(element);
       }
-      setSingle(tempSingle);
-      setJodi(tempJodi);
-      setPanel(tempPanel);
     });
+    setSingle(tempSingle);
+    setJodi(tempJodi);
+    setPanel(tempPanel);
+    setSungum(tempSungum);
   };
 
   const {isLoading} = useRequest({
@@ -41,7 +48,7 @@ const useGameList = ({navigation}: Props) => {
     navigation.navigate(route);
   };
 
-  return {isLoading, panel, jodi, single, onGamePress};
+  return {isLoading, panel, jodi, single, onGamePress, sungum};
 };
 
 export default useGameList;
