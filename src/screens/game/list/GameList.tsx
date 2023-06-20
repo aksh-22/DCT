@@ -9,7 +9,7 @@ type Props = {
 };
 
 const GameList = ({navigation}: Props) => {
-  const {isLoading, jodi, panel, single, onGamePress} = useGameList({
+  const {isLoading, jodi, panel, single, onGamePress, sungum} = useGameList({
     navigation,
   });
 
@@ -24,6 +24,7 @@ const GameList = ({navigation}: Props) => {
         />
         <ListItem onGamePress={onGamePress} title="Play Jodi" items={jodi} />
         <ListItem onGamePress={onGamePress} title="Play Patti" items={panel} />
+        <ListItem onGamePress={onGamePress} title="Sungum" items={sungum} />
       </Container>
     </>
   );
