@@ -13,7 +13,6 @@ const useGameList = ({navigation}: Props) => {
   const [sungum, setSungum] = useState([]);
 
   const onSuccess = fetchedData => {
-    console.log('fetchedData', JSON.stringify(fetchedData, null, 2));
     const newData: gameDataType[] = fetchedData.data.gametypes;
     const tempSingle = [];
     const tempJodi = [];
@@ -21,7 +20,6 @@ const useGameList = ({navigation}: Props) => {
     const tempSungum = [];
 
     newData.forEach(element => {
-      // console.log('element', JSON.stringify(element, null, 2));
       if (element.slug.includes('single_ankda')) {
         tempSingle.push(element);
       } else if (element.slug.includes('panel')) {
