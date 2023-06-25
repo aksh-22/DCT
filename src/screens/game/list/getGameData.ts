@@ -59,54 +59,54 @@ export const getGameData = (key: game_image_slug) => {
 };
 
 // GAME 1
-const singleAnkada = {
-  data: [
-    {
-      token_id: '419908_1685021556761',
-      market_type: 'Open',
-      game_type: 'SINGLE ANK',
-      bid: '1',
-      point: '12',
-    },
-    {
-      token_id: '419908_1685021556762',
-      market_type: 'Open',
-      game_type: 'SINGLE ANK',
-      bid: '5',
-      point: '36',
-    },
-    {
-      token_id: '419908_1685021556763',
-      market_type: 'Open',
-      game_type: 'SINGLE ANK',
-      bid: '7',
-      point: '80',
-    },
-  ],
-  market_id: 'fe0b7465-6ca3-4fa1-9de7-23ee84da3935',
-  numbers: '1,5,7',
-  token_id: 'dbg1685021236772',
-};
+// const singleAnk = {
+//   data: [
+//     {
+//       token_id: '419908_1685021556761',
+//       market_type: 'Open',
+//       game_type: 'SINGLE ANK',
+//       bid: '1',
+//       point: '12',
+//     },
+//     {
+//       token_id: '419908_1685021556762',
+//       market_type: 'Open',
+//       game_type: 'SINGLE ANK',
+//       bid: '5',
+//       point: '36',
+//     },
+//     {
+//       token_id: '419908_1685021556763',
+//       market_type: 'Open',
+//       game_type: 'SINGLE ANK',
+//       bid: '7',
+//       point: '80',
+//     },
+//   ],
+//   market_id: 'fe0b7465-6ca3-4fa1-9de7-23ee84da3935',
+//   numbers: '1,5,7',
+//   token_id: 'dbg1685021236772',
+// };
 
 // GAME 2
-const family = {
-  data: [
-    {
-      token_id: '419908_1685021556761',
-      market_type: 'Open',
-      game_type: 'Family panel',
-      bid: '123',
-      point: '20',
-    },
-    {
-      token_id: '419908_1685021556762',
-      market_type: 'Open',
-      game_type: 'Family panel',
-      bid: '139',
-      point: '23',
-    },
-  ],
-  market_id: 'fe0b7465-6ca3-4fa1-9de7-23ee84da3935',
-  numbers: '123,128,137,134,139,148',
-  token_id: 'dbg1685021236772',
-};
+// const family = {
+//   data: [
+//     {
+//       token_id: '419908_1685021556761',
+//       market_type: 'Open',
+//       game_type: 'Family panel',
+//       bid: '123',
+//       point: '20',
+//     },
+//     {
+//       token_id: '419908_1685021556762',
+//       market_type: 'Open',
+//       game_type: 'Family panel',
+//       bid: '139',
+//       point: '23',
+//     },
+//   ],
+//   market_id: 'fe0b7465-6ca3-4fa1-9de7-23ee84da3935',
+//   numbers: '123,128,137,134,139,148',
+//   token_id: 'dbg1685021236772',
+// };

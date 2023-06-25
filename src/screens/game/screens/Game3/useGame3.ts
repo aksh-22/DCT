@@ -1,11 +1,21 @@
 import {useState} from 'react';
+import {AuthorizedStackProps} from 'src/routes/types/navigation';
 
-type Props = {};
+const useGame3 = ({route}: AuthorizedStackProps) => {
+  const params = route?.params;
+  const [bidData, setBidData] = useState([]);
+  const [data, setData] = useState({
+    group: '',
+    points: '',
+  });
 
-const useGame3 = ({}: Props = {}) => {
-  const [bidData, setBidData] = useState({});
+  console.log('params', JSON.stringify(params, null, 2));
 
-  const onChange = val => {
+  const onChange = (key, val) => {
+    setData(prev => ({...prev, [key]: val}));
+  };
+
+  const onAdd = val => {
     setBidData(prev => ({...prev, ...val}));
   };
 
@@ -14,7 +24,7 @@ const useGame3 = ({}: Props = {}) => {
     total += Number(bidData[el]);
   });
 
-  return {onChange, total};
+  return {onChange, total, onAdd, data};
 };
 
 export default useGame3;

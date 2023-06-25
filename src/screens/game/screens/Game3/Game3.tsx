@@ -11,19 +11,20 @@ import Container from 'src/container/Container';
 import AmountBox from '../AmountBox';
 import game3Style from './game3.style';
 import useGame3 from './useGame3';
+import {AuthorizedStackProps} from 'src/routes/types/navigation';
+import dayjs from 'dayjs';
 
-type Props = {};
-
-const Game3 = ({}: Props) => {
-  const {total} = useGame3();
+const Game3 = ({navigation, route}: AuthorizedStackProps) => {
+  const {total, data, onChange} = useGame3({navigation, route});
+  const params: any = route?.params;
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
       <Container style={padding('10', '20')}>
         <View>
-          <CustomText size={20}>Single Ank</CustomText>
+          <CustomText size={20}>{params?.name}</CustomText>
           <CustomText color="active" style={padding(5)}>
-            28 Jan 2023
+            {dayjs().format('DD MMM YYYY')}
           </CustomText>
         </View>
         <View style={game3Style.container}>
@@ -32,10 +33,14 @@ const Game3 = ({}: Props) => {
               <CustomInput
                 mainContainerStyle={game3Style.inputStyle}
                 placeholder="Group jodi"
+                value={data?.group}
+                onChangeText={val => onChange('group', val)}
               />
               <CustomInput
                 mainContainerStyle={game3Style.inputStyle}
                 placeholder="Points"
+                value={data?.points}
+                onChangeText={val => onChange('points', val)}
               />
             </View>
             <CustomButton style={game3Style.button}>
