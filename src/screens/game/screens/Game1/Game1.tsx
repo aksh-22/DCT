@@ -8,11 +8,10 @@ import {game1Data} from 'src/utils/gameData';
 import AmountBox from '../AmountBox';
 import gameStyle from '../game.style';
 import useGame1 from './useGame1';
+import {AuthorizedStackProps} from 'src/routes/types/navigation';
 
-type Props = {};
-
-const Game1 = ({}: Props) => {
-  const {onChange, total} = useGame1();
+const Game1 = ({route, navigation}: AuthorizedStackProps) => {
+  const {onChange, total} = useGame1({route, navigation});
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />

@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {useRequest} from 'src/constants/useRequest';
 import {updateNumber} from 'src/store/reducer/numberReducer';
@@ -19,15 +19,15 @@ const useHome = ({}) => {
   const [marketData, setMarketData] = useState([]);
   const [currIndex, setCurrIndex] = useState(null);
 
-  const data = useAppSelector(state => state.numberReducer);
-
-  useEffect(() => {
-    console.log('data', data?.numberData.numbers);
-  }, [data]);
+  const {new_numbers} = useAppSelector(state => state.numberReducer);
 
   const onSuccess = (fData: {data: marketDataType}) => {
+    console.log('fData', JSON.stringify(fData, null, 2));
     dispatch(setShareLink(fData.data.share_link));
     setMarketData(fData?.data?.markets);
+    if (fData?.data?.new_numbers === new_numbers) {
+      getNumbers();
+    }
   };
 
   const onPlayNowPress = (index: number) => {
@@ -45,10 +45,10 @@ const useHome = ({}) => {
   });
 
   const onNumberSuccess = dFetched => {
-    dispatch(updateNumber(dFetched));
+    dispatch(updateNumber(dFetched?.data));
   };
 
-  useRequest({
+  const {sendRequest: getNumbers} = useRequest({
     endpoint: 'numbers',
     callApiByDefault: true,
     onSuccess: onNumberSuccess,

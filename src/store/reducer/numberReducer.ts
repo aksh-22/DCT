@@ -1,11 +1,13 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 interface TProps {
-  numberData: any;
+  numbers: any;
+  new_numbers: string;
 }
 
 const initialState: TProps = {
-  numberData: {},
+  numbers: {},
+  new_numbers: '',
 };
 
 const numberSlice = createSlice({
@@ -13,7 +15,8 @@ const numberSlice = createSlice({
   name: 'numbers',
   reducers: {
     updateNumber(state: TProps, action: PayloadAction<TProps>) {
-      state.numberData = action.payload;
+      state.numbers = action.payload.numbers;
+      state.new_numbers = action.payload.new_numbers;
     },
   },
 });

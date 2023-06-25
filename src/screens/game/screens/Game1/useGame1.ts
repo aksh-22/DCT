@@ -1,8 +1,11 @@
 import {useState} from 'react';
+import {AuthorizedStackProps} from 'src/routes/types/navigation';
 
-type Props = {};
+const useGame1 = ({route}: AuthorizedStackProps) => {
+  const params = route?.params;
 
-const useGame1 = ({}: Props = {}) => {
+  console.log('params', params);
+
   const [bidData, setBidData] = useState({});
 
   const onChange = val => {

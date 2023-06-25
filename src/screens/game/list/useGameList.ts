@@ -44,8 +44,8 @@ const useGameList = ({navigation}: Props) => {
     onSuccess,
   });
 
-  const onGamePress = route => {
-    navigation.navigate(route);
+  const onGamePress = ({route, key}) => {
+    navigation.navigate(route, {key});
   };
 
   return {isLoading, panel, jodi, single, onGamePress, sungum};

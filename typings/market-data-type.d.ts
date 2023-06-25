@@ -12,4 +12,5 @@ export interface marketDataType {
   custom_text: string;
   share_link: string;
   version: string;
+  new_numbers: number;
 }

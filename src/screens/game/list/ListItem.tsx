@@ -21,11 +21,11 @@ const ListItem = ({items, title, onGamePress}: Props) => {
       </View>
       <View style={listStyle.row}>
         {items.map((el, i) => {
-          const {image, route} = getGameData(el?.slug) ?? {};
+          const {image, route, key} = getGameData(el?.slug) ?? {};
           return (
             <View style={margin(10)} key={el.id}>
               <TouchableOpacity
-                onPress={onGamePress.bind(this, route)}
+                onPress={onGamePress.bind(this, {route, key})}
                 style={{
                   marginHorizontal: 5,
                 }}>

@@ -9,6 +9,7 @@ export const getGameData = (key: game_image_slug) => {
       return {
         image: require('src/assets/img/single.png'),
         route: HomeStackName.GAME1,
+        key,
       };
 
     case 's_p_panel':
@@ -17,6 +18,7 @@ export const getGameData = (key: game_image_slug) => {
       return {
         image: require('src/assets/img/jodi.png'),
         route: HomeStackName.GAME2,
+        key,
       };
 
     case 'single_ank_sp_panel':
@@ -27,24 +29,28 @@ export const getGameData = (key: game_image_slug) => {
       return {
         image: require('src/assets/img/panel-1.png'),
         route: HomeStackName.GAME3,
+        key,
       };
 
     case 'cycle_panel':
       return {
         image: require('src/assets/img/panel-5.png'),
         route: HomeStackName.GAME3,
+        key,
       };
 
     case 'full_jack':
       return {
         image: require('src/assets/img/panel-4.png'),
         route: HomeStackName.GAME4,
+        key,
       };
 
     case 'half_jack':
       return {
         image: require('src/assets/img/panel-5.png'),
         route: HomeStackName.GAME5,
+        key,
       };
 
     default:
