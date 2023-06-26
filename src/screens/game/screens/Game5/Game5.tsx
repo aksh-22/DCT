@@ -14,21 +14,16 @@ import game3Style from '../Game3/game3.style';
 import game4Style from '../Game4/game4.style';
 import game5Style from './game5.style';
 import Checkbox from 'src/components/Checkbox';
+import DetailBox from '../DetailBox';
+import {AuthorizedStackProps} from 'src/routes/types/navigation';
 
-type Props = {};
-
-const Game5 = ({}: Props) => {
+const Game5 = ({route}: AuthorizedStackProps) => {
   const {total} = useGame5();
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
       <Container style={padding('10', '20')}>
-        <View>
-          <CustomText size={20}>Single Ank</CustomText>
-          <CustomText color="active" style={padding(5)}>
-            28 Jan 2023
-          </CustomText>
-        </View>
+        <DetailBox params={route?.params} />
         <View style={game3Style.container}>
           <View style={game4Style.typeBox}>
             <CustomText size={15} color="white">

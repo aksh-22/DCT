@@ -4,26 +4,21 @@ import CustomText from 'src/components/CustomText';
 import CustomHeader from 'src/components/header/CustomHeader';
 import {margin, padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
-import {game1Data} from 'src/utils/gameData';
+import {AuthorizedStackProps} from 'src/routes/types/navigation';
 import AmountBox from '../AmountBox';
 import gameStyle from '../game.style';
 import useGame1 from './useGame1';
-import {AuthorizedStackProps} from 'src/routes/types/navigation';
+import DetailBox from '../DetailBox';
 
 const Game1 = ({route, navigation}: AuthorizedStackProps) => {
-  const {onChange, total} = useGame1({route, navigation});
+  const {onChange, total, numberData} = useGame1({route, navigation});
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
       <Container style={padding('10', '20')}>
-        <View>
-          <CustomText size={20}>Single Ank</CustomText>
-          <CustomText color="active" style={padding(5)}>
-            28 Jan 2023
-          </CustomText>
-        </View>
+        <DetailBox params={route?.params} />
         <View style={gameStyle.boxArea}>
-          {game1Data.map(el => {
+          {numberData?.map(el => {
             return (
               <View key={el} style={margin(30)}>
                 <CustomText center>{el}</CustomText>

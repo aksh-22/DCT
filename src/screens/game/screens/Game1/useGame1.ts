@@ -18,9 +18,9 @@ const useGame1 = ({route}: AuthorizedStackProps) => {
     total += Number(bidData[el]);
   });
 
-  console.log('numbers', numbers[key]);
+  console.log('key', key);
 
-  const numberData = numbers?.[key];
+  const numberData = numbers?.['single_ank'];
 
   return {onChange, total, numberData};
 };

@@ -12,21 +12,16 @@ import AmountBox from '../AmountBox';
 import useGame4 from './useGame4';
 import game3Style from '../Game3/game3.style';
 import game4Style from './game4.style';
+import DetailBox from '../DetailBox';
+import {AuthorizedStackProps} from 'src/routes/types/navigation';
 
-type Props = {};
-
-const Game4 = ({}: Props) => {
+const Game4 = ({route}: AuthorizedStackProps) => {
   const {total} = useGame4();
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
       <Container style={padding('10', '20')}>
-        <View>
-          <CustomText size={20}>Single Ank</CustomText>
-          <CustomText color="active" style={padding(5)}>
-            28 Jan 2023
-          </CustomText>
-        </View>
+        <DetailBox params={route?.params} />
         <View style={game3Style.container}>
           <View style={game4Style.typeBox}>
             <CustomText size={15} color="white">

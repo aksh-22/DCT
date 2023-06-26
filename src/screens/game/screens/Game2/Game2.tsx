@@ -8,21 +8,16 @@ import {game2Data, game2HeaderData} from 'src/utils/gameData';
 import useGame2 from './useGame2';
 import gameStyle from '../game.style';
 import AmountBox from '../AmountBox';
+import DetailBox from '../DetailBox';
+import {AuthorizedStackProps} from 'src/routes/types/navigation';
 
-type Props = {};
-
-const Game2 = ({}: Props) => {
+const Game2 = ({route}: AuthorizedStackProps) => {
   const {total, onChange} = useGame2();
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
       <Container style={padding('10', '20')}>
-        <View>
-          <CustomText size={20}>Single Ank</CustomText>
-          <CustomText color="active" style={padding(5)}>
-            18 Jan 2023
-          </CustomText>
-        </View>
+        <DetailBox params={route?.params} />
         <View style={gameStyle.boxHeaderArea}>
           {game2HeaderData.map(el => {
             return (

@@ -24,7 +24,7 @@ const useHome = ({}) => {
   const onSuccess = (fData: {data: marketDataType}) => {
     dispatch(setShareLink(fData.data.share_link));
     setMarketData(fData?.data?.markets);
-    if (fData?.data?.new_numbers === new_numbers) {
+    if (fData?.data?.new_numbers !== new_numbers) {
       getNumbers();
     }
   };
