@@ -20,7 +20,7 @@ const useGame1 = ({route}: AuthorizedStackProps) => {
 
   console.log('key', key);
 
-  const numberData = numbers?.['single_ank'];
+  const numberData = numbers?.[key];
 
   return {onChange, total, numberData};
 };

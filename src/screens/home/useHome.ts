@@ -24,6 +24,12 @@ const useHome = ({}) => {
   const onSuccess = (fData: {data: marketDataType}) => {
     dispatch(setShareLink(fData.data.share_link));
     setMarketData(fData?.data?.markets);
+    console.log('fData?.data?.new_numbers', fData?.data?.new_numbers);
+    console.log('new_numbers', new_numbers);
+    console.log(
+      'fData?.data?.new_numbers !== new_numbers',
+      fData?.data?.new_numbers !== new_numbers,
+    );
     if (fData?.data?.new_numbers !== new_numbers) {
       getNumbers();
     }
@@ -44,12 +50,17 @@ const useHome = ({}) => {
   });
 
   const onNumberSuccess = dFetched => {
+    const tempData = dFetched?.data;
+    tempData.numbers['family_panel'] = [
+      ...tempData?.numbers?.s_p_panel,
+      ...tempData?.numbers?.d_p_panel,
+      ...tempData?.numbers?.tp_panel,
+    ];
     dispatch(updateNumber(dFetched?.data));
   };
 
   const {sendRequest: getNumbers} = useRequest({
     endpoint: 'numbers',
-    callApiByDefault: true,
     onSuccess: onNumberSuccess,
   });
 

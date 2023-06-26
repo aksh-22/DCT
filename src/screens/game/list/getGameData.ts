@@ -58,6 +58,8 @@ export const getGameData = (key: game_image_slug) => {
   }
 };
 
+// family panel -> SP | DP | TP panel
+
 // GAME 1
 // const singleAnk = {
 //   data: [
