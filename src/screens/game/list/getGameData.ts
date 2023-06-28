@@ -1,4 +1,5 @@
 import {HomeStackName} from 'src/constants/routeNames';
+import {randomNumber} from 'src/utils/randomNumber';
 import {game_image_slug} from 'typings/game-type';
 
 export const getGameData = (key: game_image_slug) => {
@@ -56,6 +57,22 @@ export const getGameData = (key: game_image_slug) => {
     default:
       break;
   }
+};
+
+export const formatGame1Data = (bidData, market) => {
+  const {slug, id} = market ?? {};
+  let numbers = '';
+  const token_id = randomNumber();
+  const data = Object.keys(bidData).map((el, index) => {
+    numbers += `${index !== 0 ? ',' : ''}${el}`;
+    return {
+      token_id: randomNumber(),
+      bid: String(el),
+      point: String(bidData[el]),
+      game_type: slug,
+    };
+  });
+  return {data, market_id: id, numbers, token_id};
 };
 
 // family panel -> SP | DP | TP panel

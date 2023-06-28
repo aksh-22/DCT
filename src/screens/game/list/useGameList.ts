@@ -4,9 +4,12 @@ import {gameDataType} from 'typings/game-type';
 
 type Props = {
   navigation: any;
+  route: any;
 };
 
-const useGameList = ({navigation}: Props) => {
+const useGameList = ({navigation, route}: Props) => {
+  const params = route?.params;
+  console.log('params', JSON.stringify(params, null, 2));
   const [single, setSingle] = useState([]);
   const [jodi, setJodi] = useState([]);
   const [panel, setPanel] = useState([]);

@@ -1,2 +1,7 @@
-export default 1;
-// export default Math.floor(Math.random() * 100 + 1);
+export const randomNumber = () => {
+  return String(
+    Date.now().toString(32) +
+      Math.random().toString(32) +
+      Math.random().toString(32),
+  ).replace(/\./g, '');
+};

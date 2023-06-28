@@ -2,18 +2,17 @@ import {useState} from 'react';
 import {Keyboard} from 'react-native';
 import {AuthStackName} from 'src/constants/routeNames';
 import {useRequest} from 'src/constants/useRequest';
-import randomNumber from 'src/utils/randomNumber';
 
 type Props = {
   navigate: any;
 };
 
 const useSignUp = ({navigate}: Props) => {
-  const [name, setName] = useState(`Aksh Test ${randomNumber}`);
+  const [name, setName] = useState(`Aksh Test ${1}`);
   const [nameError, setNameError] = useState('');
-  const [username, setUserName] = useState(`akshTest00${randomNumber}`);
+  const [username, setUserName] = useState(`akshTest00${1}`);
   const [userNameError, setUserNameError] = useState('');
-  const [email, setEmail] = useState(`test${randomNumber}@dct.com`);
+  const [email, setEmail] = useState(`test${1}@dct.com`);
   const [emailError, setEmailError] = useState('');
   const [mobile, setMobile] = useState('9999999991');
   const [mobileError, setMobileError] = useState('');

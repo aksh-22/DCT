@@ -11,7 +11,10 @@ import useGame1 from './useGame1';
 import DetailBox from '../DetailBox';
 
 const Game1 = ({route, navigation}: AuthorizedStackProps) => {
-  const {onChange, total, numberData} = useGame1({route, navigation});
+  const {onChange, total, numberData, onPlaceBid, isLoading} = useGame1({
+    route,
+    navigation,
+  });
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
@@ -36,7 +39,7 @@ const Game1 = ({route, navigation}: AuthorizedStackProps) => {
           })}
         </View>
       </Container>
-      <AmountBox total={total} />
+      <AmountBox isLoading={isLoading} onPlaceBid={onPlaceBid} total={total} />
     </>
   );
 };

@@ -8,16 +8,22 @@ import {padding} from 'src/constants/globalStyles';
 
 type Props = {
   total: number;
+  onPlaceBid: () => void;
+  isLoading: boolean;
 };
 
-const AmountBox = ({total}: Props) => {
+const AmountBox = ({total, onPlaceBid, isLoading}: Props) => {
   const {isKeyboardVisible} = useKeyboard({delay: 300});
   return !isKeyboardVisible ? (
     <View style={gameStyle.amountArea}>
       <CustomText size={20} style={padding('10')} center color="purple">
         Total {total}
       </CustomText>
-      <CustomButton title="Place bid" />
+      <CustomButton
+        isLoading={isLoading}
+        onPress={onPlaceBid}
+        title="Place bid"
+      />
     </View>
   ) : (
     <></>

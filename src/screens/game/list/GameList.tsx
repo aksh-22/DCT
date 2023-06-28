@@ -6,12 +6,16 @@ import useGameList from './useGameList';
 
 type Props = {
   navigation: any;
+  route: any;
 };
 
-const GameList = ({navigation}: Props) => {
+const GameList = ({navigation, route}: Props) => {
   const {isLoading, jodi, panel, single, onGamePress, sungum} = useGameList({
     navigation,
+    route,
   });
+
+  console.log('route', JSON.stringify(route, null, 2));
 
   return (
     <>
