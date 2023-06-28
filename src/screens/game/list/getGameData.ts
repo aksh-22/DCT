@@ -59,8 +59,9 @@ export const getGameData = (key: game_image_slug) => {
   }
 };
 
-export const formatGame1Data = (bidData, market) => {
-  const {slug, id} = market ?? {};
+export const formatGame1Data = (bidData, market, gameData) => {
+  const {slug} = gameData ?? {};
+  const {id, type} = market ?? {};
   let numbers = '';
   const token_id = randomNumber();
   const data = Object.keys(bidData).map((el, index) => {
@@ -70,6 +71,7 @@ export const formatGame1Data = (bidData, market) => {
       bid: String(el),
       point: String(bidData[el]),
       game_type: slug,
+      market_type: type,
     };
   });
   return {data, market_id: id, numbers, token_id};

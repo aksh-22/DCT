@@ -3,7 +3,9 @@ export interface marketsItemType {
   name: string;
   open_time: string;
   close_time: string;
-  result_string: string;
+  result_string: {
+    result: string;
+  };
   status: string;
 }
 

@@ -15,8 +15,6 @@ const GameList = ({navigation, route}: Props) => {
     route,
   });
 
-  console.log('route', JSON.stringify(route, null, 2));
-
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />

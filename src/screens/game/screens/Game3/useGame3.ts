@@ -11,8 +11,6 @@ const useGame3 = ({route}: AuthorizedStackProps) => {
     points: '',
   });
 
-  console.log('params', JSON.stringify(params, null, 2));
-
   const onChange = (type, val) => {
     setData(prev => ({...prev, [type]: val}));
   };
@@ -25,8 +23,6 @@ const useGame3 = ({route}: AuthorizedStackProps) => {
   Object.keys(bidData).forEach(el => {
     total += Number(bidData[el]);
   });
-
-  console.log('numbers', JSON.stringify(numbers[params?.key], null, 2));
 
   return {onChange, total, onAdd, data};
 };

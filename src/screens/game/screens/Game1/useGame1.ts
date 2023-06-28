@@ -3,9 +3,10 @@ import {AuthorizedStackProps} from 'src/routes/types/navigation';
 import {useAppSelector} from 'src/utils/reducer';
 import {formatGame1Data} from '../../list/getGameData';
 import {useRequest} from 'src/constants/useRequest';
+import {showMessage} from 'src/components/MessageModal';
 
 const useGame1 = ({route}: AuthorizedStackProps) => {
-  const {key}: any = route?.params;
+  const {key, market}: any = route?.params;
 
   const {numbers} = useAppSelector(state => state.numberReducer);
 
@@ -26,9 +27,13 @@ const useGame1 = ({route}: AuthorizedStackProps) => {
   });
 
   const onPlaceBid = () => {
-    const data = formatGame1Data(bidData, route?.params);
-    console.log('data', JSON.stringify(data, null, 2));
-    // sendRequest(data);
+    if (!Object.keys(bidData).length) {
+      showMessage({modalType: 'Error', message: 'At least place a bid'});
+    } else {
+      const data = formatGame1Data(bidData, market, route?.params);
+      console.log('data', JSON.stringify(data, null, 2));
+      sendRequest(data);
+    }
   };
 
   const numberData = numbers?.[key];
