@@ -22,6 +22,7 @@ const useHome = ({}) => {
   const {new_numbers} = useAppSelector(state => state.numberReducer);
 
   const onSuccess = (fData: {data: marketDataType}) => {
+    console.log('fData', JSON.stringify(fData, null, 2));
     dispatch(setShareLink(fData.data.share_link));
     setMarketData(fData?.data?.markets);
     if (fData?.data?.new_numbers !== new_numbers) {
@@ -37,7 +38,7 @@ const useHome = ({}) => {
     setCurrIndex(null);
   };
 
-  const {isLoading, sendRequest}: RProps = useRequest({
+  const {isLoading, sendRequest, dataFetched}: RProps = useRequest({
     endpoint: 'markets',
     callApiByDefault: true,
     onSuccess: onSuccess,
@@ -65,6 +66,8 @@ const useHome = ({}) => {
     onPlayNowPress,
     currIndex,
     onCancel,
+    whatsapp: dataFetched?.data?.whatsapp,
+    mobile: dataFetched?.data?.mobile,
   };
 };
 

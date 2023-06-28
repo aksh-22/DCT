@@ -17,7 +17,7 @@ const MarketItem = ({item, onPlayNowPress}: Props) => {
       <View style={marketItemStyle.marketItemLeft}>
         <CustomText size={19}>{item.name}</CustomText>
         <CustomText size={17} color="active" style={margin(5, 10)}>
-          {item.result_string?.result ?? '---'}
+          {item.result_string?.result ?? 'xxx-xx-xxx'}
         </CustomText>
         <MarketItmStatus onPlayNowPress={onPlayNowPress} status={item.status} />
       </View>

@@ -21,7 +21,7 @@ interface Props {
   style?: TextStyle | TextStyle[];
   children: ReactNode;
   size?: number;
-  color?: color;
+  color?: any;
   removeFontFamily?: boolean;
   center?: boolean;
   fontWeight?: TextStyle['fontWeight'];

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {Linking, Pressable, View} from 'react-native';
 import DepositSvg from 'src/assets/svg/homeDeposit.svg';
 import CustomIcon from 'src/components/CustomIcon';
 import CustomText from 'src/components/CustomText';
@@ -8,9 +8,18 @@ import depositStyle from './deposit.style';
 
 const SIZE = 70;
 
-const Deposit = () => {
+type Props = {
+  whatsapp: string;
+  mobile: string;
+};
+
+const Deposit = ({mobile, whatsapp}: Props) => {
   return (
-    <View style={depositStyle.depositBox}>
+    <Pressable
+      onPress={() => {
+        Linking.openURL(whatsapp);
+      }}
+      style={depositStyle.depositBox}>
       <DepositSvg
         width={'100%'}
         style={depositStyle.rectangleIcon}
@@ -27,10 +36,10 @@ const Deposit = () => {
         <CustomIcon name="Whatsapp" />
         <View style={margin(0, 0, 10, 0)}>
           <CustomText size={12}>Click to deposit point</CustomText>
-          <CustomText color="black">+91-1234567890</CustomText>
+          <CustomText color="black">{mobile}</CustomText>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

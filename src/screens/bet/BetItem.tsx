@@ -10,30 +10,32 @@ type Props = {
   index: number;
 };
 
-const BetItem = ({index, item}: Props) => {
+const BetItem = ({item}: Props) => {
   return (
     <View style={betStyle.item}>
       <CustomText size={19} style={margin('0', '10')}>
-        Capital Morning
+        {item?.market?.name}
       </CustomText>
       <View style={globalStyles.row_spaceBetween}>
         <View style={betStyle.itemLower}>
           <CustomText size={12} color={colors.purple2}>
             Game Type
           </CustomText>
-          <CustomText size={15}>Jodi</CustomText>
+          <CustomText size={15}>{item?.game_type}</CustomText>
         </View>
         <View style={betStyle.itemLower}>
           <CustomText size={12} color={colors.purple2}>
-            Bid
+            Bid : Point
           </CustomText>
-          <CustomText size={15}>100</CustomText>
+          <CustomText size={15}>
+            {item?.family_number}:{item?.point}
+          </CustomText>
         </View>
         <View style={[betStyle.itemLower, betStyle.lastItem]}>
           <CustomText size={12} color={colors.purple2}>
             Winning Amount
           </CustomText>
-          <CustomText size={15}>11000</CustomText>
+          <CustomText size={15}>{item?.win_amount}</CustomText>
         </View>
       </View>
     </View>

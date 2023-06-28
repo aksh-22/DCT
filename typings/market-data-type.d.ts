@@ -15,4 +15,6 @@ export interface marketDataType {
   share_link: string;
   version: string;
   new_numbers: number;
+  whatsapp: string;
+  mobile: string;
 }

@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import axios from 'axios';
 import {useEffect, useState} from 'react';
 import {Keyboard} from 'react-native';
 import {axiosInstance} from 'src/api/axiosInstance';
@@ -13,7 +14,12 @@ type RProps = {
   data?: any;
   callApiByDefault?: boolean;
   hideKeyboard?: boolean;
+  paginationKey?: string;
+  headers?: any;
 };
+
+const CancelToken = axios.CancelToken;
+let requestToken = null;
 
 export const useRequest = ({
   onSuccess,
@@ -25,50 +31,117 @@ export const useRequest = ({
   data,
   callApiByDefault,
   hideKeyboard = true,
+  paginationKey,
+  headers,
 }: RProps = {}) => {
   const [isLoading, setIsLoading] = useState(callApiByDefault);
   const [dataFetched, setDataFetched] = useState(null);
+  const [page, setPage] = useState(1);
+  const [shouldNext, setShouldNext] = useState(true);
 
   const api: any = async (dataToSend: any) => {
     let res;
 
     switch (requestType) {
       case 'POST':
-        return await axiosInstance.post(endpoint, dataToSend ?? data);
-
+        return await axiosInstance.post(endpoint, dataToSend ?? data, {
+          headers,
+        });
+      case 'DELETE':
+        return await axiosInstance.delete(endpoint, dataToSend ?? data);
       case 'PATCH':
         return await axiosInstance.patch(endpoint, dataToSend ?? data);
-
       default:
-        res = axiosInstance.get(endpoint, {params});
+        if (requestToken !== null) {
+          requestToken();
+        }
+        res = axiosInstance.get(endpoint, {
+          params: {...params, ...(paginationKey && {page})},
+          cancelToken: new CancelToken(token => {
+            requestToken = token;
+          }),
+        });
         return res;
     }
   };
 
-  const sendRequest = async (dataToSend?: any) => {
-    setIsLoading(true);
-    await api(dataToSend)
-      .then(res => {
-        onSuccess && onSuccess(res.data);
-        setDataFetched(res.data);
-      })
-      .catch(error => {
-        onError && onError(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-        onFinally && onFinally();
-        hideKeyboard && Keyboard.dismiss();
-      });
+  const sendRequest = async (dSend?: any) => {
+    try {
+      setIsLoading(true);
+      let dataToSend = dSend;
+
+      await api(dataToSend)
+        .then(res => {
+          if (paginationKey) {
+            const {current_page, last_page}: any = res.data.meta;
+            setShouldNext(current_page < last_page);
+            if (current_page === 1) {
+              onSuccess && onSuccess(res.data);
+              setDataFetched(res.data);
+            } else {
+              onSuccess && onSuccess(res.data);
+              setDataFetched(prev => {
+                const temp = {...prev};
+                const prevPaginateDataData = temp?.data?.[paginationKey]?.data;
+                const newPaginateDataData =
+                  res?.data.data?.[paginationKey]?.data;
+                temp.data[paginationKey].data = [
+                  ...prevPaginateDataData,
+                  ...newPaginateDataData,
+                ];
+                return temp;
+              });
+            }
+          } else {
+            onSuccess && onSuccess(res.data);
+            setDataFetched(res?.data);
+          }
+        })
+        .catch(error => {
+          onError && onError(error);
+        })
+        .finally(() => {
+          setIsLoading(false);
+          onFinally && onFinally();
+          hideKeyboard && Keyboard.dismiss();
+        });
+    } catch (error) {
+      onError && onError(error);
+    }
+  };
+
+  const onRefresh = () => {
+    setPage(1);
+    setShouldNext(true);
   };
 
   useEffect(() => {
-    callApiByDefault && sendRequest();
-  }, [callApiByDefault]);
+    if (page > 1) {
+      sendRequest();
+    } else {
+      callApiByDefault && sendRequest();
+    }
+  }, [page, callApiByDefault]);
+
+  const onEndReached = () => {
+    if (shouldNext && !isLoading) {
+      setPage(prev => prev + 1);
+    }
+  };
+
+  // useEffect(() => {
+  //   callApiByDefault && sendRequest();
+  // }, [callApiByDefault]);
 
   return {
     isLoading,
     sendRequest,
     dataFetched,
+    onRefresh,
+    onEndReached,
+    page,
+    shouldNext,
+    setPage,
+    setIsLoading,
   };
 };

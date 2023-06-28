@@ -19,6 +19,8 @@ const Home = ({navigation}: BottomStackProps) => {
     onPlayNowPress,
     onCancel,
     currIndex,
+    whatsapp,
+    mobile,
   } = useHome({navigate: navigation.navigate});
 
   return (
@@ -29,7 +31,7 @@ const Home = ({navigation}: BottomStackProps) => {
         refreshLoading={marketData?.length > 0 && isLoading}
         contentContainerStyle={padding(0, 100, 20, 20)}
         containerLoading={!marketData?.length && isLoading}>
-        <Deposit />
+        <Deposit mobile={mobile} whatsapp={whatsapp} />
         <View style={homeStyle.marketList}>
           {marketData?.map((el, index) => (
             <MarketItem
