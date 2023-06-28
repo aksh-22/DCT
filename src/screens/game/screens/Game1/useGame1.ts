@@ -31,7 +31,6 @@ const useGame1 = ({route}: AuthorizedStackProps) => {
       showMessage({modalType: 'Error', message: 'At least place a bid'});
     } else {
       const data = formatGame1Data(bidData, market, route?.params);
-      console.log('data', JSON.stringify(data, null, 2));
       sendRequest(data);
     }
   };

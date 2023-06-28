@@ -22,7 +22,6 @@ const useHome = ({}) => {
   const {new_numbers} = useAppSelector(state => state.numberReducer);
 
   const onSuccess = (fData: {data: marketDataType}) => {
-    console.log('fData', JSON.stringify(fData, null, 2));
     dispatch(setShareLink(fData.data.share_link));
     setMarketData(fData?.data?.markets);
     if (fData?.data?.new_numbers !== new_numbers) {
