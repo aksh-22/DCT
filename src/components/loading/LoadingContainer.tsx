@@ -5,11 +5,12 @@ import globalStyles from 'src/constants/globalStyles';
 
 type Props = {
   containerSTyle?: ViewStyle;
+  height?: number;
 };
 
-const LoadingContainer = ({containerSTyle}: Props) => {
+const LoadingContainer = ({containerSTyle, height}: Props) => {
   return (
-    <View style={[globalStyles.container_center, containerSTyle]}>
+    <View style={[globalStyles.container_center, {height}, containerSTyle]}>
       <ActivityIndicator size={'large'} color={colors.defaultWhite} />
     </View>
   );

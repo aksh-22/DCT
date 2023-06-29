@@ -29,7 +29,6 @@ const CustomHeader = ({
   heading,
   status,
 }: Props) => {
-  // const {colors} = useTheme();
   const {goBack, navigate} = useNavigation<NativeStackNavigationProp<any>>();
 
   const user = useAppSelector(state => state.userReducer.user);

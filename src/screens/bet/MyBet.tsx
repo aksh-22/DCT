@@ -6,6 +6,7 @@ import ContainerWithoutScroll from 'src/container/ContainerWithoutScroll';
 import BetItem from './BetItem';
 import useMyBest from './useMyBest';
 import LoadingContainer from 'src/components/loading/LoadingContainer';
+import {SCREEN_HEIGHT} from 'src/constants/deviceInfo';
 
 type Props = {};
 
@@ -17,10 +18,12 @@ const MyBet = ({}: Props) => {
       <ContainerWithoutScroll>
         <FlatList
           onRefresh={onRefresh}
-          refreshing={isLoading && !bidData?.length}
-          ListEmptyComponent={isLoading && <LoadingContainer />}
+          refreshing={isLoading && !!bidData?.length}
+          ListEmptyComponent={
+            isLoading && <LoadingContainer height={SCREEN_HEIGHT * 0.8} />
+          }
           ListFooterComponent={
-            isLoading && !bidData?.length && <LoadingContainer />
+            isLoading && !!bidData?.length && <LoadingContainer />
           }
           contentContainerStyle={padding(0, 100, 20, 20)}
           data={bidData}

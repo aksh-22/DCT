@@ -1,20 +1,27 @@
 import {useState} from 'react';
+import {showMessage} from 'src/components/MessageModal';
+import {useRequest} from 'src/constants/useRequest';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
 import {useAppSelector} from 'src/utils/reducer';
 import {formatGame1Data} from '../../list/getGameData';
-import {useRequest} from 'src/constants/useRequest';
-import {showMessage} from 'src/components/MessageModal';
 
-const useGame1 = ({route}: AuthorizedStackProps) => {
+const useGame1 = ({route, navigation}: AuthorizedStackProps) => {
   const {key, market}: any = route?.params;
 
   const {numbers} = useAppSelector(state => state.numberReducer);
 
   const [bidData, setBidData] = useState({});
 
+  const onSuccess = fData => {
+    showMessage({modalType: 'Success', message: 'Bid placed successfully'});
+    console.log('fData', JSON.stringify(fData, null, 2));
+    navigation.goBack();
+  };
+
   const {sendRequest, isLoading} = useRequest({
     endpoint: 'bids/add',
     requestType: 'POST',
+    onSuccess,
   });
 
   const onChange = val => {
