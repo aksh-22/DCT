@@ -59,6 +59,11 @@ export const getGameData = (key: game_image_slug) => {
   }
 };
 
+export const getNumArray = (numberData, data) => {
+  const numberArray = numberData[data?.group];
+  return numberArray;
+};
+
 export const formatGame1Data = (bidData, gameData) => {
   const {slug, market} = gameData ?? {};
   const {id, type} = market ?? {};

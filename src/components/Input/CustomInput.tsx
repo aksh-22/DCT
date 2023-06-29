@@ -32,6 +32,7 @@ type Props = {
   errorMessage?: string;
   editable?: boolean;
   customIconName?: customFontFamilyType;
+  maxLength?: number;
 };
 
 const CustomInput = ({
@@ -51,6 +52,7 @@ const CustomInput = ({
   editable,
   customIconName,
   mainIconStyle,
+  maxLength,
 }: Props) => {
   const [secure, setSecure] = useState(secureTextEntry);
 
@@ -100,6 +102,7 @@ const CustomInput = ({
           multiline={multiline}
           textAlignVertical={multiline ? 'top' : 'auto'}
           editable={editable}
+          maxLength={maxLength}
         />
         {secureTextEntry && (
           <VectorIcon

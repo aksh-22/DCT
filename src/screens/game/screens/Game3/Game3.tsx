@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import CustomText from 'src/components/CustomText';
 import VectorIcon from 'src/components/IconsFamily';
 import CustomInput from 'src/components/Input/CustomInput';
@@ -15,7 +15,7 @@ import game3Style from './game3.style';
 import useGame3 from './useGame3';
 
 const Game3 = ({route, navigation}: AuthorizedStackProps) => {
-  const {onChange, total, bidData, data} = useGame3({
+  const {onChange, total, bidData, data, onAdd, onRemove, numStr} = useGame3({
     route,
     navigation,
   });
@@ -32,34 +32,43 @@ const Game3 = ({route, navigation}: AuthorizedStackProps) => {
                 placeholder="Group jodi"
                 value={data?.group}
                 onChangeText={val => onChange('group', val)}
+                keyboardType="number-pad"
+                maxLength={2}
               />
               <CustomInput
                 mainContainerStyle={game3Style.inputStyle}
                 placeholder="Points"
                 value={data?.points}
                 onChangeText={val => onChange('points', val)}
+                keyboardType="number-pad"
+                maxLength={5}
               />
             </View>
-            <CustomButton style={game3Style.button}>
+            <CustomButton onPress={onAdd} style={game3Style.button}>
               <VectorIcon color={colors.white} size={20} name="add" />
             </CustomButton>
           </View>
           <View style={game3Style.listArea}>
-            {Array(3)
-              .fill('')
-              .map((el, i) => (
-                <View key={i} style={game3Style.listItem}>
-                  <CustomText color="borderColor">
-                    Number:56, Points:10
-                  </CustomText>
+            {data?.group?.trim()?.length > 1 && (
+              <CustomText size={18}>
+                Bet patties : {numStr.length ? numStr : 'Patti not found'}
+              </CustomText>
+            )}
+            {bidData.map((el, i) => (
+              <View key={i} style={game3Style.listItem}>
+                <CustomText color="borderColor">
+                  Number:{el?.group}, Points:{el?.points}
+                </CustomText>
+                <TouchableOpacity onPress={onRemove.bind(this, i)}>
                   <VectorIcon
                     color={colors.active}
                     family="Ionicons"
                     name="close-circle-outline"
                     size={30}
                   />
-                </View>
-              ))}
+                </TouchableOpacity>
+              </View>
+            ))}
           </View>
         </View>
       </Container>
