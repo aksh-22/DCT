@@ -13,6 +13,7 @@ type color = (
   | 'placeholderColor'
   | 'green'
   | 'borderColor'
+  | 'purple2'
 ) &
   string;
 // | string;
