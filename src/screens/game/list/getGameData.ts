@@ -59,8 +59,8 @@ export const getGameData = (key: game_image_slug) => {
   }
 };
 
-export const formatGame1Data = (bidData, market, gameData) => {
-  const {slug} = gameData ?? {};
+export const formatGame1Data = (bidData, gameData) => {
+  const {slug, market} = gameData ?? {};
   const {id, type} = market ?? {};
   let numbers = '';
   const token_id = randomNumber();

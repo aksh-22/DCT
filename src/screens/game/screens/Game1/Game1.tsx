@@ -11,7 +11,7 @@ import useGame1 from './useGame1';
 import DetailBox from '../DetailBox';
 
 const Game1 = ({route, navigation}: AuthorizedStackProps) => {
-  const {onChange, total, numberData, onPlaceBid, isLoading} = useGame1({
+  const {onChange, total, numberData, bidData} = useGame1({
     route,
     navigation,
   });
@@ -39,7 +39,12 @@ const Game1 = ({route, navigation}: AuthorizedStackProps) => {
           })}
         </View>
       </Container>
-      <AmountBox isLoading={isLoading} onPlaceBid={onPlaceBid} total={total} />
+      <AmountBox
+        bidData={bidData}
+        navigation={navigation}
+        total={total}
+        params={route?.params}
+      />
     </>
   );
 };
