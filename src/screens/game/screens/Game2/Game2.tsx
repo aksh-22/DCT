@@ -11,8 +11,11 @@ import AmountBox from '../AmountBox';
 import DetailBox from '../DetailBox';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
 
-const Game2 = ({route}: AuthorizedStackProps) => {
-  const {total, onChange} = useGame2();
+const Game2 = ({route, navigation}: AuthorizedStackProps) => {
+  const {onChange, total, bidData} = useGame2({
+    route,
+    navigation,
+  });
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
@@ -48,7 +51,12 @@ const Game2 = ({route}: AuthorizedStackProps) => {
           })}
         </View>
       </Container>
-      <AmountBox total={total} />
+      <AmountBox
+        bidData={bidData}
+        navigation={navigation}
+        total={total}
+        params={route?.params}
+      />
     </>
   );
 };

@@ -17,8 +17,11 @@ import Checkbox from 'src/components/Checkbox';
 import DetailBox from '../DetailBox';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
 
-const Game5 = ({route}: AuthorizedStackProps) => {
-  const {total} = useGame5();
+const Game5 = ({route, navigation}: AuthorizedStackProps) => {
+  const {total, bidData} = useGame5({
+    route,
+    navigation,
+  });
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
@@ -80,7 +83,12 @@ const Game5 = ({route}: AuthorizedStackProps) => {
           </View>
         </View>
       </Container>
-      <AmountBox total={total} />
+      <AmountBox
+        bidData={bidData}
+        navigation={navigation}
+        total={total}
+        params={route?.params}
+      />
     </>
   );
 };

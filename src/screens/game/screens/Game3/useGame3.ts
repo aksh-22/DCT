@@ -3,7 +3,7 @@ import {AuthorizedStackProps} from 'src/routes/types/navigation';
 import {useAppSelector} from 'src/utils/reducer';
 
 const useGame3 = ({route}: AuthorizedStackProps) => {
-  const params = route?.params;
+  const {key}: any = route?.params;
   const {numbers} = useAppSelector(state => state.numberReducer);
   const [bidData, setBidData] = useState([]);
   const [data, setData] = useState({
@@ -24,7 +24,9 @@ const useGame3 = ({route}: AuthorizedStackProps) => {
     total += Number(bidData[el]);
   });
 
-  return {onChange, total, onAdd, data};
+  const numberData = numbers?.[key];
+
+  return {onChange, total, numberData, bidData, onAdd, data};
 };
 
 export default useGame3;

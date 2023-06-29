@@ -14,8 +14,11 @@ import DetailBox from '../DetailBox';
 import game3Style from './game3.style';
 import useGame3 from './useGame3';
 
-const Game3 = ({navigation, route}: AuthorizedStackProps) => {
-  const {total, data, onChange} = useGame3({navigation, route});
+const Game3 = ({route, navigation}: AuthorizedStackProps) => {
+  const {onChange, total, bidData, data} = useGame3({
+    route,
+    navigation,
+  });
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
@@ -60,7 +63,12 @@ const Game3 = ({navigation, route}: AuthorizedStackProps) => {
           </View>
         </View>
       </Container>
-      <AmountBox total={total} />
+      <AmountBox
+        bidData={bidData}
+        navigation={navigation}
+        total={total}
+        params={route?.params}
+      />
     </>
   );
 };

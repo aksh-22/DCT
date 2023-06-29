@@ -15,8 +15,11 @@ import game4Style from './game4.style';
 import DetailBox from '../DetailBox';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
 
-const Game4 = ({route}: AuthorizedStackProps) => {
-  const {total} = useGame4();
+const Game4 = ({route, navigation}: AuthorizedStackProps) => {
+  const {total, bidData} = useGame4({
+    route,
+    navigation,
+  });
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
@@ -74,7 +77,12 @@ const Game4 = ({route}: AuthorizedStackProps) => {
           </View>
         </View>
       </Container>
-      <AmountBox total={total} />
+      <AmountBox
+        bidData={bidData}
+        navigation={navigation}
+        total={total}
+        params={route?.params}
+      />
     </>
   );
 };
