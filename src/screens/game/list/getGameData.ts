@@ -123,10 +123,11 @@ export const formatGame2Data = (bidData, gameData) => {
     numbers += `${bidData[el]?.numbers}${
       index !== bidDataArr.length - 1 ? ',' : ''
     }`;
+    console.log('bidData[el]', JSON.stringify(bidData[el], null, 2));
     return {
       token_id: randomNumber(),
       bid: String(el),
-      point: String(bidData[el]),
+      point: String(bidData[el]?.points),
       game_type: slug,
       market_type: type,
     };
