@@ -13,7 +13,9 @@ const WithdrawalStack = () => {
   return (
     <>
       <CustomHeader leftTitle="Withdrawal" showWallet={false} />
-      <Tab.Navigator tabBar={props => <MyTabBar {...props} />}>
+      <Tab.Navigator
+        screenOptions={{lazy: true}}
+        tabBar={props => <MyTabBar {...props} />}>
         <Tab.Screen
           name={WithdrawalStackName.WITHDRAWAL}
           component={Withdrawal}
