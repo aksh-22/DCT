@@ -1,13 +1,13 @@
 import React from 'react';
 import {View} from 'react-native';
 import CustomText from 'src/components/CustomText';
-import CustomButton from 'src/components/button/CustomButton';
-import gameStyle from './game.style';
-import {useKeyboard} from 'src/hooks/useKeyboard';
-import {padding} from 'src/constants/globalStyles';
 import {showMessage} from 'src/components/MessageModal';
+import CustomButton from 'src/components/button/CustomButton';
+import {padding} from 'src/constants/globalStyles';
 import {useRequest} from 'src/constants/useRequest';
-import {formatGame1Data} from '../list/getGameData';
+import {useKeyboard} from 'src/hooks/useKeyboard';
+import {formatGameData} from '../list/getGameData';
+import gameStyle from './game.style';
 
 type Props = {
   total: number;
@@ -18,9 +18,8 @@ type Props = {
 
 const AmountBox = ({total, navigation, bidData, params}: Props) => {
   const {isKeyboardVisible} = useKeyboard({delay: 300});
-  const onSuccess = fData => {
+  const onSuccess = () => {
     showMessage({modalType: 'Success', message: 'Bid placed successfully'});
-    console.log('fData', JSON.stringify(fData, null, 2));
     navigation.goBack();
   };
 
@@ -33,7 +32,7 @@ const AmountBox = ({total, navigation, bidData, params}: Props) => {
     if (!Object.keys(bidData).length) {
       showMessage({modalType: 'Error', message: 'At least place a bid'});
     } else {
-      const data = formatGame1Data(bidData, params);
+      const data = formatGameData(bidData, params);
       sendRequest(data);
     }
   };

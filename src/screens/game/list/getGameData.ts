@@ -64,6 +64,37 @@ export const getNumArray = (numberData, data) => {
   return numberArray;
 };
 
+export const formatGameData = (bidData, gameData) => {
+  switch (gameData?.slug) {
+    case 'single_ankda':
+    case 't_p_panel':
+    case 'red_jodi':
+    case 's_p_panel':
+    case 'd_p_panel':
+    case 'jodi':
+      return formatGame1Data(bidData, gameData);
+
+    case 'single_ank_sp_panel':
+    case 'single_ank_dp_panel':
+    case 'family_jodi':
+    case 'red_family_jodi':
+    case 'family_panel':
+      return formatGame2Data(bidData, gameData);
+
+    case 'cycle_panel':
+      return formatGame1Data(bidData, gameData);
+
+    case 'full_jack':
+      return formatGame1Data(bidData, gameData);
+
+    case 'half_jack':
+      return formatGame1Data(bidData, gameData);
+
+    default:
+      break;
+  }
+};
+
 export const formatGame1Data = (bidData, gameData) => {
   const {slug, market} = gameData ?? {};
   const {id, type} = market ?? {};
@@ -79,6 +110,29 @@ export const formatGame1Data = (bidData, gameData) => {
       market_type: type,
     };
   });
+  return {data, market_id: id, numbers, token_id};
+};
+
+export const formatGame2Data = (bidData, gameData) => {
+  const {slug, market} = gameData ?? {};
+  const {id, type} = market ?? {};
+  let numbers = '';
+  const token_id = randomNumber();
+  const bidDataArr = Object.keys(bidData);
+  const data = bidDataArr.map((el, index) => {
+    numbers += `${bidData[el]?.numbers}${
+      index !== bidDataArr.length - 1 ? ',' : ''
+    }`;
+    return {
+      token_id: randomNumber(),
+      bid: String(el),
+      point: String(bidData[el]),
+      game_type: slug,
+      market_type: type,
+    };
+  });
+  numbers = [...new Set(numbers.split(','))].join(',');
+
   return {data, market_id: id, numbers, token_id};
 };
 

@@ -38,8 +38,8 @@ const useGame3 = ({route}: AuthorizedStackProps) => {
   const numberArray = getNumArray(numberData, data);
 
   numberArray &&
-    numberArray.forEach(el => {
-      numStr += `${el},`;
+    numberArray.forEach((el, i) => {
+      numStr += `${el}${i !== numberArray?.length - 1 ? ',' : ''}`;
     });
 
   const onAdd = () => {
@@ -59,7 +59,7 @@ const useGame3 = ({route}: AuthorizedStackProps) => {
         message: 'Patti not found',
       });
     } else {
-      setBidData(prev => [...prev, data]);
+      setBidData(prev => [...prev, {...data, numbers: numStr}]);
       setData(init);
     }
   };
