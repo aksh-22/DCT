@@ -137,57 +137,48 @@ export const formatGame2Data = (bidData, gameData) => {
   return {data, market_id: id, numbers, token_id};
 };
 
-// family panel -> SP | DP | TP panel
+// !-------->  full sungum
+// {
+// "data": [
+// {
+// "token_id": "1h4cv0qms0vr21edk5rks04q8flmprdki",
+// "bid": "112-223",
+// "point": "12",
+// "game_type": "red_family_jodi",
+// "market_type": "close"
+// },
+// {
+// "token_id": "1h4cv0qms0caus0hchcbc0586fb8taj2d",
+// "bid": "232-333",
+// "point": "32",
+// "game_type": "red_family_jodi",
+// "market_type": "close"
+// }
+// ],
+// "market_id": "0f541647-47c2-451b-b545-a52abe389c96",
+// "numbers": "112-223, 232-333",
+// "token_id": "1h4cv0qmr0ohn0dk5skf40tg0vb1lsuh4"
+// }
 
-// GAME 1
-// const singleAnk = {
-//   data: [
-//     {
-//       token_id: '419908_1685021556761',
-//       market_type: 'Open',
-//       game_type: 'SINGLE ANK',
-//       bid: '1',
-//       point: '12',
-//     },
-//     {
-//       token_id: '419908_1685021556762',
-//       market_type: 'Open',
-//       game_type: 'SINGLE ANK',
-//       bid: '5',
-//       point: '36',
-//     },
-//     {
-//       token_id: '419908_1685021556763',
-//       market_type: 'Open',
-//       game_type: 'SINGLE ANK',
-//       bid: '7',
-//       point: '80',
-//     },
-//   ],
-//   market_id: 'fe0b7465-6ca3-4fa1-9de7-23ee84da3935',
-//   numbers: '1,5,7',
-//   token_id: 'dbg1685021236772',
-// };
-
-// GAME 2
-// const family = {
-//   data: [
-//     {
-//       token_id: '419908_1685021556761',
-//       market_type: 'Open',
-//       game_type: 'Family panel',
-//       bid: '123',
-//       point: '20',
-//     },
-//     {
-//       token_id: '419908_1685021556762',
-//       market_type: 'Open',
-//       game_type: 'Family panel',
-//       bid: '139',
-//       point: '23',
-//     },
-//   ],
-//   market_id: 'fe0b7465-6ca3-4fa1-9de7-23ee84da3935',
-//   numbers: '123,128,137,134,139,148',
-//   token_id: 'dbg1685021236772',
-// };
+// !-------->  half sungum
+// {
+// "data": [
+// {
+// "token_id": "1h4cv0qms0vr21edk5rks04q8flmprdki",
+// "bid": "1-223",
+// "point": "12",
+// "game_type": "red_family_jodi",
+// "market_type": "close"
+// },
+// {
+// "token_id": "1h4cv0qms0caus0hchcbc0586fb8taj2d",
+// "bid": "232-3",
+// "point": "32",
+// "game_type": "red_family_jodi",
+// "market_type": "close"
+// }
+// ],
+// "market_id": "0f541647-47c2-451b-b545-a52abe389c96",
+// "numbers": "1-223, 232-3",
+// "token_id": "1h4cv0qmr0ohn0dk5skf40tg0vb1lsuh4"
+// }
