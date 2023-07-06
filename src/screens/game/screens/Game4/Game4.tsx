@@ -14,7 +14,7 @@ import game3Style from '../Game3/game3.style';
 import DetailBox from '../DetailBox';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
 import game4Style from './game4.style';
-import {formatOpenPanna} from '../../list/getGameData';
+import {formatClosePanna, formatOpenPanna} from '../../list/getGameData';
 
 const Game4 = ({route, navigation}: AuthorizedStackProps) => {
   const {onChange, total, bidData, data, onAdd, onRemove} = useGame4({
@@ -34,8 +34,8 @@ const Game4 = ({route, navigation}: AuthorizedStackProps) => {
                 placeholder="Open Panna"
                 inputBoxStyle={game4Style.inputBoxStyle}
                 keyboardType="decimal-pad"
-                value={formatOpenPanna(data?.open)}
-                onChangeText={val => onChange('open', val)}
+                value={data?.open}
+                onChangeText={val => onChange('open', formatOpenPanna(val))}
                 maxLength={5}
               />
               <CustomInput
@@ -44,7 +44,7 @@ const Game4 = ({route, navigation}: AuthorizedStackProps) => {
                 inputBoxStyle={game4Style.inputBoxStyle}
                 keyboardType="decimal-pad"
                 value={data?.close}
-                onChangeText={val => onChange('close', val)}
+                onChangeText={val => onChange('close', formatClosePanna(val))}
                 maxLength={5}
               />
               <CustomInput
@@ -65,7 +65,8 @@ const Game4 = ({route, navigation}: AuthorizedStackProps) => {
             {bidData.map((el, i) => (
               <View key={i} style={game3Style.listItem}>
                 <CustomText color="borderColor">
-                  Number:{el?.group}, Points:{el?.points}
+                  Open panna:{el?.open}, Open panna:{el?.close}, Points:
+                  {el?.points}
                 </CustomText>
                 <TouchableOpacity onPress={onRemove.bind(this, i)}>
                   <VectorIcon

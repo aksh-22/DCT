@@ -1,8 +1,6 @@
 import {useState} from 'react';
 import {showMessage} from 'src/components/MessageModal';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
-import {useAppSelector} from 'src/utils/reducer';
-import {formatOpenPanna, getNumArray} from '../../list/getGameData';
 
 const init = {
   open: '',
@@ -10,9 +8,7 @@ const init = {
   points: '',
 };
 
-const useGame4 = ({route}: AuthorizedStackProps) => {
-  const {key, length}: any = route?.params;
-  const {numbers} = useAppSelector(state => state.numberReducer);
+const useGame4 = ({}: AuthorizedStackProps) => {
   const [bidData, setBidData] = useState([]);
   const [data, setData] = useState(init);
 
@@ -26,16 +22,6 @@ const useGame4 = ({route}: AuthorizedStackProps) => {
       return [...prev];
     });
   };
-
-  const nData: any[] = numbers?.[key];
-  const numberData = {};
-  nData?.forEach(el => {
-    Object.keys(el).forEach(el2 => {
-      numberData[el2] = el[el2];
-    });
-  });
-
-  const numberArray = getNumArray(numberData, data);
 
   const onAdd = () => {
     if (!data?.open?.trim()?.length) {
@@ -53,11 +39,6 @@ const useGame4 = ({route}: AuthorizedStackProps) => {
         modalType: 'Error',
         message: 'Add points',
       });
-    } else if (!numberArray?.length) {
-      showMessage({
-        modalType: 'Error',
-        message: 'Patti not found',
-      });
     } else {
       setBidData(prev => [...prev, data]);
       setData(init);
@@ -66,22 +47,16 @@ const useGame4 = ({route}: AuthorizedStackProps) => {
 
   let total = 0;
   bidData.forEach(el => {
-    const nums = getNumArray(numberData, el);
-    total = el.points * nums?.length;
+    total = el.points;
   });
-
-  const openPanna = formatOpenPanna(data?.open);
-  console.log('openPanna', openPanna);
 
   return {
     onChange,
     total,
-    numberData,
     bidData,
     onAdd,
     data,
     onRemove,
-    length,
   };
 };
 

@@ -173,6 +173,29 @@ export const formatOpenPanna = (val: string) => {
   return valStr;
 };
 
+export const formatClosePanna = (val: string) => {
+  if (val.includes('-') && val.length === 2) {
+    return val.split('-')[0];
+  }
+  if (val.includes('-')) {
+    return val;
+  }
+
+  if (val.length < 2) {
+    return val;
+  }
+  let valStr = '';
+  const valArr = val?.split('');
+  valArr.forEach((el, i) => {
+    if (i === 1) {
+      valStr += `-${el}`;
+    } else {
+      valStr += el;
+    }
+  });
+  return valStr;
+};
+
 // !-------->  full sungum
 // {
 // "data": [
