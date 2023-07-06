@@ -1,4 +1,5 @@
-import {useState} from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import {useCallback, useState} from 'react';
 import {useRequest} from 'src/constants/useRequest';
 import {gameDataType} from 'typings/game-type';
 
@@ -44,9 +45,9 @@ const useGameList = ({navigation, route}: Props) => {
     onSuccess,
   });
 
-  const onGamePress = gameData => {
+  const onGamePress = useCallback(gameData => {
     navigation.navigate(gameData?.route, {...gameData, market: params});
-  };
+  }, []);
 
   return {isLoading, panel, jodi, single, onGamePress, sungum};
 };

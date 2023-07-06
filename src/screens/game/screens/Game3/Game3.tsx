@@ -15,10 +15,11 @@ import game3Style from './game3.style';
 import useGame3 from './useGame3';
 
 const Game3 = ({route, navigation}: AuthorizedStackProps) => {
-  const {onChange, total, bidData, data, onAdd, onRemove, numStr} = useGame3({
-    route,
-    navigation,
-  });
+  const {onChange, total, bidData, data, onAdd, onRemove, numStr, length} =
+    useGame3({
+      route,
+      navigation,
+    });
   return (
     <>
       <CustomHeader heading="Capital morning" isBack showBell={false} status />
@@ -33,7 +34,7 @@ const Game3 = ({route, navigation}: AuthorizedStackProps) => {
                 value={data?.group}
                 onChangeText={val => onChange('group', val)}
                 keyboardType="number-pad"
-                maxLength={2}
+                maxLength={length ?? 2}
               />
               <CustomInput
                 mainContainerStyle={game3Style.inputStyle}

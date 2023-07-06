@@ -10,7 +10,7 @@ const init = {
 };
 
 const useGame3 = ({route}: AuthorizedStackProps) => {
-  const {key}: any = route?.params;
+  const {key, length}: any = route?.params;
   const {numbers} = useAppSelector(state => state.numberReducer);
   const [bidData, setBidData] = useState([]);
   const [data, setData] = useState(init);
@@ -79,6 +79,7 @@ const useGame3 = ({route}: AuthorizedStackProps) => {
     data,
     onRemove,
     numStr,
+    length,
   };
 };
 

@@ -22,15 +22,29 @@ export const getGameData = (key: game_image_slug) => {
         key,
       };
 
-    case 'single_ank_sp_panel':
-    case 'single_ank_dp_panel':
     case 'family_jodi':
     case 'red_family_jodi':
+      return {
+        image: require('src/assets/img/panel-1.png'),
+        route: HomeStackName.GAME3,
+        key,
+      };
+
     case 'family_panel':
       return {
         image: require('src/assets/img/panel-1.png'),
         route: HomeStackName.GAME3,
         key,
+        length: 3,
+      };
+
+    case 'single_ank_sp_panel':
+    case 'single_ank_dp_panel':
+      return {
+        image: require('src/assets/img/panel-1.png'),
+        route: HomeStackName.GAME3,
+        key,
+        length: 1,
       };
 
     case 'cycle_panel':
@@ -134,6 +148,29 @@ export const formatGame2Data = (bidData, gameData) => {
   numbers = [...new Set(numbers.split(','))].join(',');
 
   return {data, market_id: id, numbers, token_id};
+};
+
+export const formatOpenPanna = (val: string) => {
+  if (val.includes('-') && val.length === 4) {
+    return val.split('-')[0];
+  }
+  if (val.includes('-')) {
+    return val;
+  }
+
+  if (val.length < 4) {
+    return val;
+  }
+  let valStr = '';
+  const valArr = val?.split('');
+  valArr.forEach((el, i) => {
+    if (i === valArr.length - 1) {
+      valStr += `-${el}`;
+    } else {
+      valStr += el;
+    }
+  });
+  return valStr;
 };
 
 // !-------->  full sungum
