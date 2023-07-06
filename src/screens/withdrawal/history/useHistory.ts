@@ -9,8 +9,6 @@ const useHistory = ({type = 'pending'}: Props = {}) => {
     type,
   };
 
-  console.log('params', JSON.stringify(params, null, 2));
-
   const {isLoading, dataFetched} = useRequest({
     endpoint: 'withdrawals',
     params,

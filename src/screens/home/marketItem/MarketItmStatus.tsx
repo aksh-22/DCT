@@ -14,8 +14,6 @@ type Props = {
 const MarketItmStatus = ({status, onPlayNowPress}: Props) => {
   let isClosed = status.includes('Closed');
 
-  console.log('status', status);
-
   return (
     <View style={globalStyles.row_spaceBetween}>
       {isClosed ? (

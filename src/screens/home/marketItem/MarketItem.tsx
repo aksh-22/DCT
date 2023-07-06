@@ -12,7 +12,6 @@ type Props = {
 };
 
 const MarketItem = ({item, onPlayNowPress}: Props) => {
-  console.log('item', JSON.stringify(item, null, 2));
   return (
     <View style={marketItemStyle.marketItem}>
       <View style={marketItemStyle.marketItemLeft}>
