@@ -26,8 +26,6 @@ const MarketModal = ({onCancel, data}: MarketModalProps) => {
 
   const {navigate} = useNavigation<NativeStackNavigationProp<any>>();
 
-  console.log('dataFetched', JSON.stringify(dataFetched, null, 2));
-
   const isOpenMarketOpen = dataFetched?.data?.status?.open;
   const isCloseMarketOpen = dataFetched?.data?.status?.close;
 

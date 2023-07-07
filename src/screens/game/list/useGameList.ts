@@ -23,8 +23,6 @@ const useGameList = ({navigation, route}: Props) => {
     const tempSungum = [];
 
     newData.forEach(element => {
-      console.log('element', JSON.stringify(element, null, 2));
-      console.log('params?.type', params?.type);
       if (element[params?.type]) {
         if (element.slug.includes('single_ankda')) {
           tempSingle.push(element);

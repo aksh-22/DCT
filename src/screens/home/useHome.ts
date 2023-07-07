@@ -22,7 +22,6 @@ const useHome = ({}) => {
   const {new_numbers} = useAppSelector(state => state.numberReducer);
 
   const onSuccess = (fData: {data: marketDataType}) => {
-    console.log('fData', JSON.stringify(fData, null, 2));
     dispatch(setShareLink(fData.data.share_link));
     dispatch(updateUser(fData.data.user));
     setMarketData(fData?.data?.markets);
@@ -32,10 +31,6 @@ const useHome = ({}) => {
   };
 
   const onPlayNowPress = (index: number) => {
-    console.log(
-      'marketData[index]',
-      JSON.stringify(marketData[index], null, 2),
-    );
     setCurrIndex(index);
   };
 
