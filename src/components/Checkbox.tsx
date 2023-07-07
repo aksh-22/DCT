@@ -1,20 +1,25 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {Pressable, StyleSheet} from 'react-native';
 import colors from 'src/constants/colors';
 import VectorIcon from './IconsFamily';
 
-type Props = {};
+type Props = {
+  onPress: () => void;
+  isChecked: boolean;
+};
 
-const Checkbox = ({}: Props) => {
+const Checkbox = ({isChecked, onPress}: Props) => {
   return (
-    <View style={styles.box}>
-      <VectorIcon
-        name="check"
-        color={colors.active}
-        size={13}
-        family="Entypo"
-      />
-    </View>
+    <Pressable hitSlop={30} onPress={onPress} style={styles.box}>
+      {isChecked && (
+        <VectorIcon
+          name="check"
+          color={colors.active}
+          size={13}
+          family="Entypo"
+        />
+      )}
+    </Pressable>
   );
 };
 

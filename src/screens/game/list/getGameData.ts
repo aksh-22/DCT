@@ -100,7 +100,7 @@ export const formatGameData = (bidData, gameData) => {
       return formatGame4Data(bidData, gameData);
 
     case 'half_jack':
-      return formatGame1Data(bidData, gameData);
+      return formatGame5Data(bidData, gameData);
 
     default:
       break;
@@ -156,6 +156,29 @@ export const formatGame4Data = (bidData, gameData) => {
   const bidDataArr = Object.keys(bidData);
   const data = bidDataArr.map((el, index) => {
     const bid = `${bidData[el]?.open}-${bidData[el]?.close}`;
+    numbers += `${bid}${index !== bidDataArr.length - 1 ? ',' : ''}`;
+    return {
+      token_id: randomNumber(),
+      bid,
+      point: String(bidData[el]?.points),
+      game_type: slug,
+      market_type: type,
+    };
+  });
+  numbers = [...new Set(numbers.split(','))].join(',');
+
+  return {data, market_id: id, numbers, token_id};
+};
+
+export const formatGame5Data = (bidData, gameData) => {
+  console.log('bidData', JSON.stringify(bidData, null, 2));
+  const {slug, market} = gameData ?? {};
+  const {id, type} = market ?? {};
+  let numbers = '';
+  const token_id = randomNumber();
+  const bidDataArr = Object.keys(bidData);
+  const data = bidDataArr.map((el, index) => {
+    const bid = bidData[el].value;
     numbers += `${bid}${index !== bidDataArr.length - 1 ? ',' : ''}`;
     return {
       token_id: randomNumber(),

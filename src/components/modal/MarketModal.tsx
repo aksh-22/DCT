@@ -34,7 +34,7 @@ const MarketModal = ({onCancel, data}: MarketModalProps) => {
     setTimeout(() => {
       navigate(AuthorizeStackName.GAME_STACK, {
         screen: HomeStackName.GAME_LIST,
-        params: {...data, type: 'open'},
+        params: {...data, type: 'Open'},
       });
     }, DELAY_TIME);
   };
@@ -43,7 +43,7 @@ const MarketModal = ({onCancel, data}: MarketModalProps) => {
     setTimeout(() => {
       navigate(AuthorizeStackName.GAME_STACK, {
         screen: HomeStackName.GAME_LIST,
-        params: {...data, type: 'close'},
+        params: {...data, type: 'Close'},
       });
     }, DELAY_TIME);
   };

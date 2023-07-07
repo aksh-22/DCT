@@ -1,19 +1,34 @@
-import {useState} from 'react';
+import {useCallback, useState} from 'react';
 import {showMessage} from 'src/components/MessageModal';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
+import {formatClosePanna, formatOpenPanna} from '../../list/getGameData';
 
 const init = {
-  open: '',
-  close: '',
+  value: '',
   points: '',
+  type: false,
 };
 
 const useGame5 = ({}: AuthorizedStackProps) => {
   const [bidData, setBidData] = useState([]);
   const [data, setData] = useState(init);
+  const [isSplit, setIsSplit] = useState(false);
+
+  const onSplitPress = useCallback(() => {
+    setIsSplit(prev => !prev);
+    setData(init);
+  }, []);
 
   const onChange = (type, val) => {
-    setData(prev => ({...prev, [type]: val}));
+    let valueToSet = val;
+    if (type === 'value') {
+      if (!isSplit) {
+        valueToSet = formatClosePanna(val);
+      } else {
+        valueToSet = formatOpenPanna(val);
+      }
+    }
+    setData(prev => ({...prev, [type]: valueToSet, type: isSplit}));
   };
 
   const onRemove = index => {
@@ -24,17 +39,12 @@ const useGame5 = ({}: AuthorizedStackProps) => {
   };
 
   const onAdd = () => {
-    if (!data?.open?.trim()?.length) {
+    if (data?.value?.trim()?.length !== 5) {
       showMessage({
         modalType: 'Error',
-        message: 'Add open panna',
+        message: 'Add digit-panna in proper format',
       });
-    } else if (!data?.open?.trim()?.length) {
-      showMessage({
-        modalType: 'Error',
-        message: 'Add close panna',
-      });
-    } else if (!data?.close?.trim()?.length) {
+    } else if (!data?.points?.trim()?.length) {
       showMessage({
         modalType: 'Error',
         message: 'Add points',
@@ -57,6 +67,8 @@ const useGame5 = ({}: AuthorizedStackProps) => {
     onAdd,
     data,
     onRemove,
+    isSplit,
+    onSplitPress,
   };
 };
 

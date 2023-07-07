@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
+import Checkbox from 'src/components/Checkbox';
 import CustomText from 'src/components/CustomText';
 import VectorIcon from 'src/components/IconsFamily';
 import CustomInput from 'src/components/Input/CustomInput';
@@ -8,18 +9,25 @@ import CustomHeader from 'src/components/header/CustomHeader';
 import colors from 'src/constants/colors';
 import {padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
-import AmountBox from '../AmountBox';
-import useGame5 from './useGame5';
-import game3Style from '../Game3/game3.style';
-import DetailBox from '../DetailBox';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
-import game5Style from './game5.style';
-import {formatClosePanna, formatOpenPanna} from '../../list/getGameData';
+import AmountBox from '../AmountBox';
+import DetailBox from '../DetailBox';
+import game3Style from '../Game3/game3.style';
 import game4Style from '../Game4/game4.style';
-import Checkbox from 'src/components/Checkbox';
+import game5Style from './game5.style';
+import useGame5 from './useGame5';
 
 const Game4 = ({route, navigation}: AuthorizedStackProps) => {
-  const {onChange, total, bidData, data, onAdd, onRemove} = useGame5({
+  const {
+    onChange,
+    total,
+    bidData,
+    data,
+    onAdd,
+    onRemove,
+    isSplit,
+    onSplitPress,
+  } = useGame5({
     route,
     navigation,
   });
@@ -36,36 +44,31 @@ const Game4 = ({route, navigation}: AuthorizedStackProps) => {
               {'   '}Close Patti
             </CustomText>
             <View style={game5Style.split}>
-              <Checkbox />
+              <Checkbox onPress={onSplitPress} isChecked={isSplit} />
               <CustomText>Split</CustomText>
             </View>
           </View>
           <View style={game3Style.inputArea}>
             <View style={game3Style.inputBoxArea}>
               <CustomInput
-                mainContainerStyle={game4Style.inputStyle}
-                placeholder="Open Panna"
-                inputBoxStyle={game4Style.inputBoxStyle}
+                mainContainerStyle={game5Style.inputBoxStyle}
+                placeholder={
+                  isSplit
+                    ? 'Open Panna - Close Digit'
+                    : 'Open Digit - Close Panna'
+                }
+                inputBoxStyle={game5Style.inputStyle}
                 keyboardType="decimal-pad"
-                value={data?.open}
-                onChangeText={val => onChange('open', formatOpenPanna(val))}
+                value={data?.value}
+                onChangeText={val => onChange('value', val)}
                 maxLength={5}
               />
               <CustomInput
-                mainContainerStyle={game4Style.inputStyle}
-                placeholder="Close Panna"
-                inputBoxStyle={game4Style.inputBoxStyle}
-                keyboardType="decimal-pad"
-                value={data?.close}
-                onChangeText={val => onChange('close', formatClosePanna(val))}
-                maxLength={5}
-              />
-              <CustomInput
-                mainContainerStyle={game4Style.inputStyle}
+                mainContainerStyle={game5Style.inputBox2Style}
                 placeholder="Points"
-                inputBoxStyle={game4Style.inputBoxStyle}
+                inputBoxStyle={game5Style.inputStyle}
                 keyboardType="decimal-pad"
-                value={data?.points}
+                value={data.points}
                 onChangeText={val => onChange('points', val)}
                 maxLength={5}
               />
@@ -75,22 +78,33 @@ const Game4 = ({route, navigation}: AuthorizedStackProps) => {
             </CustomButton>
           </View>
           <View style={game3Style.listArea}>
-            {bidData.map((el, i) => (
-              <View key={i} style={game3Style.listItem}>
-                <CustomText color="borderColor">
-                  Open panna:{el?.open}, Open panna:{el?.close}, Points:
-                  {el?.points}
-                </CustomText>
-                <TouchableOpacity onPress={onRemove.bind(this, i)}>
-                  <VectorIcon
-                    color={colors.active}
-                    family="Ionicons"
-                    name="close-circle-outline"
-                    size={30}
-                  />
-                </TouchableOpacity>
-              </View>
-            ))}
+            {bidData.map((el, i) => {
+              const split = el.type;
+              const arr = el.value.split('-');
+              const pannaIndex = split ? 0 : 1;
+              const digitIndex = !split ? 0 : 1;
+              const panna = arr[pannaIndex];
+              const digit = arr[digitIndex];
+              const pannaString = split ? 'Open panna' : 'Close panna';
+              const digitString = split ? 'Close Digit' : 'Open Digit';
+
+              return (
+                <View key={i} style={game3Style.listItem}>
+                  <CustomText color="borderColor">
+                    {pannaString}:{panna} , {digitString}:{digit} , Points:
+                    {el?.points}
+                  </CustomText>
+                  <TouchableOpacity onPress={onRemove.bind(this, i)}>
+                    <VectorIcon
+                      color={colors.active}
+                      family="Ionicons"
+                      name="close-circle-outline"
+                      size={30}
+                    />
+                  </TouchableOpacity>
+                </View>
+              );
+            })}
           </View>
         </View>
       </Container>

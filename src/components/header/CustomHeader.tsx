@@ -17,7 +17,7 @@ type Props = {
   showWallet?: boolean;
   showBell?: boolean;
   heading?: string;
-  status?: boolean;
+  status?: boolean | string;
 };
 
 const CustomHeader = ({
@@ -97,7 +97,7 @@ const CustomHeader = ({
             {status && (
               <View style={headerStyle.status}>
                 <CustomText size={11} color="green">
-                  Open
+                  {status}
                 </CustomText>
               </View>
             )}

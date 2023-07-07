@@ -15,9 +15,16 @@ const GameList = ({navigation, route}: Props) => {
     route,
   });
 
+  const params = route?.params;
+
   return (
     <>
-      <CustomHeader heading="Capital morning" isBack showBell={false} status />
+      <CustomHeader
+        heading={params?.name}
+        isBack
+        showBell={false}
+        status={params?.type}
+      />
       <Container containerLoading={isLoading}>
         <ListItem
           onGamePress={onGamePress}
