@@ -2,6 +2,23 @@ import {HomeStackName} from 'src/constants/routeNames';
 import {randomNumber} from 'src/utils/randomNumber';
 import {game_image_slug} from 'typings/game-type';
 
+export const gamePlaceHolder = {
+  single_ankda: '',
+  single_ank_dp_panel: 'Group Single Ank',
+  half_jack: '',
+  red_family_jodi: 'Group',
+  family_jodi: 'Group',
+  single_ank_sp_panel: 'Group Single Ank',
+  red_jodi: '',
+  cycle_panel: 'Cycle Patti',
+  jodi: '',
+  s_p_panel: '',
+  family_panel: 'Family panel',
+  t_p_panel: '',
+  d_p_panel: '',
+  full_jack: '',
+};
+
 export const getGameData = (key: game_image_slug) => {
   switch (key) {
     case 'single_ankda':

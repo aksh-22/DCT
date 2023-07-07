@@ -13,6 +13,7 @@ import AmountBox from '../AmountBox';
 import DetailBox from '../DetailBox';
 import game3Style from './game3.style';
 import useGame3 from './useGame3';
+import {gamePlaceHolder} from '../../list/getGameData';
 
 const Game3 = ({route, navigation}: AuthorizedStackProps) => {
   const {onChange, total, bidData, data, onAdd, onRemove, numStr, length} =
@@ -20,9 +21,16 @@ const Game3 = ({route, navigation}: AuthorizedStackProps) => {
       route,
       navigation,
     });
+  const {key, market}: any = route?.params;
+
   return (
     <>
-      <CustomHeader heading="Capital morning" isBack showBell={false} status />
+      <CustomHeader
+        heading="Capital morning"
+        isBack
+        showBell={false}
+        status={market?.type}
+      />
       <Container style={padding('10', '20')}>
         <DetailBox params={route?.params} />
         <View style={game3Style.container}>
@@ -30,7 +38,7 @@ const Game3 = ({route, navigation}: AuthorizedStackProps) => {
             <View style={game3Style.inputBoxArea}>
               <CustomInput
                 mainContainerStyle={game3Style.inputStyle}
-                placeholder="Group jodi"
+                placeholder={gamePlaceHolder[key]}
                 value={data?.group}
                 onChangeText={val => onChange('group', val)}
                 keyboardType="number-pad"

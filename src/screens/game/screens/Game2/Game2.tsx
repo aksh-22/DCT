@@ -10,15 +10,23 @@ import gameStyle from '../game.style';
 import AmountBox from '../AmountBox';
 import DetailBox from '../DetailBox';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
+import LoadingContainer from 'src/components/loading/LoadingContainer';
 
 const Game2 = ({route, navigation}: AuthorizedStackProps) => {
-  const {onChange, total, bidData} = useGame2({
+  const {onChange, total, bidData, showData} = useGame2({
     route,
     navigation,
   });
-  return (
+  const {market}: any = route?.params;
+
+  return showData ? (
     <>
-      <CustomHeader heading="Capital morning" isBack showBell={false} status />
+      <CustomHeader
+        heading="Capital morning"
+        isBack
+        showBell={false}
+        status={market?.type}
+      />
       <Container style={padding('10', '20')}>
         <DetailBox params={route?.params} />
         <View style={gameStyle.boxHeaderArea}>
@@ -58,6 +66,8 @@ const Game2 = ({route, navigation}: AuthorizedStackProps) => {
         params={route?.params}
       />
     </>
+  ) : (
+    <LoadingContainer />
   );
 };
 

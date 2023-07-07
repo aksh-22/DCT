@@ -1,3 +1,4 @@
+import {useFocusEffect} from '@react-navigation/native';
 import {useCallback, useMemo, useState} from 'react';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
 import {useAppSelector} from 'src/utils/reducer';
@@ -5,6 +6,15 @@ import {useAppSelector} from 'src/utils/reducer';
 const useGame2 = ({route}: AuthorizedStackProps) => {
   const {key}: any = route?.params;
   const [bidData, setBidData] = useState({});
+  const [showData, setShowData] = useState(false);
+
+  useFocusEffect(
+    useCallback(() => {
+      setTimeout(() => {
+        setShowData(true);
+      }, 0);
+    }, []),
+  );
 
   const {numbers} = useAppSelector(state => state.numberReducer);
 
@@ -19,7 +29,7 @@ const useGame2 = ({route}: AuthorizedStackProps) => {
 
   const numberData = useMemo(() => numbers?.[key], [numbers, key]);
 
-  return {onChange, total, numberData, bidData};
+  return {onChange, total, numberData, bidData, showData};
 };
 
 export default useGame2;

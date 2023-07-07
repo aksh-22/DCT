@@ -20,9 +20,17 @@ const Game4 = ({route, navigation}: AuthorizedStackProps) => {
     route,
     navigation,
   });
+
+  const {market}: any = route?.params;
+
   return (
     <>
-      <CustomHeader heading="Capital morning" isBack showBell={false} status />
+      <CustomHeader
+        heading="Capital morning"
+        isBack
+        showBell={false}
+        status={market?.type}
+      />
       <Container style={padding('10', '20')}>
         <DetailBox params={route?.params} />
         <View style={game3Style.container}>

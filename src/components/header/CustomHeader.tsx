@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
@@ -96,7 +97,10 @@ const CustomHeader = ({
             </CustomText>
             {status && (
               <View style={headerStyle.status}>
-                <CustomText size={11} color="green">
+                <CustomText
+                  size={11}
+                  color="green"
+                  style={{textTransform: 'capitalize'}}>
                   {status}
                 </CustomText>
               </View>
