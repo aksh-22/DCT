@@ -33,7 +33,7 @@ const RenderDetail = ({data, index}: Props) => {
               <CustomText
                 size={13}
                 style={{opacity: 0.7, textAlign: isEven ? 'right' : 'left'}}>
-                {data.date}
+                {data.created_at}
               </CustomText>
             </View>
             <Circle style={[timelineStyle.circleStyle]} />
@@ -56,7 +56,7 @@ const RenderDetail = ({data, index}: Props) => {
                 {data.amount}
               </CustomText>
               <CustomText size={13} style={{opacity: 0.7}}>
-                {data.date}
+                {data.created_at}
               </CustomText>
             </View>
             <Circle style={[timelineStyle.rightCircleStyle]} />

@@ -6,6 +6,8 @@ import useHistory from './useHistory';
 const Approved = () => {
   const {data, isLoading} = useHistory({type: 'completed'});
 
+  console.log('data', JSON.stringify(data, null, 2));
+
   return (
     <ContainerWithoutScroll containerLoading={isLoading}>
       <CustomTimeline data={data} />
