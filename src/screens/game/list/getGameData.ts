@@ -131,7 +131,6 @@ export const formatGame2Data = (bidData, gameData) => {
   let numbers = '';
   const token_id = randomNumber();
   const bidDataArr = Object.keys(bidData);
-  console.log('bidData', JSON.stringify(bidData, null, 2));
   const data = bidDataArr.map((el, index) => {
     numbers += `${bidData[el]?.numbers}${
       index !== bidDataArr.length - 1 ? ',' : ''
@@ -155,7 +154,6 @@ export const formatGame4Data = (bidData, gameData) => {
   let numbers = '';
   const token_id = randomNumber();
   const bidDataArr = Object.keys(bidData);
-  console.log('bidData', JSON.stringify(bidData, null, 2));
   const data = bidDataArr.map((el, index) => {
     const bid = `${bidData[el]?.open}-${bidData[el]?.close}`;
     numbers += `${bid}${index !== bidDataArr.length - 1 ? ',' : ''}`;
