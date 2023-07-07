@@ -10,7 +10,6 @@ type Props = {
 
 const useGameList = ({navigation, route}: Props) => {
   const params = route?.params;
-  console.log('params', JSON.stringify(params, null, 2));
   const [single, setSingle] = useState([]);
   const [jodi, setJodi] = useState([]);
   const [panel, setPanel] = useState([]);

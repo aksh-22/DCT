@@ -188,7 +188,6 @@ export const formatGame4Data = (bidData, gameData) => {
 };
 
 export const formatGame5Data = (bidData, gameData) => {
-  console.log('bidData', JSON.stringify(bidData, null, 2));
   const {slug, market} = gameData ?? {};
   const {id, type} = market ?? {};
   let numbers = '';

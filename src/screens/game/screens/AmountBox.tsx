@@ -33,7 +33,6 @@ const AmountBox = ({total, navigation, bidData, params}: Props) => {
       showMessage({modalType: 'Error', message: 'At least place a bid'});
     } else {
       const data = formatGameData(bidData, params);
-      console.log('data', JSON.stringify(data, null, 2));
       sendRequest(data);
     }
   };
