@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import CustomText from 'src/components/CustomText';
 import VectorIcon from 'src/components/IconsFamily';
 import CustomInput from 'src/components/Input/CustomInput';
@@ -11,14 +11,15 @@ import Container from 'src/container/Container';
 import AmountBox from '../AmountBox';
 import useGame5 from './useGame5';
 import game3Style from '../Game3/game3.style';
-import game4Style from '../Game4/game4.style';
-import game5Style from './game5.style';
-import Checkbox from 'src/components/Checkbox';
 import DetailBox from '../DetailBox';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
+import game5Style from './game5.style';
+import {formatClosePanna, formatOpenPanna} from '../../list/getGameData';
+import game4Style from '../Game4/game4.style';
+import Checkbox from 'src/components/Checkbox';
 
-const Game5 = ({route, navigation}: AuthorizedStackProps) => {
-  const {total, bidData} = useGame5({
+const Game4 = ({route, navigation}: AuthorizedStackProps) => {
+  const {onChange, total, bidData, data, onAdd, onRemove} = useGame5({
     route,
     navigation,
   });
@@ -46,40 +47,50 @@ const Game5 = ({route, navigation}: AuthorizedStackProps) => {
                 placeholder="Open Panna"
                 inputBoxStyle={game4Style.inputBoxStyle}
                 keyboardType="decimal-pad"
+                value={data?.open}
+                onChangeText={val => onChange('open', formatOpenPanna(val))}
+                maxLength={5}
               />
               <CustomInput
                 mainContainerStyle={game4Style.inputStyle}
                 placeholder="Close Panna"
                 inputBoxStyle={game4Style.inputBoxStyle}
                 keyboardType="decimal-pad"
+                value={data?.close}
+                onChangeText={val => onChange('close', formatClosePanna(val))}
+                maxLength={5}
               />
               <CustomInput
                 mainContainerStyle={game4Style.inputStyle}
                 placeholder="Points"
                 inputBoxStyle={game4Style.inputBoxStyle}
                 keyboardType="decimal-pad"
+                value={data?.points}
+                onChangeText={val => onChange('points', val)}
+                maxLength={5}
               />
             </View>
-            <CustomButton style={game3Style.button}>
+            <CustomButton onPress={onAdd} style={game3Style.button}>
               <VectorIcon color={colors.white} size={20} name="add" />
             </CustomButton>
           </View>
           <View style={game3Style.listArea}>
-            {Array(3)
-              .fill('')
-              .map((el, i) => (
-                <View key={i} style={game3Style.listItem}>
-                  <CustomText color="borderColor">
-                    Number:56, Points:10
-                  </CustomText>
+            {bidData.map((el, i) => (
+              <View key={i} style={game3Style.listItem}>
+                <CustomText color="borderColor">
+                  Open panna:{el?.open}, Open panna:{el?.close}, Points:
+                  {el?.points}
+                </CustomText>
+                <TouchableOpacity onPress={onRemove.bind(this, i)}>
                   <VectorIcon
                     color={colors.active}
                     family="Ionicons"
                     name="close-circle-outline"
                     size={30}
                   />
-                </View>
-              ))}
+                </TouchableOpacity>
+              </View>
+            ))}
           </View>
         </View>
       </Container>
@@ -93,4 +104,4 @@ const Game5 = ({route, navigation}: AuthorizedStackProps) => {
   );
 };
 
-export default Game5;
+export default Game4;

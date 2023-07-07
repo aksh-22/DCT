@@ -8,13 +8,12 @@ import CustomHeader from 'src/components/header/CustomHeader';
 import colors from 'src/constants/colors';
 import {padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
-import AmountBox from '../AmountBox';
-import useGame4 from './useGame4';
-import game3Style from '../Game3/game3.style';
-import DetailBox from '../DetailBox';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
+import AmountBox from '../AmountBox';
+import DetailBox from '../DetailBox';
+import game3Style from '../Game3/game3.style';
 import game4Style from './game4.style';
-import {formatClosePanna, formatOpenPanna} from '../../list/getGameData';
+import useGame4 from './useGame4';
 
 const Game4 = ({route, navigation}: AuthorizedStackProps) => {
   const {onChange, total, bidData, data, onAdd, onRemove} = useGame4({
@@ -27,6 +26,13 @@ const Game4 = ({route, navigation}: AuthorizedStackProps) => {
       <Container style={padding('10', '20')}>
         <DetailBox params={route?.params} />
         <View style={game3Style.container}>
+          <View style={game4Style.typeBox}>
+            <CustomText size={15} color="white">
+              Open Patti{'   '}
+              {'<'} {'='} {'>'}
+              {'   '}Close Patti
+            </CustomText>
+          </View>
           <View style={game3Style.inputArea}>
             <View style={game3Style.inputBoxArea}>
               <CustomInput
@@ -35,8 +41,8 @@ const Game4 = ({route, navigation}: AuthorizedStackProps) => {
                 inputBoxStyle={game4Style.inputBoxStyle}
                 keyboardType="decimal-pad"
                 value={data?.open}
-                onChangeText={val => onChange('open', formatOpenPanna(val))}
-                maxLength={5}
+                onChangeText={val => onChange('open', val)}
+                maxLength={3}
               />
               <CustomInput
                 mainContainerStyle={game4Style.inputStyle}
@@ -44,8 +50,8 @@ const Game4 = ({route, navigation}: AuthorizedStackProps) => {
                 inputBoxStyle={game4Style.inputBoxStyle}
                 keyboardType="decimal-pad"
                 value={data?.close}
-                onChangeText={val => onChange('close', formatClosePanna(val))}
-                maxLength={5}
+                onChangeText={val => onChange('close', val)}
+                maxLength={3}
               />
               <CustomInput
                 mainContainerStyle={game4Style.inputStyle}
@@ -65,7 +71,7 @@ const Game4 = ({route, navigation}: AuthorizedStackProps) => {
             {bidData.map((el, i) => (
               <View key={i} style={game3Style.listItem}>
                 <CustomText color="borderColor">
-                  Open panna:{el?.open}, Open panna:{el?.close}, Points:
+                  Open panna:{el?.open}, Close panna:{el?.close}, Points:
                   {el?.points}
                 </CustomText>
                 <TouchableOpacity onPress={onRemove.bind(this, i)}>
