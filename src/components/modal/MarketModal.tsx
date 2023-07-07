@@ -26,15 +26,17 @@ const MarketModal = ({onCancel, data}: MarketModalProps) => {
 
   const {navigate} = useNavigation<NativeStackNavigationProp<any>>();
 
-  const isOpenMarketOpen = !dataFetched?.data?.status?.open?.length;
-  const isCloseMarketOpen = !dataFetched?.data?.status?.close?.length;
+  console.log('dataFetched', JSON.stringify(dataFetched, null, 2));
+
+  const isOpenMarketOpen = dataFetched?.data?.status?.open;
+  const isCloseMarketOpen = dataFetched?.data?.status?.close;
 
   const onOpenPress = () => {
     onCancel();
     setTimeout(() => {
       navigate(AuthorizeStackName.GAME_STACK, {
         screen: HomeStackName.GAME_LIST,
-        params: {...data, type: 'Open'},
+        params: {...data, type: 'open'},
       });
     }, DELAY_TIME);
   };
@@ -43,7 +45,7 @@ const MarketModal = ({onCancel, data}: MarketModalProps) => {
     setTimeout(() => {
       navigate(AuthorizeStackName.GAME_STACK, {
         screen: HomeStackName.GAME_LIST,
-        params: {...data, type: 'Close'},
+        params: {...data, type: 'close'},
       });
     }, DELAY_TIME);
   };

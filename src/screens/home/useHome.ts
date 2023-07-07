@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {useRequest} from 'src/constants/useRequest';
 import {updateNumber} from 'src/store/reducer/numberReducer';
-import {setShareLink} from 'src/store/reducer/userReducer';
+import {setShareLink, updateUser} from 'src/store/reducer/userReducer';
 import {useAppSelector} from 'src/utils/reducer';
 import {marketDataType} from 'typings/market-data-type';
 
@@ -22,7 +22,9 @@ const useHome = ({}) => {
   const {new_numbers} = useAppSelector(state => state.numberReducer);
 
   const onSuccess = (fData: {data: marketDataType}) => {
+    console.log('fData', JSON.stringify(fData, null, 2));
     dispatch(setShareLink(fData.data.share_link));
+    dispatch(updateUser(fData.data.user));
     setMarketData(fData?.data?.markets);
     if (fData?.data?.new_numbers !== new_numbers) {
       getNumbers();
@@ -30,6 +32,10 @@ const useHome = ({}) => {
   };
 
   const onPlayNowPress = (index: number) => {
+    console.log(
+      'marketData[index]',
+      JSON.stringify(marketData[index], null, 2),
+    );
     setCurrIndex(index);
   };
 

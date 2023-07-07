@@ -17,4 +17,5 @@ export interface marketDataType {
   new_numbers: number;
   whatsapp: string;
   mobile: string;
+  user: any;
 }

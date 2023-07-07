@@ -14,7 +14,7 @@ type Props = {
 };
 
 const ListItem = ({items, title, onGamePress}: Props) => {
-  return (
+  return items?.length ? (
     <View style={listStyle.item}>
       <View style={margin(10)}>
         <SvgBackground>{title}</SvgBackground>
@@ -52,7 +52,7 @@ const ListItem = ({items, title, onGamePress}: Props) => {
         })}
       </View>
     </View>
-  );
+  ) : null;
 };
 
 export default ListItem;

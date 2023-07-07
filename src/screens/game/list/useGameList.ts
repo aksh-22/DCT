@@ -23,14 +23,18 @@ const useGameList = ({navigation, route}: Props) => {
     const tempSungum = [];
 
     newData.forEach(element => {
-      if (element.slug.includes('single_ankda')) {
-        tempSingle.push(element);
-      } else if (element.slug.includes('panel')) {
-        tempPanel.push(element);
-      } else if (element.slug.includes('jodi')) {
-        tempJodi.push(element);
-      } else if (element.slug.includes('jack')) {
-        tempSungum.push(element);
+      console.log('element', JSON.stringify(element, null, 2));
+      console.log('params?.type', params?.type);
+      if (element[params?.type]) {
+        if (element.slug.includes('single_ankda')) {
+          tempSingle.push(element);
+        } else if (element.slug.includes('panel')) {
+          tempPanel.push(element);
+        } else if (element.slug.includes('jodi')) {
+          tempJodi.push(element);
+        } else if (element.slug.includes('jack')) {
+          tempSungum.push(element);
+        }
       }
     });
     setSingle(tempSingle);
