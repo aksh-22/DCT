@@ -73,6 +73,7 @@ export const useRequest = ({
       await api(dataToSend)
         .then(res => {
           if (paginationKey) {
+            console.log('res.data.meta', res.data.meta);
             const {current_page, last_page}: any = res.data.meta;
             setShouldNext(current_page < last_page);
             if (current_page === 1) {
@@ -111,8 +112,10 @@ export const useRequest = ({
   };
 
   const onRefresh = () => {
+    console.log('on');
     setPage(1);
     setShouldNext(true);
+    console.log('off');
   };
 
   useEffect(() => {
@@ -125,7 +128,10 @@ export const useRequest = ({
 
   const onEndReached = () => {
     if (shouldNext && !isLoading) {
-      setPage(prev => prev + 1);
+      setPage(prev => {
+        console.log('prev', prev);
+        return prev + 1;
+      });
     }
   };
 

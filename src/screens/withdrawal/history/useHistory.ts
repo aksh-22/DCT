@@ -9,7 +9,13 @@ const useHistory = ({type = 'pending'}: Props = {}) => {
     type,
   };
 
-  const {isLoading, dataFetched, onEndReached, sendRequest} = useRequest({
+  const {
+    isLoading,
+    dataFetched,
+    onEndReached,
+    sendRequest,
+    onRefresh: onR,
+  } = useRequest({
     endpoint: 'withdrawals',
     params,
     callApiByDefault: true,
@@ -17,6 +23,7 @@ const useHistory = ({type = 'pending'}: Props = {}) => {
   });
 
   const onRefresh = () => {
+    onR();
     sendRequest();
   };
 
