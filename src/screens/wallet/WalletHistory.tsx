@@ -7,13 +7,17 @@ import ItemRow from './ItemRow';
 import {padding} from 'src/constants/globalStyles';
 import useWalletHistory from './useWalletHistory';
 import LoadingContainer from 'src/components/loading/LoadingContainer';
+import {SCREEN_HEIGHT} from 'src/constants/deviceInfo';
 
 type Props = {};
 
 const WalletHistory = ({}: Props) => {
   const {data, isLoading, onEndReached, onRefresh} = useWalletHistory();
 
-  const renderItem = ({item, index}) => <ItemRow index={index} item={item} />;
+  const renderItem = ({item, index}) => {
+    console.log('item', JSON.stringify(item, null, 2));
+    return <ItemRow index={index} item={item} />;
+  };
 
   return (
     <>
@@ -22,7 +26,9 @@ const WalletHistory = ({}: Props) => {
         <LabelRow />
         <FlatList
           showsVerticalScrollIndicator={false}
-          ListEmptyComponent={isLoading && <LoadingContainer />}
+          ListEmptyComponent={
+            isLoading && <LoadingContainer height={SCREEN_HEIGHT * 0.9} />
+          }
           refreshing={!!data?.length && isLoading}
           onRefresh={onRefresh}
           onEndReached={onEndReached}

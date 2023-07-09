@@ -18,10 +18,10 @@ const ItemRow = ({item, index}: Props) => {
         {backgroundColor: isEven ? colors.background2 : colors.transparent},
       ]}>
       <CustomText style={walletStyle.sNoStyle} size={12}>
-        {item.sNo}
+        {index + 1}
       </CustomText>
       <CustomText style={walletStyle.labelRowItem} size={12}>
-        {item.transactionType}
+        {item.transaction_type}
       </CustomText>
       <CustomText style={walletStyle.labelRowItem} size={12}>
         {item.amount}
@@ -36,7 +36,7 @@ const ItemRow = ({item, index}: Props) => {
         <CustomText
           style={[walletStyle.labelRowItem, {marginTop: -15}]}
           size={9}>
-          {item.time}
+          {item.created_at}
         </CustomText>
       </View>
     </View>
