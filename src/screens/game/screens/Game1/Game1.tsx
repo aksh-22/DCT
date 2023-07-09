@@ -2,7 +2,7 @@ import React from 'react';
 import {TextInput, View} from 'react-native';
 import CustomText from 'src/components/CustomText';
 import CustomHeader from 'src/components/header/CustomHeader';
-import {margin, padding} from 'src/constants/globalStyles';
+import globalStyles, {margin, padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
 import AmountBox from '../AmountBox';
@@ -24,7 +24,9 @@ const Game1 = ({route, navigation}: AuthorizedStackProps) => {
         showBell={false}
         status={market?.type}
       />
-      <Container style={padding('10', '20')}>
+      <Container
+        contentContainerStyle={globalStyles.pd_200}
+        style={padding('10', '20')}>
         <DetailBox params={route?.params} />
         <View style={gameStyle.boxArea}>
           {numberData?.map(el => {

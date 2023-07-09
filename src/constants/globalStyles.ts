@@ -126,6 +126,9 @@ export default StyleSheet.create({
   zIndex_1: {
     zIndex: 1,
   },
+  pd_200: {
+    paddingBottom: 200,
+  },
 });
 
 export const shadow = (t: number = 5) => {

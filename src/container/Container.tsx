@@ -2,6 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {ReactNode} from 'react';
 import {
+  KeyboardAvoidingView,
   Platform,
   RefreshControl,
   SafeAreaView,
@@ -57,28 +58,33 @@ const Container = ({
   return (
     <SafeAreaView style={[styles.SafeAreaView, SafeAreaViewStyle]}>
       <StatusBar backgroundColor={statusBarColor} barStyle={barStyle} />
-      <KeyboardAwareScrollView
-        keyboardShouldPersistTaps="handled"
-        bounces={!!onRefresh}
-        refreshControl={
-          onRefresh && (
-            <RefreshControl
-              refreshing={refreshLoading}
-              onRefresh={onRefresh}
-              tintColor={colors.defaultWhite}
-              title="Pull to refresh"
-              titleColor={colors.defaultWhite}
-            />
-          )
-        }
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={[
-          styles.contentContainerStyle,
-          contentContainerStyle,
-        ]}
-        style={[styles.view, style, {backgroundColor}]}>
-        {containerLoading ? <LoadingContainer /> : children}
-      </KeyboardAwareScrollView>
+      <KeyboardAvoidingView
+        style={{flex: 1, backgroundColor: colors.background}}
+        behavior="padding"
+        keyboardVerticalOffset={45}>
+        <KeyboardAwareScrollView
+          keyboardShouldPersistTaps="handled"
+          bounces={!!onRefresh}
+          refreshControl={
+            onRefresh && (
+              <RefreshControl
+                refreshing={refreshLoading}
+                onRefresh={onRefresh}
+                tintColor={colors.defaultWhite}
+                title="Pull to refresh"
+                titleColor={colors.defaultWhite}
+              />
+            )
+          }
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={[
+            styles.contentContainerStyle,
+            contentContainerStyle,
+          ]}
+          style={[styles.view, style, {backgroundColor}]}>
+          {containerLoading ? <LoadingContainer /> : children}
+        </KeyboardAwareScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };

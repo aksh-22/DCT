@@ -6,7 +6,7 @@ import CustomInput from 'src/components/Input/CustomInput';
 import CustomButton from 'src/components/button/CustomButton';
 import CustomHeader from 'src/components/header/CustomHeader';
 import colors from 'src/constants/colors';
-import {padding} from 'src/constants/globalStyles';
+import globalStyles, {padding} from 'src/constants/globalStyles';
 import Container from 'src/container/Container';
 import {AuthorizedStackProps} from 'src/routes/types/navigation';
 import AmountBox from '../AmountBox';
@@ -31,7 +31,9 @@ const Game3 = ({route, navigation}: AuthorizedStackProps) => {
         showBell={false}
         status={market?.type}
       />
-      <Container style={padding('10', '20')}>
+      <Container
+        contentContainerStyle={globalStyles.pd_200}
+        style={padding('10', '20')}>
         <DetailBox params={route?.params} />
         <View style={game3Style.container}>
           <View style={game3Style.inputArea}>

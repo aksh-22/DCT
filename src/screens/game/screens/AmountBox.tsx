@@ -41,7 +41,7 @@ const AmountBox = ({total, navigation, bidData, params}: Props) => {
       sendRequest(data);
     }
   };
-  return !isKeyboardVisible ? (
+  return !false ? (
     <View style={gameStyle.amountArea}>
       <CustomText size={20} style={padding('10')} center color="purple">
         Total {total}
