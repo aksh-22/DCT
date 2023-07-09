@@ -20,8 +20,6 @@ const useHistory = ({type = 'pending'}: Props = {}) => {
     sendRequest();
   };
 
-  console.log('dataFetched', JSON.stringify(dataFetched, null, 2));
-
   return {
     isLoading,
     data: dataFetched?.data?.withdrawals,
