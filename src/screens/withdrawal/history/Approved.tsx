@@ -4,11 +4,18 @@ import ContainerWithoutScroll from 'src/container/ContainerWithoutScroll';
 import useHistory from './useHistory';
 
 const Approved = () => {
-  const {data, isLoading} = useHistory({type: 'completed'});
+  const {data, isLoading, onEndReached, onRefresh} = useHistory({
+    type: 'completed',
+  });
 
   return (
     <ContainerWithoutScroll containerLoading={isLoading}>
-      <CustomTimeline data={data} />
+      <CustomTimeline
+        onEndReached={onEndReached}
+        data={data}
+        onRefresh={onRefresh}
+        refreshing={!!data?.length && isLoading}
+      />
     </ContainerWithoutScroll>
   );
 };

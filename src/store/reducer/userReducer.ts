@@ -29,9 +29,13 @@ const userSlice = createSlice({
     setShareLink(state: UProps, action: PayloadAction<string>) {
       state.shareLink = action.payload;
     },
+    updateWallet(state: UProps, action: PayloadAction<string>) {
+      state.user.wallet = action.payload;
+    },
   },
 });
 
-export const {updateUser, setToken, setShareLink} = userSlice.actions;
+export const {updateUser, setToken, setShareLink, updateWallet} =
+  userSlice.actions;
 
 export default userSlice.reducer;

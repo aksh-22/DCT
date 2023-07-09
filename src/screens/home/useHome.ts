@@ -44,6 +44,13 @@ const useHome = ({}) => {
     onSuccess: onSuccess,
   });
 
+  //  useRequest({
+  //   endpoint: 'markets',
+  //   callApiByDefault: true,
+  //   onSuccess: onSuccess,
+  //   requestType:'POST'
+  // });
+
   const onNumberSuccess = dFetched => {
     const tempData = dFetched?.data;
     tempData.numbers['family_panel'] = [

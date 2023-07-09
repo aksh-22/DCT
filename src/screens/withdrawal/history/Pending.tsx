@@ -4,11 +4,16 @@ import ContainerWithoutScroll from 'src/container/ContainerWithoutScroll';
 import useHistory from './useHistory';
 
 const Pending = () => {
-  const {data, isLoading} = useHistory();
+  const {data, isLoading, onRefresh, onEndReached} = useHistory();
 
   return (
     <ContainerWithoutScroll containerLoading={isLoading}>
-      <CustomTimeline data={data} />
+      <CustomTimeline
+        onEndReached={onEndReached}
+        data={data}
+        onRefresh={onRefresh}
+        refreshing={!!data?.length && isLoading}
+      />
     </ContainerWithoutScroll>
   );
 };

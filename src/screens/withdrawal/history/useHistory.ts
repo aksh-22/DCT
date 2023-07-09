@@ -9,13 +9,25 @@ const useHistory = ({type = 'pending'}: Props = {}) => {
     type,
   };
 
-  const {isLoading, dataFetched} = useRequest({
+  const {isLoading, dataFetched, onEndReached, sendRequest} = useRequest({
     endpoint: 'withdrawals',
     params,
     callApiByDefault: true,
+    paginationKey: 'withdrawals',
   });
 
-  return {isLoading, data: dataFetched?.data?.withdrawals};
+  const onRefresh = () => {
+    sendRequest();
+  };
+
+  console.log('dataFetched', JSON.stringify(dataFetched, null, 2));
+
+  return {
+    isLoading,
+    data: dataFetched?.data?.withdrawals,
+    onRefresh,
+    onEndReached,
+  };
 };
 
 export default useHistory;

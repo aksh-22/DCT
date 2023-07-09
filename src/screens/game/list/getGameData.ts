@@ -6,7 +6,7 @@ export const gamePlaceHolder = {
   single_ankda: '',
   single_ank_dp_panel: 'Group Single Ank',
   half_jack: '',
-  red_family_jodi: 'Group',
+  red_family_jodi: 'Red Group jodi',
   family_jodi: 'Group',
   single_ank_sp_panel: 'Group Single Ank',
   red_jodi: '',

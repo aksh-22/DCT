@@ -8,6 +8,8 @@ import {useRequest} from 'src/constants/useRequest';
 import {useKeyboard} from 'src/hooks/useKeyboard';
 import {formatGameData} from '../list/getGameData';
 import gameStyle from './game.style';
+import {useDispatch} from 'react-redux';
+import {updateWallet} from 'src/store/reducer/userReducer';
 
 type Props = {
   total: number;
@@ -18,7 +20,10 @@ type Props = {
 
 const AmountBox = ({total, navigation, bidData, params}: Props) => {
   const {isKeyboardVisible} = useKeyboard({delay: 300});
-  const onSuccess = () => {
+  const dispatch = useDispatch();
+
+  const onSuccess = fData => {
+    dispatch(updateWallet(fData.data?.wallet));
     showMessage({modalType: 'Success', message: 'Bid placed successfully'});
     navigation.goBack();
   };

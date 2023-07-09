@@ -6,15 +6,21 @@ import timelineStyle from './timeline.style';
 
 type Props = {
   data: any;
+  onRefresh: () => void;
+  onEndReached: () => void;
+  refreshing: boolean;
 };
 
-const CustomTimeline = ({data}: Props) => {
+const CustomTimeline = ({data, onRefresh, refreshing, onEndReached}: Props) => {
   const renderItem = ({item, index}) => {
     return <RenderDetail data={item} index={index} />;
   };
 
   return (
     <FlatList
+      onEndReached={onEndReached}
+      onRefresh={onRefresh}
+      refreshing={refreshing}
       renderItem={renderItem}
       data={data}
       contentContainerStyle={timelineStyle.timelineStyle}
