@@ -24,7 +24,6 @@ const More = ({navigation}: BottomStackProps) => {
   };
 
   const onLogoutPress = () => {
-    dispatch({type: 'CLEAR_REDUX'});
     showMessage({
       message: 'Are you sure!?',
       otherActionOnClose: false,
@@ -34,7 +33,7 @@ const More = ({navigation}: BottomStackProps) => {
 
   const {sendRequest, isLoading} = useRequest({
     endpoint: 'auth/logout',
-    onSuccess: onLogOutSuccess,
+    onFinally: onLogOutSuccess,
   });
 
   const onPress = (key: any, route: any) => {

@@ -39,6 +39,7 @@ export default StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: colors.white,
     paddingVertical: 10,
+    height: 140,
   },
   boxHeaderArea: {
     flexDirection: 'row',

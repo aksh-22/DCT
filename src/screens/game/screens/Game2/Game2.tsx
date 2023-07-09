@@ -27,7 +27,12 @@ const Game2 = ({route, navigation}: AuthorizedStackProps) => {
         showBell={false}
         status={market?.type}
       />
-      <Container style={padding('10', '20')}>
+      <Container
+        KeyboardAvoidingViewProps={{
+          behavior: 'padding',
+          keyboardVerticalOffset: 60,
+        }}
+        style={padding('10', '20')}>
         <DetailBox params={route?.params} />
         <View style={gameStyle.boxHeaderArea}>
           {game2HeaderData.map(el => {

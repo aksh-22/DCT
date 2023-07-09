@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {ReactNode} from 'react';
@@ -6,12 +7,12 @@ import {
   Platform,
   RefreshControl,
   SafeAreaView,
+  ScrollView,
   StatusBar,
   StatusBarStyle,
   StyleSheet,
   ViewStyle,
 } from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import LoadingContainer from 'src/components/loading/LoadingContainer';
 import colors from 'src/constants/colors';
 
@@ -26,6 +27,7 @@ type Props = {
   refreshLoading?: boolean;
   backgroundColor?: string;
   containerLoading?: boolean;
+  KeyboardAvoidingViewProps?: any;
 };
 
 const Container = ({
@@ -39,6 +41,7 @@ const Container = ({
   refreshLoading,
   backgroundColor = colors.background,
   containerLoading,
+  KeyboardAvoidingViewProps,
 }: Props) => {
   const {addListener} = useNavigation<NativeStackNavigationProp<any>>();
 
@@ -60,9 +63,10 @@ const Container = ({
       <StatusBar backgroundColor={statusBarColor} barStyle={barStyle} />
       <KeyboardAvoidingView
         style={{flex: 1, backgroundColor: colors.background}}
-        behavior="padding"
-        keyboardVerticalOffset={45}>
-        <KeyboardAwareScrollView
+        {...KeyboardAvoidingViewProps}
+        //
+      >
+        <ScrollView
           keyboardShouldPersistTaps="handled"
           bounces={!!onRefresh}
           refreshControl={
@@ -83,7 +87,7 @@ const Container = ({
           ]}
           style={[styles.view, style, {backgroundColor}]}>
           {containerLoading ? <LoadingContainer /> : children}
-        </KeyboardAwareScrollView>
+        </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

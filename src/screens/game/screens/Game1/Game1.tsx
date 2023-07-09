@@ -25,6 +25,10 @@ const Game1 = ({route, navigation}: AuthorizedStackProps) => {
         status={market?.type}
       />
       <Container
+        KeyboardAvoidingViewProps={{
+          behavior: 'padding',
+          keyboardVerticalOffset: 60,
+        }}
         contentContainerStyle={globalStyles.pd_200}
         style={padding('10', '20')}>
         <DetailBox params={route?.params} />

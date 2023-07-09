@@ -30,7 +30,6 @@ export default StyleSheet.create({
     zIndex: 20,
   },
   container: {
-    flex: 1,
     backgroundColor: colors.background,
   },
   container_center: {

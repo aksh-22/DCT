@@ -74,15 +74,15 @@ const Login = ({navigation}: AuthStackProps) => {
           onPress={loginPress}
           title={t('auth:login')}
         />
-      </View>
-      <TouchableOpacity onPress={onSignUpPress} style={padding(0, 30)}>
-        <CustomText style={authStyle.signUp} size={16}>
-          {t('auth:noAccount')}
-          <CustomText size={16} color="purple">
-            {t('auth:signUpNow')}
+        <TouchableOpacity onPress={onSignUpPress} style={padding(0, 30)}>
+          <CustomText style={authStyle.signUp} size={16}>
+            {t('auth:noAccount')}
+            <CustomText size={16} color="purple">
+              {t('auth:signUpNow')}
+            </CustomText>
           </CustomText>
-        </CustomText>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      </View>
     </Container>
   );
 };
