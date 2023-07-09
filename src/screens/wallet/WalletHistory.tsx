@@ -15,7 +15,6 @@ const WalletHistory = ({}: Props) => {
   const {data, isLoading, onEndReached, onRefresh} = useWalletHistory();
 
   const renderItem = ({item, index}) => {
-    console.log('item', JSON.stringify(item, null, 2));
     return <ItemRow index={index} item={item} />;
   };
 
