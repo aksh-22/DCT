@@ -77,7 +77,7 @@ const OTP = ({route}: AuthStackProps) => {
           }}
           error={otpValError}
           value={otpVal}
-          LENGTH={6}
+          length={6}
           inputStyle={authStyle.otpInputStyle}
         />
         <CustomButton

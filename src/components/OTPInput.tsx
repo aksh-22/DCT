@@ -1,77 +1,52 @@
-import React, {useRef} from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  TextInput,
-  TextStyle,
-  View,
-} from 'react-native';
+import React from 'react';
+import {StyleSheet, Text, TextInput, TextStyle, View} from 'react-native';
 import colors from 'src/constants/colors';
 import {fonts} from 'src/constants/fonts';
+import globalStyles from 'src/constants/globalStyles';
+import CustomText from './CustomText';
 
 type Props = {
   onChange: (value: string) => void;
   error?: string;
   value: string;
-  LENGTH?: number;
+  length?: number;
   inputStyle?: TextStyle;
 };
 
-const OTPInput = ({onChange, error, value, LENGTH = 4, inputStyle}: Props) => {
-  let inputRef = useRef([]);
-
-  const onChangeText = (text: string, index: number) => {
-    const temp = value.split('');
-    if (text.length === 1) {
-      if (index + 1 < LENGTH) {
-        inputRef.current[index + 1].focus();
-      }
-      if (index + 1 <= LENGTH) {
-        temp[index] = text;
-        onChange(temp.join(''));
-      }
-    } else if (text.length === LENGTH) {
-      onChange(text.split('').join(''));
-      inputRef.current[LENGTH - 1].focus();
-    } else if (text.length > 1) {
-      if (index + 1 < LENGTH) {
-        inputRef.current[index + 1].focus();
-      }
-      temp[index] = temp[index];
-      onChange(temp.join(''));
-    } else {
-      temp[index] = '';
-      onChange(temp.join(''));
-    }
-  };
-
+const OTPInput = ({onChange, error, value, length = 4}: Props) => {
+  console.log('value', value);
   return (
     <>
-      <View style={styles.otpContainer}>
-        {Array(LENGTH)
+      <View style={globalStyles.row_spaceBetween}>
+        {Array(length)
           .fill('')
-          .map((el, index) => (
-            <TextInput
-              ref={ref => (inputRef.current[index] = ref)}
-              // maxLength={1}
-              keyboardType="number-pad"
-              key={index}
-              value={value.split('')[index]}
-              style={[styles.otpInput, inputStyle]}
-              onKeyPress={({nativeEvent}) => {
-                if (nativeEvent.key === 'Backspace') {
-                  if (index > 0) {
-                    if (!value[index]) {
-                      inputRef.current[index - 1].focus();
-                    }
-                  }
-                }
-              }}
-              onChangeText={txt => onChangeText(txt, index)}
-            />
-          ))}
+          .map((el, i) => {
+            let borderColor = colors.black;
+            if (value.trim().length > i) {
+              borderColor = colors.Candlelight;
+            }
+            i === 0 && (borderColor = colors.Candlelight);
+            return (
+              <View
+                style={[
+                  styles.otpInput,
+                  {
+                    borderColor,
+                  },
+                ]}
+                key={i}>
+                <CustomText color="white">{value[i]}</CustomText>
+              </View>
+            );
+          })}
       </View>
+      <TextInput
+        keyboardType="decimal-pad"
+        onChangeText={onChange}
+        value={value}
+        maxLength={length}
+        style={styles.input}
+      />
       {error ? <Text style={styles.error}>{error}</Text> : null}
     </>
   );
@@ -80,24 +55,9 @@ const OTPInput = ({onChange, error, value, LENGTH = 4, inputStyle}: Props) => {
 export default OTPInput;
 
 const styles = StyleSheet.create({
-  otpContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    // marginHorizontal: 20,
-  },
-  otpInput: {
-    height: 50,
-    width: 50,
-    backgroundColor: colors.background2,
-    borderRadius: 10,
-    // flex: 1,
-    marginHorizontal: Platform.select({ios: 20, android: 15}),
-    fontFamily: fonts.regular,
-    textAlign: 'center',
-    color: colors.defaultWhite,
-    borderWidth: 1,
-    borderColor: colors.defaultWhite,
+  input: {
+    ...StyleSheet.absoluteFillObject,
+    opacity: 0,
   },
   error: {
     fontFamily: fonts.regular,
@@ -105,5 +65,27 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     color: colors.red,
     marginTop: 5,
+  },
+  box: {
+    borderColor: colors.black,
+    borderBottomWidth: 1,
+    height: 50,
+    width: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  otpInput: {
+    height: 50,
+    width: 50,
+    backgroundColor: colors.background2,
+    borderRadius: 10,
+    // flex: 1,
+    fontFamily: fonts.regular,
+    textAlign: 'center',
+    color: colors.defaultWhite,
+    borderWidth: 1,
+    borderColor: colors.defaultWhite,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
